@@ -117,13 +117,13 @@ public class AddPatientPage extends CommonMethod {
          click("habitsCancelBtn");
 	}
 	
-	public void clickPatientSaveBtn() {
-		scrollDown();
+	public void clickPatientSaveBtn() throws Exception {
+		scrollTillElement("patientSaveBtn");
 		click("patientSaveBtn");
 	}
 	
-	public void clickPatientResetBtn() {
-		scrollDown();
+	public void clickPatientResetBtn() throws Exception {
+		scrollTillElement("patientResetBtn");
 		click("patientResetBtn");
 	}
 	

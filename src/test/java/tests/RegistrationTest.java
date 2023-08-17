@@ -23,7 +23,7 @@ public class RegistrationTest extends CommonMethod {
 	
 	
 	@BeforeClass
-	public void OpenApplication()   {
+	public void OpenApplication() throws Exception   {
 		initializeBrowser();
 		logger.info("Navigated to Application URL");
 	}
