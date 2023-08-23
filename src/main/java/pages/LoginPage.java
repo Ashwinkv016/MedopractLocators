@@ -9,21 +9,22 @@ public class LoginPage extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void enterValiedUserName() throws Exception {
+	public void enterValiedUserName() {
+		base.waitForElementVisibility("userLogin", 10);
 		enterData("userLogin", "valied_UserName");
 	}
 
-	public void enterInvaliedUserName() throws InterruptedException {
-		Thread.sleep(1000);
+	public void enterInvaliedUserName() {
+		base.waitForElementVisibility("userLogin", 10);
 		enterData("userLogin", "inValied_UserName");
 	}
 
-	public void clearUserNameField() throws InterruptedException {
-		Thread.sleep(1000);
+	public void clearUserNameField() {
+		base.waitForElementVisibility("userLogin", 10);
 		clearData("userLogin");
 	}
 
-	public void enterValiedPassword() throws Exception {
+	public void enterValiedPassword() {
 		enterData("passLogin", "valied_Password");
 	}
 
@@ -35,31 +36,42 @@ public class LoginPage extends CommonMethod {
 		clearData("passLogin");
 	}
 
-	public void clickGotItBtn() throws Exception {
+	public void clickGotItBtn() {
 		click("gotItBtn");
 	}
 
-	public void clickRememberMeBtn() throws Exception {
+	public void clickRememberMeBtn() {
 		click("remenberMeLogin");
 	}
 
-	public void clickSubmitLoginBtn() throws Exception {
+	public void clickSubmitLoginBtn()  {
+		scrollDown();
+		base.waitForElementToBeClickable("submitLogin", 10);
 		click("submitLogin");
 	}
 
 	public void clickLogoutBtn() {
+		scrollTillElement("logoutBtn");
+		base.waitForElementVisibility("logoutBtn", 10);
+		base.waitForElementToBeClickable("logoutBtn", 10);
 		click("logoutBtn");
 	}
+
+	public String verifyNotification(String text) throws Exception  {
+		verifyElementPresent("notification");
+		base.waitForElementVisibility("notification", 10);
+		verifyTextPresent("notification");
+		return text;
+	}
+
+	public void clickCancelNotification() {
+		base.waitForElementToBeClickable("cancelNotification", 10);
+		click("cancelNotification");
+	}
+
+	public boolean verifyHomePage() throws Exception {
+		verifyElementPresent("homePageTitle");
+		base.waitForElementToBeClickable("homePageTitle", 10);
+		return true;
+	}
 }
-
-/**
- * public String verifyNotificationText() throws Exception {
- * base.waitForElementVisibility("notification", 10);
- * verifyTextPresent("notification"); return null; }
- **/
-
-/**
- * public void clickCancelNotification() {
- * base.waitForElementToBeClickable("cancelNotification", 10);
- * click("cancelNotification"); }
- **/

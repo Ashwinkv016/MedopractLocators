@@ -75,29 +75,53 @@ public class HomePageAppointment extends CommonMethod{
 	}
 	
 	public void clickAddAppointmentBtn() {
+		base.waitForElementToBeClickable("AddAppointment", 10);
 		click("AddAppointment");
 	}
 
 	public void clickCancelAppointment() {
+		base.waitForElementToBeClickable("homePageAppCancelBtn", 10);
 		 click("homePageAppCancelBtn");
 	}
 
 	public void clickEditAppointment() {
+		base.waitForElementToBeClickable("homepageEditAppointment", 10);
 		 click("homepageEditAppointment");
 	}
 
 	public void clickUpdateButton() {
+		base.waitForElementToBeClickable("homePageAppUpdateBtn", 10);
 		click("homePageAppUpdateBtn");
 	}
 	
 	public void clickDeleteAppointment() {
+		base.waitForElementToBeClickable("homePageDeleteAppointment", 10);
 		 click("homePageDeleteAppointment");
 	}
 
 	public void clickSMSReminder() {
+		base.waitForElementToBeClickable("homePageAppSendSMS", 10);
 		click("homePageAppSendSMS");
 	}
+	
+	public String verifyNotification(String text) throws Exception  {
+		verifyElementPresent("notification");
+		base.waitForElementVisibility("notification", 10);
+		verifyTextPresent("notification");
+		return text;
+	}
 
+	public void clickCancelNotification() {
+		base.waitForElementToBeClickable("cancelNotification", 10);
+		click("cancelNotification");
+	}
+	
+	public boolean verifyErrorMsg() throws Exception {
+		verifyElementPresent("homePageAppErrorMsg");
+		return true;
+	}
+
+	
 	
 }
 

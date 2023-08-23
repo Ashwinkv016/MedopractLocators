@@ -2,108 +2,122 @@ package pages;
 
 import genericPages.CommonMethod;
 
-public class AppointmentsCalenderPage extends CommonMethod{
+public class AppointmentsCalenderPage extends CommonMethod {
 
-	
 	public AppointmentsCalenderPage() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public void getNewAppointment() {
-		 click("appointmentsCalenderNewApp");
-	}
-
 	public void getClickAppointmentCalender() {
+		scrollTillElement("appointmentsMenu");
+		base.waitForElementVisibility("appointmentsMenu", 10);
 		click("appointmentsMenu");
 	}
 
+	public void getNewAppointment() {
+		click("appointmentsCalenderNewApp");
+	}
+
 	public void getFirstNameField1() {
-		enterData("appFirstName","patient_FirstName2");
+		enterData("appCalenderFirstname", "patient_FirstName2");
 	}
-	
+
 	public void getFirstNameField2() {
-		enterData("appFirstName","patient_FirstName1");
+		enterData("appCalenderFirstname", "patient_FirstName1");
 	}
-	
+
 	public void clearFirstNameField() {
-		clearData("appFirstName");
+		clearData("appCalenderFirstname");
+	}
+
+	public void clearUpdateFirstNameField() {
+		clearData("appCalenderUpdateFirstName");
+	}
+
+	public void enterUpdateFirstNameField() {
+		enterData("appCalenderUpdateFirstName", "patient_FirstName2");
 	}
 
 	public void getLastNameField1() {
-        enterData("appLastName","patient_LastName1");
+		enterData("appCalenderLastName", "patient_LastName1");
 	}
-	
+
 	public void getLastNameField2() {
-        enterData("appLastName","patient_LastName2");
+		enterData("appCalenderLastName", "patient_LastName2");
 	}
-	
+
 	public void clearLastNameField() {
-        clearData("appLastName");
+		clearData("appCalenderLastName");
 	}
 
 	public void getVisitreasonField1() {
-		enterData("appVisitReason","patient_VisitReason1");
+		enterData("appCalenderVisitReason", "patient_VisitReason1");
 	}
-	
+
 	public void getVisitreasonField2() {
-		enterData("appVisitReason","patient_VisitReason2");
+		enterData("appCalenderVisitReason", "patient_VisitReason2");
 	}
-	
+
 	public void clearVisitreasonField() {
-		clearData("appVisitReason");
+		clearData("appCalenderVisitReason");
 	}
 
 	public void getContactNumberField1() {
-		enterData("appPhno","valied_PhoneNo1");
+		enterData("appCalenderPhno", "valied_PhoneNo1");
 	}
-	
+
 	public void getContactNumberField2() {
-		enterData("appPhno","valied_PhoneNo2");
+		enterData("appCalenderPhno", "valied_PhoneNo2");
 	}
-	
+
 	public void clearContactNumberField() {
-		clearData("appPhno");
+		clearData("appCalenderPhno");
 	}
-	
+
 	public void getdateAndTimeField() {
-		 click("appDateAndTime");
+		click("appCalenderDateAndTime");
 	}
-	
+
 	public void getdatePick() {
 		click("appDatePick");
 	}
-	
+
 	public void gettimePick() {
-		 click("appTimePick");
+		click("appTimePick");
 	}
-	
+
 	public void getDurationField() {
-		click("appDuration");
+		selectDropdown("appDuration", "appDuration");
 	}
 
 	public void getSaveAppointmentButton() {
-	   click("appointmentCalenderSaveApp");
+		base.waitForElementToBeClickable("appointmentCalenderSaveApp", 10);
+		click("appointmentCalenderSaveApp");
 	}
 
 	public void getMonthButton() {
-		 click("appCalenderMonthBtn");
+		base.waitForElementToBeClickable("appCalenderMonthBtn", 10);
+		click("appCalenderMonthBtn");
 	}
 
 	public void getWeekButton() {
-		 click("appCalenderWeekBtn");
+		base.waitForElementToBeClickable("appCalenderWeekBtn", 10);
+		click("appCalenderWeekBtn");
 	}
 
 	public void getDayButton() {
-		 click("appCalenderDayBtn");
+		base.waitForElementToBeClickable("appCalenderDayBtn", 10);
+		click("appCalenderDayBtn");
 	}
 
 	public void getAgendaButton() {
-		 click("appCalenderAgendaBtn");
+		base.waitForElementToBeClickable("appCalenderAgendaBtn", 10);
+		click("appCalenderAgendaBtn");
 	}
 
 	public void getTodayButton() {
-		 click("appCalenderTodayBtn");
+		click("appCalenderTodayBtn");
 	}
 
 	public void getBackButton() {
@@ -111,26 +125,38 @@ public class AppointmentsCalenderPage extends CommonMethod{
 	}
 
 	public void getNextButton() {
-		 click("appCalenderNextBtn");
+		click("appCalenderNextBtn");
 	}
 
-	public void getExistingAppointment() {
-		 click("appCalenderExistingApp");
+	public void getExistingAppointment() throws InterruptedException {
+		scrollDown();
+		base.waitForElementToBeClickable("appCalenderExistingApp", 10);
+		click("appCalenderExistingApp");
 	}
-	
+
 	public void getUpdatedExistingAppointment() {
+		base.waitForElementToBeClickable("appCalenderUpdateExistingApp", 10);
 		click("appCalenderUpdateExistingApp");
 	}
-	
-	
+
 	public void getagendaExistingAppointment() {
 		click("appCalenderAgendaexistingApp");
 	}
-	
+
 	public void getcancelExistingAppointment() {
-        click("appCalenderCancelExistingApp");
+		click("appCalenderCancelExistingApp");
 	}
 
-	
-	
+	public String verifyNotification(String text) throws Exception {
+		verifyElementPresent("notification");
+		base.waitForElementVisibility("notification", 10);
+		verifyTextPresent("notification");
+		return text;
+	}
+
+	public void clickCancelNotification() {
+		base.waitForElementToBeClickable("cancelNotification", 10);
+		click("cancelNotification");
+	}
+
 }

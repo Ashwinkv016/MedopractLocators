@@ -1,19 +1,17 @@
 package genericPages;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,11 +20,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class CommonMethod extends MasterPage {
-	public WebDriver driver;
-	public WebDriverWait wait;
-	public static Logger logger;
+
+	public static WebDriverWait wait;
+	public static ExtentTest test;
+	public static ExtentReports reports = new ExtentReports("src\\main\\resources\\reports\\ExtentReport.html", false);
+	 
+     
 	public CommonMethod base;
 
 	public CommonMethod() throws Exception {
@@ -39,39 +43,39 @@ public class CommonMethod extends MasterPage {
 	public void initializeBrowser() throws Exception {
 
 		if (propConfig.getProperty("browser").equalsIgnoreCase("chrome")) {
-			ChromeOptions o = new ChromeOptions();
-			o.addArguments("--disable-notifications");
-			o.addArguments("--remote-allow-origins=*");
-			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\chromedriver.exe");
+			 ChromeOptions o = new ChromeOptions();
+			 o.addArguments("--disable-notifications");
+			 o.addArguments("--remote-allow-origins=*");
+			//System.setProperty("webdriver.chrome.driver",
+				//	System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver(o);
 		} else if (propConfig.getProperty("browser").equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver",
 					System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\geckodriver.exe");
-			Thread.sleep(2000);
 			driver = new FirefoxDriver();
 		}
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		// Initialize the WebDriverWait here
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
 		base = new CommonMethod();
-		PropertyConfigurator.configure(System.getProperty("user.dir") + "\\src\\main\\resources\\log4j.properties");
-		logger = LogManager.getLogger(CommonMethod.class);
-		logger.info("Wait for the condition" + wait);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.get(propConfig.getProperty("url"));
 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	     Date currentDate = new Date();
+	     String formattedDate = dateFormat.format(currentDate);
+	     test.log(LogStatus.INFO, "Current Date and Time: " + formattedDate);
 	}
 
 	// Click on the webelement
 	public void click(String locatorKey) {
 		try {
 			getWebElement(locatorKey).click();
-
+			test.log(LogStatus.PASS, "Click on the element: " + locatorKey,
+					"Click on the element " + locatorKey + " Successfully");
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Click on the element: " + locatorKey,
+					"Failed to click on the element " + locatorKey + e.getLocalizedMessage());
 		}
 
 	}
@@ -81,9 +85,24 @@ public class CommonMethod extends MasterPage {
 		try {
 
 			getWebElement(locatorKey).sendKeys(propTestData.getProperty(testData));
-
+			test.log(LogStatus.PASS, "Enter the : " + locatorKey, "Enter the text into " + testData + " Successfully");
 		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Enter the : " + locatorKey, "Failed to enter " + testData + e.getMessage());
+		}
 
+	}
+
+	// Select the dropdown values
+	public void selectDropdown(String locatorKey, String testData) {
+		try {
+			WebElement element = getWebElement(locatorKey);
+			Select s = new Select(element);
+			s.selectByVisibleText(propTestData.getProperty(testData));
+			test.log(LogStatus.PASS, "Select the dropdown value : " + locatorKey,
+					"Select the dropdown value " + locatorKey + " Successfully");
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Select the dropdown value : " + locatorKey,
+					"Fail to Select the dropdown value " + e.getMessage());
 		}
 
 	}
@@ -92,9 +111,11 @@ public class CommonMethod extends MasterPage {
 	public void clearData(String locatorKey) {
 		try {
 			getWebElement(locatorKey).clear();
-
+			test.log(LogStatus.PASS, "Clear the data : " + locatorKey,
+					"Clear the data " + locatorKey + " Successfully");
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Clear the data : " + locatorKey,
+					"Failed to clear the data " + locatorKey + e.getMessage());
 		}
 
 	}
@@ -104,9 +125,11 @@ public class CommonMethod extends MasterPage {
 		try {
 			Actions act = new Actions(driver);
 			act.moveToElement(getWebElement(locatorKey)).build().perform();
-
+			test.log(LogStatus.PASS, "Move to the element : " + locatorKey,
+					"Move to the element " + locatorKey + "Successfully");
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Move to the element : " + locatorKey,
+					"Failed to move to the element " + locatorKey);
 		}
 
 	}
@@ -117,13 +140,15 @@ public class CommonMethod extends MasterPage {
 			List<WebElement> listOfElements = driver
 					.findElements(By.xpath(propLocator.getProperty(locatorKey.split(",")[1])));
 			for (int i = 0; i < listOfElements.size(); i++) {
-				if (listOfElements.get(i).getText().equalsIgnoreCase(propLocator.getProperty(testData))) {
+				if (listOfElements.get(i).getText().equalsIgnoreCase(propTestData.getProperty(testData))) {
 					listOfElements.get(i).click();
 				}
 			}
-
+			test.log(LogStatus.PASS, "Click on the list element : " + locatorKey,
+					"Click on the list element " + locatorKey + "Successfully");
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Click on the list element : " + locatorKey,
+					"Failed to click on the list element ");
 		}
 	}
 
@@ -138,9 +163,11 @@ public class CommonMethod extends MasterPage {
 					break;
 				}
 			}
-
+			test.log(LogStatus.PASS, "Click on the radio button : " + locatorKey,
+					"Click on the radio button " + locatorKey + " Successfully");
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Click on the radio button : " + locatorKey,
+					"Failed to Click on the radio button " + e.getMessage());
 		}
 
 	}
@@ -155,51 +182,34 @@ public class CommonMethod extends MasterPage {
 		return "screenshots\\" + imageName + ".png";
 	}
 
-	// Select the dropdown values
-	public void selectDropdown(String locatorKey) {
-		try {
-			WebElement element = driver.findElement(By.xpath(propLocator.getProperty(locatorKey)));
-			Select webElem = new Select(element);
-			webElem.selectByVisibleText("testData");
-
-		} catch (Exception e) {
-
-		}
-
-	}
-
 	// Alert operation
 	public void alertHandling() {
 		try {
 			Alert alert = driver.switchTo().alert();
 			driver.switchTo().alert().accept();
+			test.log(LogStatus.PASS, "Alert handlled Successfully");
 		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Failed to handlled the Alert");
 		}
-
 	}
 
 	// Scroll down using javascript
 	public void scrollDown() {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+		base.waitForElementVisibility("locatorKey", 10);
 	}
 
 	// Scroll till the Element
-	public void scrollTillElement(String locatorKey) throws Exception {
-		WebElement element = getWebElement(locatorKey); // Get the WebElement using the locatorKey
-		if (element != null) {
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
-			jse.executeScript("arguments[0].scrollIntoView(true);", element);
-		} else {
-			logger.error("Element not found for scrolling: " + locatorKey);
-		}
+	public void scrollTillElement(String locatorKey) {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollTo(0, -document.body.scrollHeight);");
 	}
 
 	// To get webelement
 	public WebElement getWebElement(String locatorKey) throws Exception {
 		try {
 			String locatorValues[] = propLocator.getProperty(locatorKey).split(";");
-			logger.info("Get Locator Values" + locatorValues);
 			String locatorType = locatorValues[0].trim();
 			String locatorValue = locatorValues[1].trim();
 			WebElement element = null;
@@ -213,13 +223,12 @@ public class CommonMethod extends MasterPage {
 				element = driver.findElement(By.xpath(locatorValue));
 			} else if (locatorType.equalsIgnoreCase("linktext")) {
 				element = driver.findElement(By.linkText(locatorValue));
-			} else if (locatorType.equalsIgnoreCase("name")) {
-				element = driver.findElement(By.linkText(locatorValue));
 			}
-			logger.info("Entered Locator Values" + element);
+
 			return element;
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Get the WebElement : " + locatorKey, "Failed to get the WebElement "
+					+ e.getMessage() + test.addScreenCapture(takeScreenShot(locatorKey)));
 			return null;
 		}
 	}
@@ -240,8 +249,6 @@ public class CommonMethod extends MasterPage {
 			elements = driver.findElements(By.xpath(locatorValue));
 		} else if (locatorType.equalsIgnoreCase("linktext")) {
 			elements = driver.findElements(By.linkText(locatorValue));
-		} else if (locatorType.equalsIgnoreCase("name")) {
-			elements = driver.findElements(By.linkText(locatorValue));
 		}
 		return elements;
 	}
@@ -250,63 +257,51 @@ public class CommonMethod extends MasterPage {
 	public void verifyElementPresent(String locatorkey) throws Exception {
 		try {
 			getWebElement(locatorkey).isDisplayed();
-
+			test.log(LogStatus.PASS, "Verify element presence:" + locatorkey,
+					"Text '" + getWebElement(locatorkey).getText() + "' is displayed Successfully"
+							+ test.addScreenCapture(takeScreenShot(locatorkey)));
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Verify element presence: " + locatorkey,
+					"Text '" + getWebElement(locatorkey).getText() + "' is not displayed");
 		}
 	}
 
-	// Verify element presence on webpage
+	// Verify text presence on webpage
 	public void verifyTextPresent(String locatorkey) throws Exception {
 		try {
 			getWebElement(locatorkey).getText();
-
+			test.log(LogStatus.PASS, "Verify element presence:" + locatorkey,
+					"Text '" + getWebElement(locatorkey).getText() + "' is displayed Successfully"
+							+ test.addScreenCapture(takeScreenShot(locatorkey)));
 		} catch (Exception e) {
-
+			test.log(LogStatus.FAIL, "Verify element presence: " + locatorkey,
+					"Text '" + getWebElement(locatorkey).getText() + "' is not displayed");
 		}
 	}
 
-	public By getLocator(String locatorKey) {
+	public void waitForElementToBeClickable(String locatorKey, int timeoutInSeconds) {
 		try {
-			String locatorValues[] = propLocator.getProperty(locatorKey).split(";");
-			String locatorType = locatorValues[0].trim();
-			String locatorValue = locatorValues[1].trim();
-
-			if (locatorType.equalsIgnoreCase("id")) {
-				return By.id(locatorValue);
-			} else if (locatorType.equalsIgnoreCase("class")) {
-				return By.className(locatorValue);
-			} else if (locatorType.equalsIgnoreCase("css")) {
-				return By.cssSelector(locatorValue);
-			} else if (locatorType.equalsIgnoreCase("xpath")) {
-				return By.xpath(locatorValue);
-			} else if (locatorType.equalsIgnoreCase("linktext")) {
-				return By.linkText(locatorValue);
-			} else if (locatorType.equalsIgnoreCase("name")) {
-				return By.name(locatorValue);
-			}
-
-			return null; // Handle other locator types if needed
+			WebElement element = getWebElement(locatorKey);
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.elementToBeClickable(element));
+			test.log(LogStatus.PASS, "Wait for the Element to be clickable: " + locatorKey,
+					"The element clicked " + locatorKey + " Successfully");
 		} catch (Exception e) {
-			logger.error("Error occurred while getting the locator: " + e.getMessage());
-			return null;
+			test.log(LogStatus.FAIL, "Wait for the element to be clickable: " + locatorKey,
+					"The element is not clickable " + locatorKey + " Failure");
 		}
 	}
-	/**
-	 * public void waitForElementToBeClickable(String locatorKey, int
-	 * timeoutInSeconds) { try { WebElement element = getWebElement(locatorKey);
-	 * logger.info("The element is Clickable" + wait);
-	 * wait.until(ExpectedConditions.elementToBeClickable(element));
-	 * logger.info("The element is Clickable" + wait); } catch (Exception e) {
-	 * logger.error("Error occurred while waiting for element to be clickable: " +
-	 * e.getMessage()); } }
-	 * 
-	 * public void waitForElementVisibility(String locatorKey, int timeoutInSeconds)
-	 * { try { WebElement element = getWebElement(locatorKey); logger.info("The
-	 * element is Visible" + wait);
-	 * wait.until(ExpectedConditions.visibilityOfAllElements(element));
-	 * logger.info("The element is Visible" + wait); } catch (Exception e) {
-	 * logger.error("Error occurred while waiting for element to be visible: " +
-	 * e.getMessage()); } }
-	 **/
+
+	public void waitForElementVisibility(String locatorKey, int timeoutInSeconds) {
+		try {
+			WebElement element = getWebElement(locatorKey);
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOfAllElements(element));
+			test.log(LogStatus.PASS, "Wait for the element to be visible " + locatorKey,
+					"The element visible " + locatorKey + " Successfully");
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Wait for the element to be visible  " + locatorKey,
+					"The element is not visible " + locatorKey + " Failure");
+		}
+	}
 }

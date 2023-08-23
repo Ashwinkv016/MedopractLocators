@@ -10,11 +10,13 @@ public class ToDoList extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void clickPlusSign() {
+	public void clickPlusSign() throws InterruptedException {
+		base.waitForElementToBeClickable("toDoListPlusSign", 10);
+		scrollDown();
 		click("toDoListPlusSign");
 	}
 
-	public void enterTaskfield() {
+	public void enterTaskfield()  {
 		enterData("toDoTaskField","patient_TaskDetails");
 	}
 	
@@ -43,7 +45,8 @@ public class ToDoList extends CommonMethod {
 	}
 
 	public void clickCompleteTaskField() throws Exception {
-		scrollTillElement("toDoCompleteTask");
+		base.waitForElementToBeClickable("toDoCompleteTask", 10);
+		scrollDown();
 		click("toDoCompleteTask");
 	}
 
@@ -51,13 +54,33 @@ public class ToDoList extends CommonMethod {
 		 click("toDoDeleteTask");
 	}
 
-	public void clickViewCompletedTask() {
+	public void clickViewCompletedTask() throws InterruptedException {
+		base.waitForElementToBeClickable("toDoViewCompleteTask", 10);
+		scrollDown();
 		 click("toDoViewCompleteTask");
 	}
 
 	public void  clickViewOpenTask() {
+		base.waitForElementToBeClickable("toDoViewOpenTask", 10);
 		click("toDoViewOpenTask");
 	}
 
+	public String verifyNotification(String text) throws Exception  {
+		verifyElementPresent("notification");
+		base.waitForElementVisibility("notification", 10);
+		verifyTextPresent("notification");
+		return text;
+	}
 
+	public void clickCancelNotification() {
+		base.waitForElementToBeClickable("cancelNotification", 10);
+		click("cancelNotification");
+	}
+	
+	public String verifyErrorMsg(String text) throws Exception {
+		verifyElementPresent("toDoErrorMsg");
+		Thread.sleep(1000);
+		verifyTextPresent("toDoErrorMsg");
+		return text;
+	}
 }

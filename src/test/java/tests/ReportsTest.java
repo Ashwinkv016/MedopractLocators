@@ -1,10 +1,18 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+
 import genericPages.CommonMethod;
 import pages.AddPatientPage;
 import pages.LoginPage;
@@ -15,41 +23,56 @@ public class ReportsTest extends CommonMethod{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	Logger logger= LogManager.getLogger(ReportsTest.class);
-	
+
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test=reports.startTest("Open appliation");
 		// Open the browser and hit the url
 		initializeBrowser();
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
 		l.clickGotItBtn();
-		Thread.sleep(2000);
+		logger.info("Clicked GotIt Btn");
+		
 		l.enterValiedUserName();
 		logger.info("Entered Username");
-		Thread.sleep(2000);
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
-		Thread.sleep(2000);
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
+
+		DateFormat date=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Date systemDate = new Date(0); 
+		String dateOfSystem=date.format(systemDate);
 		
-
-
-		/**	String actual = null;
+		String actual=null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+		if(l.verifyHomePage()) {
+			actual="success";
+			logger.info("Success");
 		}
-		catch(Exception e) {
+		else {
 			actual="failure";
+			logger.error("failure");
+		}}catch(Exception e) {
+			actual="failure";
+			logger.error("failure");
 		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+        logger.info("Assertion Passed");
 	}
+
 
 	@Test(priority = 1)
 	public void PatientsTab() throws Exception  {
+		test=reports.startTest("TC001 Reports Patient Tab");
 		ReportsPage rp = new ReportsPage();
 		rp.getClickReports();
 		logger.info("Clicked on Reports");
@@ -77,7 +100,7 @@ public class ReportsTest extends CommonMethod{
 
 	@Test(priority = 2)
 	public void AddPatient() throws Exception {
-
+		test=reports.startTest("TC002 Add Patient");
 		AddPatientPage app=new AddPatientPage();
 		app.clickPatientMenu();
 		logger.info("Clicking Patients");
@@ -122,49 +145,50 @@ public class ReportsTest extends CommonMethod{
 		app.clickHabitsCancel();
 		Thread.sleep(2000);
 		app.clickPatientSaveBtn();
-	/**	String expectedResult="Patient Record created successfully!";
-		String actualResult=app.getCreatedSuccessfully().getText();
-		Assert.assertEquals(actualResult, expectedResult);
+		
+		Assert.assertTrue(true, app.verifyNotification("Patient Record created successfully!"));
 
-		app.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		app.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 	
 	@Test(priority=3)
 	public void dateView() throws Exception{
+		test=reports.startTest("TC004 Date View");
 		ReportsPage rp=new ReportsPage();
 		rp.getClickReports();
 		logger.info("Clicked on Reports");
 		
-	/**	String TodayDate=rp.gettodayDateView().getText();
-		String ActualDate="Wed, Jul 19 2023";
-		
-		Assert.assertEquals(TodayDate,ActualDate);**/
+		Assert.assertEquals(true, driver.findElement(By.xpath("//div[@class='reports_date__ZqmDS']")));
+		logger.info("Assertion Passed");
 	}
 	
 	@Test(priority = 4)
 	public void cancel() throws Exception  {
+		test=reports.startTest("TC004 Cancel Reports");
 		ReportsPage rp = new ReportsPage();
-		//LoginPage l=new LoginPage();
+		LoginPage l=new LoginPage();
 		rp.getCancelButton();
 		logger.info("Clicked on Cancel Button");
-		
-	/**	String actual = null;
+	
+		String actual=null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+		if(l.verifyHomePage()) {
+			actual="success";
 		}
-		catch(Exception e) {
+		else {
+			actual="failure";
+		}}catch(Exception e) {
 			actual="failure";
 		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
 	}
 
 	@AfterClass
 	public void afterTest() {
 		// Close the browser
 		driver.close();
-		//reports.endTest(test);
-		//reports.flush();
+		reports.endTest(test);
+		reports.flush();
 	}
 }

@@ -1,0 +1,64 @@
+public WebDriver driver;
+	Logger logger;
+
+	@BeforeMethod
+	public void openApplication() {
+	    logger = LogManager.getLogger(TC_LoginTest_001.class.getName());
+		driver = initializeDriver();
+		logger.info("Browser got launched");
+
+		driver.get("https://medopractapi-zk64betx7a-em.a.run.app/");
+		logger.info("navigated to application URL");
+
+	}
+
+	@Test(dataProvider = "getLoginData")
+	public void login(String email, String pass, String expected) throws InterruptedException {
+
+		
+		LoginPage l= new LoginPage(driver);
+		l.getUsernamefield().sendKeys(email);
+		logger.info("Entered Email Address");
+		l.getPasswordfield().sendKeys(pass);
+		logger.info("Entered Password");
+		l.getSubmitButton().submit();
+	    logger.info("Clicked on Submit Button");
+		
+		Thread.sleep(5000);
+
+		MyPage mp = new MyPage(driver);
+
+		
+
+String actual = null;
+		try {
+			if (l.verifyHomePage().isDisplayed()) {
+				log.debug("user got logged in");
+				actual = "successful";
+			}
+		} catch (Exception e) {
+			log.debug("User didn't login");
+
+			actual = "failure";
+		}
+
+		Assert.assertTrue(l.verifyHomePage().isDisplayed());
+	}
+
+	@AfterMethod
+	public void tearDown() {
+		driver.close();
+		log.debug("Browser got closed");
+	}
+
+	@DataProvider
+	public Object[][] getLoginData() {
+
+		Object[][] data = { { "ashwinkv016@aanksolutions.in", "ashwinkv016", "successful" },
+				{ "sample@test.com", "ashwinkv016", "failure" }, { "ashwinkv016@aanksolutions.in", "ashwin", "failure" },
+				{ "", "", "" }, };
+
+		return data;
+}
+}
+	

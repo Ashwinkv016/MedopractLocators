@@ -2,8 +2,6 @@ package tests;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -24,94 +22,63 @@ public class LoginTest extends CommonMethod {
 
 	@BeforeClass
 	public void OpenApplication() throws Exception {
-		base.initializeBrowser();
+		initializeBrowser();
 		logger.info("Navigated to Application URL");
 		Assert.assertEquals("MedoPract App", driver.getTitle());
 	}
 
 	@Test(priority = 1)
 	public void loginWithoutData() throws Exception {
+		test = reports.startTest("TC001 Login without Data");
 		LoginPage l = new LoginPage();
-         
-		WebElement gotItBtn = getWebElement("gotItBtn");
-		logger.info("gotItBtn is Clickable" + wait);
-		wait.until(ExpectedConditions.elementToBeClickable(gotItBtn));
+
 		l.clickGotItBtn();
 		logger.info("Clicked 'Got it!' button");
 
-		WebElement usernameField = getWebElement("userLogin");
-		logger.info("UserName Field is visible" + wait);
-		wait.until(ExpectedConditions.visibilityOfAllElements(usernameField));
-		logger.info("Wait for user name field"+wait);
-		l.enterValiedUserName();
-		logger.info("Entered Username field");
-
-		l.enterValiedPassword();
-		logger.info("Entered Password field");
-
-		WebElement submitBtn = getWebElement("submitLogin");
-		logger.info("SubmitBtn is Clickable" + wait);
-		wait.until(ExpectedConditions.elementToBeClickable(submitBtn));
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
 
-		/**
-		 * String expectedResult="No record available with Doctor ID :"; String
-		 * actualResult=l.geterrorMsgNotification().getText();
-		 * Assert.assertEquals(actualResult, expectedResult);
-		 * 
-		 * l.getcancelNotification(); logger.info("Clicked Cancel Notification");
-		 **/
-
 	}
-/**
+
 	@Test(priority = 2)
 	public void loginWithoutPassword() throws Exception {
+		test = reports.startTest("TC002 Login without Password");
 		LoginPage l = new LoginPage();
 
 		l.enterValiedUserName();
 		logger.info("Entered Username");
 
-		l.clearPasswordField();
-		logger.info("Cleared Password");
-
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-
-		
-		  String expectedResult="Invalid Password!"; String
-		  actualResult=l.geterrorMsgNotification().getText();
-		  Assert.assertEquals(actualResult, expectedResult);
-		  
-		  l.getcancelNotification(); logger.info("Clicked Cancel Notification");
-	
 
 	}
 
 	@Test(priority = 3)
-	public void loginWithoutUsername() throws Exception {
+	public void loginWithInvaliedPassword() throws Exception {
+		test = reports.startTest("TC003 Search and add product to cart");
 		LoginPage l = new LoginPage();
-		l.clearUserNameField();
-		logger.info("Cleared Username without data");
 
-		l.enterValiedPassword();
+		l.enterInvaliedPassword();
 		logger.info("Entered Password");
 
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
 
-		
-		 * String expectedResult="No record available with Doctor ID :"; String
-		 * actualResult=l.geterrorMsgNotification().getText();
-		 * Assert.assertEquals(actualResult, expectedResult);
-		 * 
-		 * l.getcancelNotification(); logger.info("Clicked Cancel Notification");
-	
+		Assert.assertTrue(true, l.verifyNotification("Invalid Password!"));
+
+		l.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+
 	}
 
 	@Test(priority = 4)
 	public void incorrectDetails() throws Exception {
+		test = reports.startTest("TC004 Login with Incorrect Details");
 		LoginPage l = new LoginPage();
+
+		l.clearUserNameField();
+		logger.info("Cleared UserName");
+
 		l.enterInvaliedUserName();
 		logger.info("Entered Username");
 
@@ -122,53 +89,51 @@ public class LoginTest extends CommonMethod {
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
 
-		Thread.sleep(3000);
+		Assert.assertTrue(true, l.verifyNotification("No record available with Doctor ID :!*(&"));
 
-		
-		 * String expectedResult="No record available with Doctor ID :!*(&"; String
-		 * actualResult=l.verifyNotificationText(); Assert.assertEquals(actualResult,
-		 * expectedResult);
-		 * 
-		 * l.clickCancelNotification(); logger.info("Clicked Cancel Notification");
-		 
+		l.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 
 	}
 
 	@Test(priority = 5)
 	public void loginwithoutRememberMe() throws Exception {
+		test = reports.startTest("TC005 Login without remember me");
 		LoginPage l = new LoginPage();
-		// l.clearUserNameField();
+
+		l.clearUserNameField();
 		l.enterValiedUserName();
 		logger.info("Entered Username");
 
-		// l.clearPasswordField();
+		l.clearPasswordField();
 		l.enterValiedPassword();
 		logger.info("Entered Password");
 
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
 
-		WebElement submitBtn = getWebElement("submitLogin");
-		logger.info("The element is Clickable" + wait);
-		wait.until(ExpectedConditions.elementToBeClickable(submitBtn));
+		String actual = null;
+		try {
+			if (l.verifyHomePage()) {
+				actual = "success";
+			} else {
+				actual = "failure";
+			}
+		} catch (Exception e) {
+			actual = "failure";
+		}
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
+
 		l.clickLogoutBtn();
 		logger.info("Clicked logout button");
 
-		Thread.sleep(2000);
-		
-		 * String actual = null; try { if(l.getaccInfo().isDisplayed())
-		 * actual="success"; } catch(Exception e) { actual="failure"; }
-		 * Assert.assertEquals(actual, "success");
-		 * 
-		 * l.getLogoutBtn(); logger.info("Clicked logout");
-		
 	}
 
 	@Test(priority = 6)
 	public void loginWithRememberMe() throws Exception {
+		test = reports.startTest("TC006 Login with remember me");
 		LoginPage l = new LoginPage();
-
-		l.clickGotItBtn();
 
 		l.enterValiedUserName();
 		logger.info("Entered Username");
@@ -182,19 +147,28 @@ public class LoginTest extends CommonMethod {
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
 
-		/**
-		 * String actual = null; try { if(l.getaccInfo().isDisplayed())
-		 * actual="success"; } catch(Exception e) { actual="failure"; }
-		 * Assert.assertEquals(actual, "success");
-		 
+		String actual = null;
+		try {
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
+		}
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
-**/
+
 	@AfterClass
 	public void afterTest() {
 		// Close the browser
-		driver.close();
-		// reports.endTest(test);
-		// reports.flush();
+		driver.quit();
+		reports.endTest(test);
+		reports.flush();
 	}
-
 }

@@ -9,6 +9,11 @@ public class HomePage extends CommonMethod{
 		// TODO Auto-generated constructor stub
 	}
  
+	public boolean verifyLoginPage() throws Exception  {
+		verifyElementPresent("loginPage");
+		return true;
+	}
+
 	public void verifyHomePageAppointmentsTitle() throws Exception {
 		click("homePageAppMenu");
 		verifyElementPresent("homepageAppTitle");
@@ -41,6 +46,10 @@ public class HomePage extends CommonMethod{
 	
 	public void verifyHomeMenu()  {
 		click("homeMenu");
-		
 	}
+	
+	public void clickLogoutBtn(){
+		click("logoutBtn");
+		}
+	
 }

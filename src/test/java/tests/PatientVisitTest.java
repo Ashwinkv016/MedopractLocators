@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,41 +15,55 @@ public class PatientVisitTest extends CommonMethod {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	Logger logger= LogManager.getLogger(PatientVisitTest.class);
 	
+	Logger logger= LogManager.getLogger(PatientVisitTest.class);
+
 	@BeforeClass
 	public void openApplication() throws Exception {
-		// Open the browser and hit the url
+		test = reports.startTest("Open Application");
 		initializeBrowser();
+		logger.info("Navigated to Application URL");
+		
+		Assert.assertEquals("MedoPract App", driver.getTitle());
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
 		l.clickGotItBtn();
-		Thread.sleep(2000);
+		logger.info("Clicked GotIt Btn");
+		
 		l.enterValiedUserName();
 		logger.info("Entered Username");
-		Thread.sleep(2000);
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
-		Thread.sleep(2000);
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-		
 
-
-		/**	String actual = null;
+		String actual=null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+		if(l.verifyHomePage()) {
+			actual="success";
+			logger.info("Success");
 		}
-		catch(Exception e) {
+		else {
 			actual="failure";
+			logger.error("failure");
+		}}catch(Exception e) {
+			actual="failure";
+			logger.error("failure");
 		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+        logger.info("Assertion Passed");
 	}
+
 	
 	@Test(priority = 1)
 	public void addNewPatientData() throws Exception  {
+		test = reports.startTest("TC001 Add new Patient Data");
 		PatientVisitPage pvp=new PatientVisitPage();
 		pvp.getPatientsClick();
 		logger.info("Clicked Patients Field");
@@ -57,24 +72,28 @@ public class PatientVisitTest extends CommonMethod {
 		pvp.getaddNewPatientHyperLink();
 		logger.info("Clicked Add New Patient HyperLink");
 		
-	/**	String actual=null;
+		String actual=null;
 		try {
-			if(pvp.getaddPatientPage().isDisplayed())
-				logger.info("Entered Add NewPatient page");
-				actual="success";
+		if(pvp.verifyPatientVisitPage()) {
+			actual="success";
+			logger.info("Success");
 		}
-		catch(Exception e) {
-			logger.info("Failed to enter to Add NewPatient page");
+		else {
 			actual="failure";
+			logger.error("failure");
+		}}catch(Exception e) {
+			actual="failure";
+			logger.error("failure");
 		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+        logger.info("Assertion Passed");
 	}
 
 	@Test(priority=2)
 	public void patientVisitWithoutPrimaryComplaint() throws Exception  {
+		test = reports.startTest("TC002 PatientVisit Without PrimaryComplaint");
 		PatientVisitPage pvp=new PatientVisitPage();
 		pvp.getPatientsClick();
-		logger.info("Clicked Patients Field");
 		pvp.getPatientvisitClick();
 		logger.info("Clicked Patient Visit");
 		pvp.getPatientVisitName();
@@ -99,19 +118,27 @@ public class PatientVisitTest extends CommonMethod {
 		logger.info("Entered Clinical Observation");
 		pvp.getdiagnosisRemark();
 		logger.info("Entered Diagnosis Remark");
+		pvp.uploadFile();
+		logger.info("File Uploaded Successfully");
+		
+		Assert.assertTrue(true, pvp.verifyNotification("File uploaded successfully!"));
+		logger.info("Assertion Passed");
+		pvp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+		
 		pvp.getSaveButton();
 		logger.info("Clicked Save Button");
 		
-	/**	String actualResult = pvp.geterrorMessage().getText();
-		String expectedResult = "Please add Primary complaint";
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		pvp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+	
+		Assert.assertTrue(true, pvp.verifyNotification("Please add Primary complaint"));
+		logger.info("Assertion Passed");
+		pvp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 	
 	@Test(priority=3)
 	public void patientVisitWithPrimaryComplaint() throws Exception  {
+		test = reports.startTest("TC003 PatientVisit With PrimaryComplaint");
 		PatientVisitPage pvp=new PatientVisitPage();
 		
 		pvp.getPrimaryComplaint();
@@ -119,18 +146,18 @@ public class PatientVisitTest extends CommonMethod {
 		pvp.getSaveButton();
 		logger.info("Clicked Save Button");
 		
-/**		String actualResult = pvp.getsuccessMessage().getText();
-		String expectedResult = "Patient visit added successfully!";
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		pvp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+
+		Assert.assertTrue(true, pvp.verifyNotification("Patient visit added successfully!"));
+		logger.info("Assertion Passed");
+		pvp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 	
 
 	
 	@Test(priority=4)
 	public void cancelSymptoms() throws Exception  {
+		test = reports.startTest("TC004 PatientVisit With Cancel Symptoms");
 		PatientVisitPage pvp=new PatientVisitPage();
 		
 		pvp.getsymptomsDelete();
@@ -156,6 +183,7 @@ public class PatientVisitTest extends CommonMethod {
 	
 	@Test(priority = 5)
 	public void cancelInvstigations() throws Exception  {
+		test = reports.startTest("TC005 PatientVisit With Cancel Investigstions");
 		PatientVisitPage pvp=new PatientVisitPage();
 		pvp.getInvestigationTests1();
 		logger.info("Entered Investigation Test");
@@ -180,6 +208,7 @@ public class PatientVisitTest extends CommonMethod {
 	
 	@Test(priority = 6)
 	public void followup() throws Exception {
+		test = reports.startTest("TC006 PatientVisit With FollowUp");
 		PatientVisitPage pvp=new PatientVisitPage();
 		
 		pvp.getFollowup();
@@ -188,16 +217,16 @@ public class PatientVisitTest extends CommonMethod {
 		pvp.getDateAndTimePickFollowUp();
 		logger.info("Clicked Date and Time");
 		pvp.getdatePickFollowUp();
+		logger.info("Clicked Date ");
 		pvp.gettimePickFollowUp();
+		logger.info("Clicked Time");
 		pvp.getAddAppointment();
 		logger.info("Added Appointment");
 		
-	/**	String expectedResult="Appointment added Successfully";
-		String actualResult=pvp.getfollowNotification().getText();
-        Assert.assertEquals(actualResult, expectedResult);
-        
-		pvp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, pvp.verifyNotification("Appointment added Successfully"));
+		logger.info("Assertion Passed");
+		pvp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 		
 		
@@ -207,7 +236,7 @@ public class PatientVisitTest extends CommonMethod {
 		public void afterTest() {
 			// Close the browser
 			driver.close();
-			//reports.endTest(test);
-			//reports.flush();
+			reports.endTest(test);
+			reports.flush();
 		}
 }

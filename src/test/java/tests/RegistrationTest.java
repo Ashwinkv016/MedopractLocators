@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,29 +20,34 @@ public class RegistrationTest extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	Logger logger= LogManager.getLogger(RegistrationTest.class);
-	
-	
+	Logger logger = LogManager.getLogger(RegistrationTest.class);
+
 	@BeforeClass
-	public void OpenApplication() throws Exception   {
+	public void OpenApplication() throws Exception {
 		initializeBrowser();
 		logger.info("Navigated to Application URL");
 	}
 
 	@Test(priority = 1)
-	public void withoutMandatoryAllField() throws Exception  {
-		RegistrationPage rp=new RegistrationPage();
+	public void withoutMandatoryAllField() throws Exception {
+		test = reports.startTest("TC001 Register without Mandatory Data");
+		RegistrationPage rp = new RegistrationPage();
 		rp.clickGotItBtn();
+		logger.info("Clicked GotIt Button");
 		rp.clickRegisterNow();
 		logger.info("Clicked RegisterNow Button");
-	
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
+
+		Assert.assertTrue(true,
+				rp.FullNameRegisterErrorMsg("Please enter valid name - Only Alphabets and spaces are allowed"));
+		logger.info("Assertion Passed");
 	}
 
 	@Test(priority = 2)
-	public void Registration() throws Exception  {
-		RegistrationPage rp=new RegistrationPage();
+	public void Registration() throws Exception {
+		test = reports.startTest("TC002 Register with Mandatory Data");
+		RegistrationPage rp = new RegistrationPage();
 		rp.enterFullName();
 		logger.info("Entered Name");
 		rp.enterEmailField();
@@ -57,117 +63,110 @@ public class RegistrationTest extends CommonMethod {
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 
-	/**	String actual = null;
+		String actual = null;
 		try {
-			if(rp.getregistrationSuccessfulMsg().isDisplayed())
-				actual="success";
-		}
-		catch(Exception e) {
-			actual="failure";
+			if (rp.registrationSuccessMsg())
+				actual = "success";
+		} catch (Exception e) {
+			actual = "failure";
 		}
 		Assert.assertEquals(actual, "success");
 
-		rp.getOkButton().click();
-		Thread.sleep(3000);
-		logger.info("Clicked OK button");**/
+		rp.getOkButton();
+		logger.info("Clicked OK button");
 	}
 
 	@Test(priority = 3)
-	public void registerWithExistingDataAgain() throws Exception  {
-		RegistrationPage rp=new RegistrationPage();
+	public void registerWithExistingDataAgain() throws Exception {
+		test = reports.startTest("TC003 Register with Existing Data Again");
+		RegistrationPage rp = new RegistrationPage();
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 
-	/**	String actual="Doctor Already Registered";
-		String expected=rp.geterrorNotification().getText();
-		Assert.assertEquals(actual, expected);
-
-		rp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, rp.verifyNotification("Doctor Already Registered"));
+		logger.info("Assertion Passed");
+		rp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
 	@Test(priority = 4)
-	public void withoutConfirmUsernameField() throws Exception  {
-		RegistrationPage rp=new RegistrationPage();
+	public void withoutConfirmUsernameField() throws Exception {
+		test = reports.startTest("TC004 Without Confirm Username Field");
+		RegistrationPage rp = new RegistrationPage();
 		rp.clearConfirmUserName();
 		logger.info("Entered ConfirmUserName");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 
+		Assert.assertTrue(true, rp.cnfrmUserNameErrorMsg(
+				"Confirm Username must be 8-16 Characters, Alphabets, Numbers and ._%+-@ allowed"));
+		logger.info("Assertion Passed");
 
-	/**	String actual="Username and ConfirmUserName does not match!";
-		String expected=rp.geterrorNotification().getText();
-		Assert.assertEquals(actual, expected);
-
-		rp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
 	}
 
-	@Test(priority =5)
-	public void invalidConfirmUsernameField() throws Exception  {
-		RegistrationPage rp=new RegistrationPage();
+	@Test(priority = 5)
+	public void invalidConfirmUsernameField() throws Exception {
+		test = reports.startTest("TC005 Invalid Confirm Username Field");
+		RegistrationPage rp = new RegistrationPage();
 		rp.enterInValidConfirmUserName();
 		logger.info("Entered ConfirmUserName");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
-		
-/**	String actual = null;
-		try {
-			if(rp.getconfirmUnErrorNotification().isDisplayed())
-				actual="success";
-		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");
-		**/
+
+		Assert.assertTrue(true, rp.verifyNotification("Username and ConfirmUserName does not match!"));
+		logger.info("Assertion Passed");
+		rp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
 	@Test(priority = 6)
-	public void withoutAgreeTermCheckBox() throws Exception  {
-		RegistrationPage rp=new RegistrationPage();
+	public void withoutAgreeTermCheckBox() throws Exception {
+		test = reports.startTest("TC006 Without Agree Term CheckBox");
+		RegistrationPage rp = new RegistrationPage();
 		rp.clearConfirmUserName();
 		rp.enterValidConfirmUserName();
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
-		
-	/**	String actual = null;
-		try {
-			if(rp.getTermsErrorNotification().isDisplayed())
-				actual="success";
-		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+
+		Assert.assertTrue(true, rp.AgreeTermsErrorMsg("Please check this box if you want to Proceed!"));
+		logger.info("Assertion Passed");
+
+		rp.clickRegisterButton();
+		logger.info("Clicked Again Register Button");
+
+		Assert.assertTrue(true, rp.verifyNotification("Username and ConfirmUserName does not match!"));
+		logger.info("Assertion Passed");
+		rp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+
 	}
-	
+
 	@Test(priority = 7)
-	public void withClickHelp() throws  Exception {
-		RegistrationPage rp=new RegistrationPage();
+	public void withClickHelp() throws Exception {
+		test = reports.startTest("TC007 Click Help");
+		RegistrationPage rp = new RegistrationPage();
 		rp.clickHelp();
 		logger.info("Clicked Help Button");
-		Robot r=new Robot();
+		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ESCAPE);
 	}
-	
 
 	@Test(priority = 8)
-	public void alreadyAnUser() throws Exception{
-		RegistrationPage rp=new RegistrationPage();
+	public void alreadyAnUser() throws Exception {
+		test = reports.startTest("TC008 Already an User");
+		RegistrationPage rp = new RegistrationPage();
 		logger.info("Clicked RegisterNow Button");
 		rp.clickImAlreadyUser();
 		logger.info("Clicked I'm already an User Button");
 	}
-	
-	
 
 	@AfterClass
 	public void logout() {
 		driver.close();
 		logger.info("Closed Browser");
+		reports.endTest(test);
+		reports.flush();
 	}
 }
-

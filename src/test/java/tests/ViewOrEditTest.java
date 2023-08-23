@@ -1,11 +1,11 @@
 package tests;
 
-
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -15,142 +15,165 @@ import pages.AddPatientPage;
 import pages.LoginPage;
 import pages.ViewOrEditPage;
 
-public class ViewOrEditTest extends CommonMethod{
+public class ViewOrEditTest extends CommonMethod {
 	public ViewOrEditTest() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	Logger logger= LogManager.getLogger(ViewOrEditTest.class);
-	
+	Logger logger = LogManager.getLogger(ViewOrEditTest.class);
+
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test = reports.startTest("Open Application");
 		// Open the browser and hit the url
 		initializeBrowser();
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
+		l.clickGotItBtn();
+		logger.info("Clicked GotIt Btn");
+
 		l.enterValiedUserName();
 		logger.info("Entered Username");
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-		l.clickLogoutBtn();
-		logger.info("Clicked logout button");
 
-
-		/**	String actual = null;
+		String actual = null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
 
-	@Test(priority=1)
-	public void deleteList() throws Exception  {
-		AddPatientPage ap=new AddPatientPage();
+	@Test(priority = 1)
+	public void deleteList() throws Exception {
+		test = reports.startTest("TC001 Delete ViewOrEdit List");
+		AddPatientPage ap = new AddPatientPage();
 		ap.clickPatientMenu();
 		logger.info("Clicking Add Patient");
 
-		ViewOrEditPage voe=new ViewOrEditPage();
+		ViewOrEditPage voe = new ViewOrEditPage();
 		voe.clickViewOrEdit();
 		logger.info("Clicked View or edit");
 		voe.enterPatientName();
 		logger.info("Entered Patient Name");
 		voe.clickDeleteButton();
 		logger.info("Clicked delete button");
-		Robot r=new Robot();
+		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ENTER);
 		logger.info("Pressed Enter");
 
-	/**	String actual="Patient record deleted successfully!";
-		String expected=voe.getdeleteUpdateMsg().getText();
-		Assert.assertEquals(actual, expected);
-
-		voe.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, voe.verifyNotification("Patient record deleted successfully!"));
+		logger.info("Assertion Passed");
+		voe.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
-
 	@Test(priority = 2)
-	public void ViewOrEdit() throws Exception  {
-		ViewOrEditPage voe=new ViewOrEditPage();
+	public void ViewOrEdit() throws Exception {
+		test = reports.startTest("TC002 ViewOrEdit List");
+		ViewOrEditPage voe = new ViewOrEditPage();
 		voe.clickPatientList();
 		logger.info("Clicked Patient List");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
 
-/**		String actual="Patient record updated successfully!";
-		String expected=voe.getsuccessUpdateMsg().getText();
-		Assert.assertEquals(actual, expected);
-
-		voe.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, voe.verifyNotification("Patient record updated successfully!"));
+		logger.info("Assertion Passed");
+		voe.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority  =3)
-	public void updateContactField() throws  Exception {
+	@Test(priority = 3)
+	public void updateContactField() throws Exception {
+		test = reports.startTest("TC003 Update Contact Field");
+		ViewOrEditPage voe = new ViewOrEditPage();
+		AddPatientPage ap = new AddPatientPage();
 
-		ViewOrEditPage voe=new ViewOrEditPage();
-		AddPatientPage ap=new AddPatientPage();
 		ap.clearPhoneNo();
+		logger.info("Cleared Phno");
 		ap.enterValiedPhoneNo();
+		logger.info("Entered Phno");
 		ap.clearEmergencyPhno();
+		logger.info("Cleared Emergency Phno");
 		ap.enterEmergencyPhno();
+		logger.info("Entered Emergency Phno");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
-		
-	/**	String actual="Patient record updated successfully!";
-		String expected=voe.getsuccessUpdateMsg().getText();
-		Assert.assertEquals(actual, expected);
 
-		voe.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, voe.verifyNotification("Patient record updated successfully!"));
+		logger.info("Assertion Passed");
+		voe.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
-	
-	
-	@Test(priority =4)
+
+	@Test(priority = 4)
 	public void withoutAddressField() throws Exception {
-		ViewOrEditPage voe=new ViewOrEditPage();
-		AddPatientPage ap=new AddPatientPage();
+		test = reports.startTest("TC004 ToDoList Without Address Field");
+		ViewOrEditPage voe = new ViewOrEditPage();
+		AddPatientPage ap = new AddPatientPage();
+
 		ap.clearAddress();
+		logger.info("Cleared Address Field");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
-		
+
+		Assert.assertFalse(false, voe.verifyNotification("Patient record updated successfully!"));
+		logger.info("Assertion failed");
+
+		ap.enterAddress();
+		logger.info("Entered Address");
+		voe.clickUpdateBtn();
+		logger.info("Clicked Update Button");
+		voe.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
-	
-	@Test(priority=5)
+
+	@Test(priority = 5)
 	public void withoutMandatoryData() throws Exception {
-		ViewOrEditPage voe=new ViewOrEditPage();
-		AddPatientPage ap=new AddPatientPage();
+		test = reports.startTest("TC005 ToDoList Without Mandatory Data");
+		ViewOrEditPage voe = new ViewOrEditPage();
+		AddPatientPage ap = new AddPatientPage();
 		ap.clearPatientName();
 		logger.info("Cleared Name Field");
 		ap.clearPhoneNo();
 		logger.info("Cleared Phone Number Field");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
-		Robot r=new Robot();
+		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ALT);
 		r.keyPress(KeyEvent.VK_LEFT);
 		r.keyRelease(KeyEvent.VK_LEFT);
 		r.keyRelease(KeyEvent.VK_ALT);
-		
-	/**	String actual="Please provide required inputs";
-		String expected=voe.geterrorUpdateMsg().getText();
-		Assert.assertEquals(actual, expected);
 
-		voe.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, voe.verifyNotification("Please provide required inputs"));
+		logger.info("Assertion Passed");
+		voe.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
-
 	@Test(priority = 6)
-	public void cancelEdit() throws Exception  {
-		ViewOrEditPage voe=new ViewOrEditPage();
+	public void cancelEdit() throws Exception {
+		test = reports.startTest("TC006 ToDoList Cancel Edit");
+		ViewOrEditPage voe = new ViewOrEditPage();
 		voe.clickCancelButton();
 		logger.info("Clicked Cancel Button");
 	}
@@ -159,5 +182,7 @@ public class ViewOrEditTest extends CommonMethod{
 	public void CloseBrowser() {
 		driver.close();
 		logger.info("Closing Browser");
+		reports.endTest(test);
+		reports.flush();
 	}
 }

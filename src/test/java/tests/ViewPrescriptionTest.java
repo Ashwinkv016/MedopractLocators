@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -20,43 +21,52 @@ public class ViewPrescriptionTest extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	Logger logger= LogManager.getLogger(ViewPrescriptionTest.class);
-	
+	Logger logger = LogManager.getLogger(ViewPrescriptionTest.class);
 
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test = reports.startTest("Open Application");
 		// Open the browser and hit the url
 		initializeBrowser();
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
 		l.clickGotItBtn();
-		Thread.sleep(2000);
+		logger.info("Clicked GotIt Btn");
+
 		l.enterValiedUserName();
 		logger.info("Entered Username");
-		Thread.sleep(2000);
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
-		Thread.sleep(2000);
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-		
 
-
-		/**	String actual = null;
+		String actual = null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
-	
-	@Test(priority=1)
-	public void viewPrescription() throws Exception  {
-		ViewPrescriptionPage vpv=new ViewPrescriptionPage();
+
+	@Test(priority = 1)
+	public void viewPrescription() throws Exception {
+		test = reports.startTest("TC001 View Prescription");
+		ViewPrescriptionPage vpv = new ViewPrescriptionPage();
 		vpv.getPrescriptionsLink();
 		logger.info("Clicked Prescription");
 		vpv.getviewPrescriptionsLink();
@@ -68,33 +78,39 @@ public class ViewPrescriptionTest extends CommonMethod {
 		vpv.getprescriptionDetails();
 		logger.info("Clicked Prescription Details");
 
-	/**	String actual = null;
+		String actual = null;
 		try {
-			if(vpv.getviewPrescriptionsuccessful().isDisplayed())
-				actual="success";
-			logger.info("Prescription viewed");
+			if (vpv.verifyPrescriptionPage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-			logger.info("Prescription not viewed");
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
 
-
-	@Test(priority=2)
-	public void printPrescription() throws  Exception {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+	@Test(priority = 2)
+	public void printPrescription() throws Exception {
+		test = reports.startTest("TC002 View Prescription Print");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getprintPrescription();
 		logger.info("Clicked PrintPrescription button");
-		Robot r=new Robot();
+
+		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ESCAPE);
 		logger.info("Return to Home Page");
 	}
 
-	@Test(priority=3)
-	public void downloadPrescription() throws Exception  {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+	@Test(priority = 3)
+	public void downloadPrescription() throws Exception {
+		test = reports.startTest("TC003 View Prescription Download");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getdownloadPrescription();
 		logger.info("Clicking Download Prescription Button");
 		ap.getdownloadPrescription();
@@ -102,37 +118,43 @@ public class ViewPrescriptionTest extends CommonMethod {
 		ap.getdownloadPrescription();
 		logger.info(" Again Clicking Download Prescription Button");
 	}
+
 	@Test(priority = 4)
-	public void clickingBackButton() throws Exception  {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+	public void clickingBackButton() throws Exception {
+		test = reports.startTest("TC004 View Prescription Clicking BackButton");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getprescriptionBackBtn();
 		logger.info("Clicked Back Button");
 	}
 
-	@Test(priority=5)
+	@Test(priority = 5)
 	public void patientDetails() throws Exception {
-		ViewPrescriptionPage vpv=new ViewPrescriptionPage();
+		test = reports.startTest("TC005 View Prescription Patient Details");
+		ViewPrescriptionPage vpv = new ViewPrescriptionPage();
 		vpv.getgoToPatientDetails();
 
-	/**	String actual = null;
+		String actual = null;
 		try {
-			if(vpv.getpatientDetailsPage().isDisplayed())
-				actual="success";
-			logger.info("Patient page viewed");
+			if (vpv.verifyAddPatientPage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-			logger.info("Patient page not viewed");
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
 
-
-	 @AfterClass
-		public void afterTest() {
-			// Close the browser
-			driver.close();
-			//reports.endTest(test);
-			//reports.flush();
-		}
+	@AfterClass
+	public void afterTest() {
+		// Close the browser
+		driver.close();
+		reports.endTest(test);
+		reports.flush();
+	}
 }

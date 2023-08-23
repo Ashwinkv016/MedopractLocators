@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Aug 17 14:12:03 IST 2023</td>
+<td>Started on:</td><td>Wed Aug 23 11:22:29 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>13 seconds (13495 ms)</td>
+<tr><td>Total time:</td><td>41 seconds (41906 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,12 +76,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.LoginTest.loginWithoutData()'><b>loginWithoutData</b><br>Test class: tests.LoginTest</td>
-<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.isDisplayed()&quot; because &quot;element&quot; is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:264)
-	at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:260)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-	at tests.LoginTest.loginWithoutData(LoginTest.java:44)
+<td title='tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint()'><b>patientVisitWithoutPrimaryComplaint</b><br>Test class: tests.PatientVisitTest</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because the return value of &quot;genericPages.CommonMethod.getWebElement(String)&quot; is null
+	at genericPages.CommonMethod.verifyElementPresent(CommonMethod.java:265)
+	at pages.PatientVisitPage.verifyNotification(PatientVisitPage.java:153)
+	at tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint(PatientVisitTest.java:124)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -108,12 +107,11 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace168670597", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace168670597'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.isDisplayed()&quot; because &quot;element&quot; is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:264)
-	at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:260)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-	at tests.LoginTest.loginWithoutData(LoginTest.java:44)
+</pre></div><a href='#' onClick='toggleBox("stack-trace294649085", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace294649085'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because the return value of &quot;genericPages.CommonMethod.getWebElement(String)&quot; is null
+	at genericPages.CommonMethod.verifyElementPresent(CommonMethod.java:265)
+	at pages.PatientVisitPage.verifyNotification(PatientVisitPage.java:153)
+	at tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint(PatientVisitTest.java:124)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -141,8 +139,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>10</td>
-<td>tests.LoginTest@7c1e2a9e</td></tr>
+<td>30</td>
+<td>tests.PatientVisitTest@4f6f416f</td></tr>
 </table><p>
 </body>
 </html>

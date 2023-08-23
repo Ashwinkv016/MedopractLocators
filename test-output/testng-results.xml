@@ -2,26 +2,25 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-17T14:12:03 IST" name="Default suite" finished-at="2023-08-17T14:12:17 IST" duration-ms="13495">
+  <suite started-at="2023-08-23T11:22:29 IST" name="Default suite" finished-at="2023-08-23T11:23:11 IST" duration-ms="41906">
     <groups>
     </groups>
-    <test started-at="2023-08-17T14:12:03 IST" name="Default test" finished-at="2023-08-17T14:12:17 IST" duration-ms="13495">
-      <class name="tests.LoginTest">
-        <test-method is-config="true" signature="OpenApplication()[pri:0, instance:tests.LoginTest@7c1e2a9e]" started-at="2023-08-17T14:12:03 IST" name="OpenApplication" finished-at="2023-08-17T14:12:07 IST" duration-ms="3229" status="PASS">
+    <test started-at="2023-08-23T11:22:29 IST" name="Default test" finished-at="2023-08-23T11:23:11 IST" duration-ms="41906">
+      <class name="tests.PatientVisitTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:tests.PatientVisitTest@4f6f416f]" started-at="2023-08-23T11:22:29 IST" name="openApplication" finished-at="2023-08-23T11:22:40 IST" duration-ms="10708" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OpenApplication -->
-        <test-method signature="loginWithoutData()[pri:1, instance:tests.LoginTest@7c1e2a9e]" started-at="2023-08-17T14:12:07 IST" name="loginWithoutData" finished-at="2023-08-17T14:12:17 IST" duration-ms="10065" status="FAIL">
+        </test-method> <!-- openApplication -->
+        <test-method signature="patientVisitWithoutPrimaryComplaint()[pri:2, instance:tests.PatientVisitTest@4f6f416f]" started-at="2023-08-23T11:22:40 IST" name="patientVisitWithoutPrimaryComplaint" finished-at="2023-08-23T11:23:10 IST" duration-ms="30814" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <message>
-              <![CDATA[Cannot invoke "org.openqa.selenium.WebElement.isDisplayed()" because "element" is null]]>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebElement.getText()" because the return value of "genericPages.CommonMethod.getWebElement(String)" is null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebElement.isDisplayed()" because "element" is null
-at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:264)
-at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:260)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-at tests.LoginTest.loginWithoutData(LoginTest.java:44)
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebElement.getText()" because the return value of "genericPages.CommonMethod.getWebElement(String)" is null
+at genericPages.CommonMethod.verifyElementPresent(CommonMethod.java:265)
+at pages.PatientVisitPage.verifyNotification(PatientVisitPage.java:153)
+at tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint(PatientVisitTest.java:124)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -53,12 +52,12 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginWithoutData -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:tests.LoginTest@7c1e2a9e]" started-at="2023-08-17T14:12:17 IST" name="afterTest" finished-at="2023-08-17T14:12:17 IST" duration-ms="164" status="PASS">
+        </test-method> <!-- patientVisitWithoutPrimaryComplaint -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:tests.PatientVisitTest@4f6f416f]" started-at="2023-08-23T11:23:10 IST" name="afterTest" finished-at="2023-08-23T11:23:11 IST" duration-ms="339" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- tests.LoginTest -->
+      </class> <!-- tests.PatientVisitTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

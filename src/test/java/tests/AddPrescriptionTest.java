@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,42 +20,52 @@ public class AddPrescriptionTest extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	Logger logger= LogManager.getLogger(AddPrescriptionTest.class);
+	Logger logger = LogManager.getLogger(AddPrescriptionTest.class);
 
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test = reports.startTest("Open Application");
 		// Open the browser and hit the url
 		initializeBrowser();
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
 		l.clickGotItBtn();
-		Thread.sleep(2000);
+		logger.info("Clicked GotIt Btn");
+
 		l.enterValiedUserName();
 		logger.info("Entered Username");
-		Thread.sleep(2000);
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
-		Thread.sleep(2000);
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-		
 
-
-		/**	String actual = null;
+		String actual = null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
 
-
 	@Test(priority = 1)
-	public void withoutAddingMedicineField() throws Exception  {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+	public void withoutAddingMedicineField() throws Exception {
+		test = reports.startTest("TC001 Add Prescription without adding Medicine Field");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getclickPrescription();
 		logger.info("Clicked on Prescription");
 		ap.getPatientNameField();
@@ -66,17 +77,16 @@ public class AddPrescriptionTest extends CommonMethod {
 		ap.getSaveAndPrintButton();
 		logger.info("Clicked Save and Print Button");
 
-	/**	String expectedResult="Please add medicines";
-		String actualResult=ap.geterrorMessage().getText();
-		Assert.assertEquals(actualResult, expectedResult);
+		Assert.assertTrue(true, ap.verifyNotification("Please add medicines"));
 
-		ap.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		ap.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
 	@Test(priority = 2)
-	public void addPrescription() throws Exception  {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+	public void addPrescription() throws Exception {
+		test = reports.startTest("TC002 Add Prescription");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getMedicineNameField1();
 		logger.info("Entered Medicine Name");
 		ap.getTotalNumberDays1();
@@ -92,61 +102,67 @@ public class AddPrescriptionTest extends CommonMethod {
 		ap.getyesButtonField();
 		logger.info("Clicked yes");
 
-	/**	String expectedResult="Prescription created successfully!";
-		String actualResult=ap.getsuccessMessage().getText();
-		Assert.assertEquals(actualResult, expectedResult);
+		Assert.assertTrue(true, ap.verifyNotification("Prescription created successfully!"));
 
-		ap.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		ap.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
-
-	@Test(priority= 3)
+	@Test(priority = 3)
 	public void printPrescription() throws Exception {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+		test = reports.startTest("TC003 print Prescription");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getprintPrescription();
 		logger.info("Clicked PrintPrescription button");
-		Robot r=new Robot();
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_ENTER);
+		Thread.sleep(1000);
 		r.keyPress(KeyEvent.VK_ESCAPE);
 		logger.info("Return to Home Page");
 	}
 
-	@Test(priority=4)
+	@Test(priority = 4)
 	public void downloadPrescriptionAgain() throws Exception {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+		test = reports.startTest("TC004 Download Prescription");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getdownloadPrescription();
 		logger.info("Clicking Download Prescription Button");
 		ap.getdownloadPrescription();
 		logger.info(" Again Clicking Download Prescription Button");
 	}
 
-
-
 	@Test(priority = 5)
 	public void clickingBack() throws Exception {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+		test = reports.startTest("TC005 Click Back Of prescription");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getprescriptionBackBtn();
 		logger.info("Clicking Back in Printing Page");
 		ap.getBackButton();
 		logger.info("Clicking Back in Prescription Page");
 
-	/**	LoginPage l=new LoginPage(driver);
+		LoginPage l = new LoginPage();
 		String actual = null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
 
-	@Test(priority =6 )
-	public void cancelAddedMedicineField() throws Exception  {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
-		ap.getclickPrescription();
-		logger.info("Clicked on Prescription");
+	@Test(priority = 6)
+	public void cancelAddedMedicineField() throws Exception {
+		test = reports.startTest("TC006 Cancel Added Medicine Field");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
+		driver.navigate().refresh();
 		ap.getPatientNameField();
 		logger.info("Entered Patient Name");
 		ap.getpatientNameSuggestion();
@@ -180,9 +196,10 @@ public class AddPrescriptionTest extends CommonMethod {
 
 	}
 
-	@Test(priority=7)
+	@Test(priority = 7)
 	public void withInvaliedMedicineField() throws Exception {
-		AddPrescriptionPage ap=new AddPrescriptionPage();
+		test = reports.startTest("TC007 Add Prescription with Invalied Mediciine Field");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getMedicineNameField2();
 		logger.info("Entered Medicine Name");
 		ap.getTotalNumberDays2();
@@ -198,19 +215,18 @@ public class AddPrescriptionTest extends CommonMethod {
 		ap.getyesButtonField();
 		logger.info("Clicked yes");
 
-	/**	String expectedResult="could not create record! Prescriptions record could not be added. due to: ValidationError: medecineDetails.0.totalcountsToConsume: Cast to Number failed for value \"gg\" at path \"totalcountsToConsume\", medecineDetails.0.howmanyatatime: Cast to Number failed for value \"gg\" at path \"howmanyatatime\"";
-		String actualResult=ap.getmedicineErrorMsg().getText();
-		Assert.assertEquals(actualResult, expectedResult);
-
-		ap.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, ap.verifyNotification(
+				"could not create record! Prescriptions record could not be added. due to: ValidationError: medecineDetails.0.totalcountsToConsume: Cast to Number failed for value \"gg\" at path \"totalcountsToConsume\", medecineDetails.0.howmanyatatime: Cast to Number failed for value \"gg\" at path \"howmanyatatime\""));
+		ap.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
-	 @AfterClass
-		public void afterTest() {
-			// Close the browser
-			driver.close();
-			//reports.endTest(test);
-			//reports.flush();
-		}
+
+	@AfterClass
+	public void afterTest() {
+		// Close the browser
+		driver.close();
+		reports.endTest(test);
+		reports.flush();
+	}
 
 }

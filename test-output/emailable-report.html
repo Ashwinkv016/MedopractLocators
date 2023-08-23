@@ -9,15 +9,14 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">13,495</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">41,906</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.LoginTest</td><td><a href="#m0">loginWithoutData</a></td><td rowspan="1">1692261727025</td><td rowspan="1">10065</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.PatientVisitTest</td><td><a href="#m0">patientVisitWithoutPrimaryComplaint</a></td><td rowspan="1">1692769960144</td><td rowspan="1">30814</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">tests.LoginTest#loginWithoutData</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.isDisplayed()&quot; because &quot;element&quot; is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:264)
-	at org.openqa.selenium.support.ui.ExpectedConditions$9.apply(ExpectedConditions.java:260)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
-	at tests.LoginTest.loginWithoutData(LoginTest.java:44)
+<h2>Default test</h2><h3 id="m0">tests.PatientVisitTest#patientVisitWithoutPrimaryComplaint</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because the return value of &quot;genericPages.CommonMethod.getWebElement(String)&quot; is null
+	at genericPages.CommonMethod.verifyElementPresent(CommonMethod.java:265)
+	at pages.PatientVisitPage.verifyNotification(PatientVisitPage.java:153)
+	at tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint(PatientVisitTest.java:124)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)

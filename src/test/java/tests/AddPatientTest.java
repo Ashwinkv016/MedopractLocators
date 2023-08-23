@@ -2,6 +2,7 @@ package tests;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,56 +14,84 @@ import pages.LoginPage;
 public class AddPatientTest extends CommonMethod {
 	public AddPatientTest() throws Exception {
 	}
-	Logger logger= LogManager.getLogger(AddPatientTest.class);
+
+	Logger logger = LogManager.getLogger(AddPatientTest.class);
 
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test = reports.startTest("Open Application");
 		// Open the browser and hit the url
 		initializeBrowser();
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
 		l.clickGotItBtn();
-		Thread.sleep(2000);
+		logger.info("Clicked GotIt Btn");
+
 		l.enterValiedUserName();
 		logger.info("Entered Username");
-		Thread.sleep(2000);
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
-		Thread.sleep(2000);
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-		
 
-
-		/**	String actual = null;
+		String actual = null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
-
+	
 	@Test(priority = 1)
-	public void AddPatient() throws Exception {
-
-		AddPatientPage app=new AddPatientPage();
+	public void withoutMandatoryAllData() throws Exception {
+		test = reports.startTest("TC001 Without Mandatory All Field");
+		AddPatientPage app = new AddPatientPage();
 		app.clickPatientMenu();
 		logger.info("Clicking Patients");
 		app.clickAddPatient();
 		logger.info("Clicking Add Patient");
+		app.clickPatientSaveBtn();
+		logger.info("Clicked SaveButton");
+
+		Assert.assertTrue(true, app.verifyNotification("Please provide required inputs"));
+		logger.info("Assertion Passed");
+		app.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+	}
+
+	@Test(priority = 2)
+	public void AddPatient() throws Exception {
+		test = reports.startTest("TC002 Add Patient Test");
+		 driver.navigate().refresh();
+		AddPatientPage app = new AddPatientPage();
+		app.clickAddPatient();
+		logger.info("Clicking Add Patient");
 		app.enterValiedPatientName();
 		logger.info("Added Patient's Name");
-		app.enterInValiedPhoneNo();
+		app.enterValiedPhoneNo();
 		logger.info("Added Patient's Phone Number");
 		app.clickGenderField();
 		logger.info("Selected Gender Field");
 		app.clickBirthDateField();
 		app.enterMonthField();
 		app.enterDateField();
-		app.enterYearfield();;
+		app.enterYearfield();
+		logger.info("Entered Date Of Birth Field");
 		app.clickBloodGroup();
 		logger.info("Selected Blood Group");
 		app.enterOccupation();
@@ -90,71 +119,44 @@ public class AddPatientTest extends CommonMethod {
 		app.clickHabitsPlus();
 		logger.info("Added Habit field by clicking Plus");
 		app.clickHabitsCancel();
-		Thread.sleep(2000);
+		logger.info("Canceled Habit field");
 		app.clickPatientSaveBtn();
-	/**	String expectedResult="Patient Record created successfully!";
-		String actualResult=app.getCreatedSuccessfully().getText();
-		Assert.assertEquals(actualResult, expectedResult);
+		logger.info("Clicked Save Button");
 
-		app.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
-	}
+		Assert.assertTrue(true, app.verifyNotification("Patient Record created successfully!"));
 
-	@Test(priority = 2)
-	public void resetPatientData() throws Exception  {
-
-		AddPatientPage app=new AddPatientPage();
-
-		app.clickPatientSaveBtn();
-		logger.info("Clicked SaveButton");
-		app.clickPatientResetBtn();
-		logger.info("Clicked ResetButton"); 
-
-	/**	String actual = null;
-		try {
-			if(app.getCreatedSuccessfully().isDisplayed())
-				actual="success";
-		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "failure");**/
+		app.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
 	@Test(priority = 3)
-	public void withoutMandatoryAllData() throws Exception  {
+	public void resetPatientData() throws Exception {
+		test = reports.startTest("TC003 Reset patient data");
+		AddPatientPage app = new AddPatientPage();
 
-		AddPatientPage app=new AddPatientPage();
-		
-		app.clickPatientSaveBtn();
-		logger.info("Clicked SaveButton");
+		app.clickPatientResetBtn();
+		logger.info("Clicked Reset Button");
 
-/**		String actualResult = app.getErrorMessage().getText();
-		String expectedResult = "Please provide required inputs";
-		Assert.assertEquals(actualResult, expectedResult);
-
-		app.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
 	}
 
 
-	@Test(priority=4)
+	@Test(priority = 4)
 	public void nameWithSpecialCharacter() throws Exception {
-		AddPatientPage app=new AddPatientPage();
+		test = reports.startTest("TC004 Patient Name with Special Character");
+		AddPatientPage app = new AddPatientPage();
 		app.enterInValiedPatientName();
 		logger.info("Added Patient's Name");
 		app.enterValiedPhoneNo();
 
-	/**	String expectedTitle = "Please enter valid name- Only Alphabets and spaces are allowed";
-		String actualTitle = app.getnameErrorMsg().getText();
-		Assert.assertEquals(expectedTitle, actualTitle);**/
-
-
+		Assert.assertTrue(true,
+				app.verifyPatientNameErrorMsg("Please enter valid name- Only Alphabets and spaces are allowed"));
+		logger.info("Assertion Passed");
 	}
-	@Test(priority = 5)
-	public void withIncorrectPhoneNo() throws Exception  {
 
-		AddPatientPage app=new AddPatientPage();
+	@Test(priority = 5)
+	public void withIncorrectPhoneNo() throws Exception {
+		test = reports.startTest("TC005 Add Patient with Incorrect Phno");
+		AddPatientPage app = new AddPatientPage();
 		app.clearPatientName();
 		logger.info("Cleared Patient's Name");
 		app.clearPhoneNo();
@@ -163,14 +165,14 @@ public class AddPatientTest extends CommonMethod {
 		app.clickGenderField();
 		logger.info("Selected Gender Field");
 
-	/**	String expectedTitle = "Mobile number must be 10 digits long valid number";
-		String actualTitle = app.getMobileNoErrorMsg().getText();
-		Assert.assertEquals(expectedTitle, actualTitle);**/
+		Assert.assertTrue(true, app.verifyPatientPhnoErrorMsg("Mobile number must be 10 digits long valid number"));
+		logger.info("Assertion Passed");
 	}
 
 	@Test(priority = 6)
-	public void sameContactNoInEmergencyField() throws Exception  {
-		AddPatientPage app=new AddPatientPage();
+	public void sameContactNoInEmergencyField() throws Exception {
+		test = reports.startTest("TC006 Add Patient with Same ContactNo in Emergency Field");
+		AddPatientPage app = new AddPatientPage();
 		app.enterValiedPatientName();
 		logger.info("Added Patient's Name");
 		app.clearPhoneNo();
@@ -201,23 +203,21 @@ public class AddPatientTest extends CommonMethod {
 		app.clickHabitsPlus();
 		logger.info("Added Habit field by clicking Plus");
 		app.clickPatientSaveBtn();
+		logger.info("Clicked Save Button");
 
-	/**	String expectedResult="Patient Record created successfully!";
-		String actualResult=app.getCreatedSuccessfully().getText();
-		Assert.assertEquals(actualResult, expectedResult);
+		Assert.assertTrue(true, app.verifyNotification("Patient Record created successfully!"));
+		logger.info("Assertion Passed");
 
-		app.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		app.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
-
-
-	 @AfterClass
-		public void afterTest() {
-			// Close the browser
-			driver.close();
-			//reports.endTest(test);
-			//reports.flush();
-		}
+	@AfterClass
+	public void CloseBrowser() {
+		// Close the browser
+		driver.close();
+		reports.endTest(test);
+		reports.flush();
+	}
 
 }

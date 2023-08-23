@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -15,43 +16,52 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	Logger logger= LogManager.getLogger(AppointmentsCalenderTest.class);
-	
-	
+	Logger logger = LogManager.getLogger(AppointmentsCalenderTest.class);
+
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test = reports.startTest("Open Application");
 		// Open the browser and hit the url
 		initializeBrowser();
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
 		l.clickGotItBtn();
-		Thread.sleep(2000);
+		logger.info("Clicked GotIt Btn");
+
 		l.enterValiedUserName();
 		logger.info("Entered Username");
-		Thread.sleep(2000);
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
-		Thread.sleep(2000);
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-		
 
-
-		/**	String actual = null;
+		String actual = null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
 
-
-	@Test(priority=1)
-	public void AddAppointmentsCalender() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+	@Test(priority = 1)
+	public void AddAppointmentsCalender() throws Exception {
+		test = reports.startTest("TC001 Add Appointments Calender");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getClickAppointmentCalender();
 		logger.info("Clicked Appointment Calender");
 		acp.getNewAppointment();
@@ -64,26 +74,21 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered VisitReason Field");
 		acp.getContactNumberField1();
 		logger.info("Entered ContactNumber Field");
-		acp.getdateAndTimeField();
-		logger.info("Clicked DateAndTime Field");
-		acp.getdatePick();
-		acp.gettimePick();
 		acp.getDurationField();
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-		
-	/**	String expectedResult="Appointment added Successfully";
-		String actualResult=acp.getsuccessMsg().getText();
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		acp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+
+		Assert.assertTrue(true, acp.verifyNotification("Appointment added Successfully"));
+
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
-	
-	@Test(priority=2)
-	public void AddAppointmentWithoutName() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+
+	@Test(priority = 2)
+	public void AddAppointmentWithoutName() throws Exception {
+		test = reports.startTest("TC002 Add Appointment without Name");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getNewAppointment();
 		logger.info("Clicked New Appointment");
 		acp.getVisitreasonField1();
@@ -98,46 +103,44 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-		
-	/**	String expectedResult="something went wrong!";
-		String actualResult=acp.geterrorMsg().getText();
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		acp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
-	}
-	
-	@Test(priority =3)
-	public void AddAppointmentWithoutVisitReason() throws Exception  {
-	AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
-	acp.getNewAppointment();
-	logger.info("Clicked New Appointment");
-	acp.getFirstNameField1();
-	logger.info("Entered FirstName Field");
-	acp.getLastNameField1();
-	logger.info("Entered LastName Field");
-	acp.getContactNumberField1();
-	logger.info("Entered ContactNumber Field");
-	acp.getdateAndTimeField();
-	logger.info("Clicked DateAndTime Field");
-	acp.getdatePick();
-	acp.gettimePick();
-	acp.getDurationField();
-	logger.info("Clicked Duration Field");
-	acp.getSaveAppointmentButton();
-	logger.info("Clicked SaveAppointment Field");
 
-	/**String expectedResult="something went wrong!";
-	String actualResult=acp.geterrorMsg().getText();
-	Assert.assertEquals(actualResult, expectedResult);
-	
-	acp.getcancelNotification();
-	logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, acp.verifyNotification("something went wrong!"));
+
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority=4)
-	public void addPatientWithoutContactNo() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+	@Test(priority = 3)
+	public void AddAppointmentWithoutVisitReason() throws Exception {
+		test = reports.startTest("TC003 Add Appointment Without VisitReason");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
+		acp.getNewAppointment();
+		logger.info("Clicked New Appointment");
+		acp.getFirstNameField1();
+		logger.info("Entered FirstName Field");
+		acp.getLastNameField1();
+		logger.info("Entered LastName Field");
+		acp.getContactNumberField1();
+		logger.info("Entered ContactNumber Field");
+		acp.getdateAndTimeField();
+		logger.info("Clicked DateAndTime Field");
+		acp.getdatePick();
+		acp.gettimePick();
+		acp.getDurationField();
+		logger.info("Clicked Duration Field");
+		acp.getSaveAppointmentButton();
+		logger.info("Clicked SaveAppointment Field");
+
+		Assert.assertTrue(true, acp.verifyNotification("something went wrong!"));
+
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+	}
+
+	@Test(priority = 4)
+	public void addPatientWithoutContactNo() throws Exception {
+		test = reports.startTest("TC004 AddPatient Without ContactNo");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getNewAppointment();
 		logger.info("Clicked New Appointment");
 		acp.getFirstNameField1();
@@ -155,20 +158,20 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
 
-	/**	String expectedResult="Appointment added Successfully";
-		String actualResult=acp.getsuccessMsg().getText();
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		acp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+		Assert.assertTrue(true, acp.verifyNotification("Appointment added Successfully"));
+
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
-	
-	@Test(priority=5)
-	public void updateWithInvaliedData() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+
+	@Test(priority = 5)
+	public void updateWithInvaliedData() throws Exception {
+		test = reports.startTest("TC005 Update With InvaliedData");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
+		acp.getClickAppointmentCalender();
 		acp.getUpdatedExistingAppointment();
 		logger.info("Clicked ExistingAppointment Field");
-		acp.clearFirstNameField();
+		acp.clearUpdateFirstNameField();
 		logger.info("Cleared First Name Field");
 		acp.clearLastNameField();
 		logger.info("Cleared Last Name Field");
@@ -180,23 +183,21 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Button");
-		
-	/**	String expectedResult="Appointment Updated Successfully";
-		String actualResult=acp.getupdateSuccessMsg().getText();
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		acp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
-	}
-	
 
-	@Test(priority=6)
-	public void updateAppointmentWithValidData() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
+
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+	}
+
+	@Test(priority = 6)
+	public void updateAppointmentWithValidData() throws Exception {
+		test = reports.startTest("TC006 Update Appointment With ValidData");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getUpdatedExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
-		acp.clearFirstNameField();
-		acp.getFirstNameField2();
+		acp.clearUpdateFirstNameField();
+		acp.enterUpdateFirstNameField();
 		logger.info("Entered FirstName Field");
 		acp.clearLastNameField();
 		acp.getLastNameField2();
@@ -211,18 +212,17 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Button");
-		
-	/**	String expectedResult="Appointment Updated Successfully";
-		String actualResult=acp.getupdateSuccessMsg().getText();
-		Assert.assertEquals(actualResult, expectedResult);
-		
-		acp.getcancelNotification();
-		logger.info("Clicked Cancel Notification");**/
+
+		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
+
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority=7)
-	public void existingAppointmentInMonth() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+	@Test(priority = 7)
+	public void existingAppointmentInMonth() throws Exception {
+		test = reports.startTest("TC007 Existing Appointment In Month");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getMonthButton();
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
@@ -235,18 +235,31 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered VisitReason Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked Save Button");
+
+		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+
 		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getNextButton();
+		logger.info("Clicked next Button");
 		acp.getExistingAppointment();
+		logger.info("Clicked ExistingAppointment");
+		Thread.sleep(1000);
 		acp.getcancelExistingAppointment();
+		logger.info("Clicked Cancel ExistingAppointment");
 		acp.getTodayButton();
-		
+		logger.info("Clicked Today Button");
+
 	}
-	
-	@Test(priority=8)
-	public void existingAppointmentInWeek() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+
+	@Test(priority = 8)
+	public void existingAppointmentInWeek() throws Exception {
+		test = reports.startTest("TC008 Existing Appointment In Week");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getWeekButton();
+		logger.info("Clicked Week Btn");
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
 		acp.clearVisitreasonField();
@@ -254,60 +267,85 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered Visit Reason");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked Save Button");
+
+		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
+		acp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+
 		acp.getBackButton();
-		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getNextButton();
+		logger.info("Clicked Next Button");
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
 		acp.getcancelExistingAppointment();
 		logger.info("Clicked Cancel ExistingAppointment");
+		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getTodayButton();
+		logger.info("Clicked Next Button");
 	}
-	
-	@Test(priority=9)
-	public void existingAppointmentInDay() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+
+	@Test(priority = 9)
+	public void existingAppointmentInDay() throws Exception {
+		test = reports.startTest("TC009 Existing Appointment In Day");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getDayButton();
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
 		acp.getcancelExistingAppointment();
 		logger.info("Clicked Cancel ExistingAppointment");
 		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getBackButton();
+		logger.info("Clicked Back Button");
+		acp.getNextButton();
+		logger.info("Clicked Next Button");
 		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getNextButton();
+		logger.info("Clicked Next Button");
 		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getNextButton();
+		logger.info("Clicked Next Button");
 		acp.getNextButton();
+		logger.info("Clicked Next Button");
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
 		acp.getcancelExistingAppointment();
 		logger.info("Clicked Cancel ExistingAppointment");
 		acp.getTodayButton();
+		logger.info("Clicked Today Button");
 	}
-	
-	@Test(priority=10)
-	public void agenda() throws Exception  {
-		AppointmentsCalenderPage acp=new AppointmentsCalenderPage();
+
+	@Test(priority = 10)
+	public void agenda() throws Exception {
+		test = reports.startTest("TC0010 Existing Appointment In Agenda");
+		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getAgendaButton();
 		acp.getagendaExistingAppointment();
 		logger.info("Clicked Agenda ExistingAppointment");
 		acp.getcancelExistingAppointment();
 		logger.info("Clicked Cancel ExistingAppointment");
 		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getNextButton();
+		logger.info("Clicked Next Button");
 		acp.getNextButton();
+		logger.info("Clicked Next Button");
 		acp.getBackButton();
+		logger.info("Clicked Back Button");
 		acp.getTodayButton();
+		logger.info("Clicked Today Button");
 	}
 
-	 @AfterClass
-		public void afterTest() {
-			// Close the browser
-			driver.close();
-			//reports.endTest(test);
-			//reports.flush();
-		}
-	
-}
+	@AfterClass
+	public void afterTest() {
+		// Close the browser
+		driver.close();
+		reports.endTest(test);
+		reports.flush();
+	}
 
+}

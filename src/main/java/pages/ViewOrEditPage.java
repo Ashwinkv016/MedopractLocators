@@ -28,7 +28,8 @@ public class ViewOrEditPage extends CommonMethod{
 		 click("viewOrEditListClick");
 	}
 
-	public void clickUpdateBtn() {
+	public void clickUpdateBtn() throws InterruptedException {
+         base.waitForElementToBeClickable("viewOrEditUpdate", 10);
 		 scrollDown();
 		 click("viewOrEditUpdate");
 	}
@@ -38,9 +39,22 @@ public class ViewOrEditPage extends CommonMethod{
 	}
 	
     public void clickDeleteButton() {
+    	 base.waitForElementToBeClickable("viewOrEditDelete", 10);
 	     click("viewOrEditDelete");
     }
    
+
+    public String verifyNotification(String text) throws Exception  {
+		verifyElementPresent("notification");
+		base.waitForElementVisibility("notification", 10);
+		verifyTextPresent("notification");
+		return text;
+	}
+
+	public void clickCancelNotification() {
+		base.waitForElementToBeClickable("cancelNotification", 10);
+		click("cancelNotification");
+	}
 
 
 }

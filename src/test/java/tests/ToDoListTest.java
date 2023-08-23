@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,45 +20,53 @@ public class ToDoListTest extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	Logger logger= LogManager.getLogger(ToDoListTest.class);
-	
+	Logger logger = LogManager.getLogger(ToDoListTest.class);
 
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test = reports.startTest("openApplication");
 		// Open the browser and hit the url
 		initializeBrowser();
 
-		LoginPage l=new LoginPage();
+		LoginPage l = new LoginPage();
+
 		l.clickGotItBtn();
-		Thread.sleep(2000);
+		logger.info("Clicked GotIt Btn");
+
 		l.enterValiedUserName();
 		logger.info("Entered Username");
-		Thread.sleep(2000);
+
 		l.enterValiedPassword();
 		logger.info("Entered Password");
-		Thread.sleep(2000);
+
+		l.clickRememberMeBtn();
+		logger.info("Clicked RememberMeField");
+
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
-		
 
-
-		/**	String actual = null;
+		String actual = null;
 		try {
-			if(l.getaccInfo().isDisplayed())
-				actual="success";
+			if (l.verifyHomePage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
 		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
 	}
 
-	@Test(priority=1)
-	public void Todolist() throws Exception  {
-
+	@Test(priority = 1)
+	public void Todolist() throws Exception {
+		test = reports.startTest("TC001 Open ToDo List");
 		ToDoList tdl = new ToDoList();
-		
+
 		tdl.clickPlusSign();
 		logger.info("Clicking plus Sign");
 		Thread.sleep(3000);
@@ -67,57 +76,48 @@ public class ToDoListTest extends CommonMethod {
 		logger.info("Clicked Date and Time");
 		tdl.clickDateSelect();
 		tdl.clickTimeSelect();
-		tdl.clickAddtask();	
+		tdl.clickAddtask();
 		logger.info("Clicked on Add Task Button");
-		Thread.sleep(2000);
-	/**	String expectedResult="Tasks record added";
-		String actualResult=tdl.getNotification().getText();
-		Assert.assertEquals(actualResult, expectedResult);
-		tdl.getcancelNotification();
+
+		Assert.assertTrue(true, tdl.verifyNotification("Tasks record added"));
+		logger.info("Assertion Passed");
+
+		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
-		Thread.sleep(2000);**/
 	}
 
-
 	@Test(priority = 2)
-	public void CompletedTask() throws Exception  {
-		ToDoList tdl=new ToDoList();
+	public void CompletedTask() throws Exception {
+		test = reports.startTest("TC002 Complete ToDoList Task");
+		ToDoList tdl = new ToDoList();
 		tdl.clickCompleteTaskField();
 		logger.info("Clicking on View Completed Task");
 
-		Thread.sleep(2000);
-	/**	String expectedResult="Tasks record updated as completed";
-		String actualResult=tdl.getNotification().getText();
-		Assert.assertEquals(actualResult, expectedResult);
+		Assert.assertTrue(true, tdl.verifyNotification("Tasks record updated as completed"));
+		logger.info("Assertion Passed");
 
-		tdl.getcancelNotification();
+		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
-		Thread.sleep(2000);**/
 	}
 
-	@Test(priority=3)
-	public void withoutTaskDetails() throws Exception  {
+	@Test(priority = 3)
+	public void withoutTaskDetails() throws Exception {
+		test = reports.startTest("TC003 Without ToDoList TaskDetails");
 		ToDoList tdl = new ToDoList();
 		tdl.clearTaskfield();
 		logger.info("Entering Value");
 		tdl.clickAddtask();
 		logger.info("Clicked on Add Task Button");
 		Thread.sleep(2000);
-		
-	/**	String actual = null;
-		try {
-			if(tdl.geterrorMsg().isDisplayed())
-				actual="success";
-		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");**/
+
+		Assert.assertTrue(true, tdl.verifyErrorMsg("Task Description is empty"));
+		logger.info("Assertion Passed");
+
 	}
 
-	@Test(priority=4)
+	@Test(priority = 4)
 	public void withoutDueDate() throws Exception {
-
+		test = reports.startTest("TC003 Without ToDoList Due Date");
 		ToDoList tdl = new ToDoList();
 		tdl.enterTaskfield();
 		logger.info("Entering Value");
@@ -126,67 +126,57 @@ public class ToDoListTest extends CommonMethod {
 		tdl.clickAddtask();
 		logger.info("Clicked on Add Task Button");
 		Thread.sleep(2000);
-		
-/**		String expectedResult="Tasks record added";
-		String actualResult=tdl.getNotification().getText();
-		Assert.assertEquals(actualResult, expectedResult);
 
-		tdl.getcancelNotification();
+		Assert.assertTrue(true, tdl.verifyNotification("Tasks record added"));
+		logger.info("Assertion Passed");
+
+		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
-		Thread.sleep(2000);**/
 	}
 
-	
-
 	@Test(priority = 5)
-	public void viewCompletedTask() throws Exception  {
-		ToDoList tdl=new ToDoList();
+	public void viewCompletedTask() throws Exception {
+		test = reports.startTest("TC003 View Completed Task");
+		ToDoList tdl = new ToDoList();
 		Thread.sleep(10000);
 		tdl.clickViewCompletedTask();
 		logger.info("Clicking on View Completed Task");
 		Thread.sleep(2000);
 	}
 
-
-	@Test(priority =6)
-	public void viewOpenTask() throws Exception  {
-		ToDoList tdl=new ToDoList();
+	@Test(priority = 6)
+	public void viewOpenTask() throws Exception {
+		test = reports.startTest("TC003 View Open Task");
+		ToDoList tdl = new ToDoList();
 		logger.info("Clicking on View Completed Task");
 		tdl.clickViewOpenTask();
 		logger.info("Clicking on View Completed Task");
 	}
-	
-	@Test(priority=7)
-	public void deleteTask() throws Exception    {
+
+	@Test(priority = 7)
+	public void deleteTask() throws Exception {
+		test = reports.startTest("TC003 ToDoList Delete Task");
 		ToDoList tdl = new ToDoList();
 		tdl.clickDeleteTask();
 		logger.info("Clicking on Delete Task");
-		Robot r=new Robot();
+		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ENTER);
 		logger.info("Clicking Cancel popup");
 		Thread.sleep(2000);
-		/**	String actual = null;
-		try {
-			if(tdl.getNotification().isDisplayed())
-				actual="success";
-		}
-		catch(Exception e) {
-			actual="failure";
-		}
-		Assert.assertEquals(actual, "success");
 
-		tdl.getcancelNotification();
+		Assert.assertTrue(true, tdl.verifyNotification("Record deleted with tasks ID :64c9f813e046e4c0d6c73da6"));
+		logger.info("Assertion Passed");
+
+		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
-		Thread.sleep(2000);**/
 	}
 
-
-	 @AfterClass
-		public void afterTest() {
-			// Close the browser
-			driver.close();
-			//reports.endTest(test);
-			//reports.flush();
-		}
+	@AfterClass
+	public void afterTest() {
+		// Close the browser
+		driver.close();
+		reports.endTest(test);
+		reports.flush();
+	}
 
 }
