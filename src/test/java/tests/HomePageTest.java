@@ -22,6 +22,7 @@ public class HomePageTest extends CommonMethod{
 	
 	@BeforeClass
 	public void openApplication() throws Exception {
+		test=reports.startTest("Open Application");
 		// Open the browser and hit the url
 		initializeBrowser();
 
@@ -61,43 +62,48 @@ public class HomePageTest extends CommonMethod{
 	
     @Test
     public void checkTitle() throws Exception {
-    	//test=reports.startTest("Tc001 verify all menu's");
+    	test=reports.startTest("Tc001 verify all menu's");
     	HomePage h=new HomePage();
-    	
-    	//Verify Login page tite
-    	h.verifyLoginPage();
- 	
-    	//Verify Homepage Appointmnets Title
-    	h.verifyHomePageAppointmentsTitle();
-    	
-    	//Verify ToDoList Title
-    	h.verifyToDoListTitle();
-    	
-    	//Verify Patient title
-    	h.verifyToDoListTitle();
-    	
-    	//Verify Appointment Title
-    	h.verifyAppointmentsTitle();
-    	
-    	//Verify Prescription Title
-    	h.verifyPrescriptionsTitle();
-    	
-    	//Verify Reports Title
-    	h.verifyReportsTitle();
     	
     	//Verify Home Menu
     	h.verifyHomeMenu();
+    	 logger.info("Verified Home Title");
+ 	
+    	//Verify Homepage Appointmnets Title
+    	h.verifyHomePageAppointmentsTitle();
+    	logger.info("Verified HomePage Appointmnet Title");
+    	
+    	//Verify ToDoList Title
+    	h.verifyToDoListTitle();
+    	logger.info("Verified ToDoList Title");
+    	
+    	//Verify Patient title
+    	h.verifyPatientsTitle();
+    	logger.info("Verified Patient Title");
+    	
+    	//Verify Appointment Title
+    	h.verifyAppointmentsTitle();
+    	logger.info("Verified Appointments Title");
+    	
+    	//Verify Prescription Title
+    	h.verifyPrescriptionsTitle();
+    	logger.info("Verified Prescriptions Title");
+    	
+    	//Verify Reports Title
+    	h.verifyReportsTitle();
+    	logger.info("Verified Reports Title");
     	
     	//Verify Login page tite
     	h.clickLogoutBtn();
     	h.verifyLoginPage();
+    	logger.info("Verified Login Page Title");
     }
     
     @AfterClass
 	public void afterTest() {
 		// Close the browser
 		driver.close();
-	//	reports.endTest(test);
-	//	reports.flush();
+		reports.endTest(test);
+		reports.flush();
 	}
 }

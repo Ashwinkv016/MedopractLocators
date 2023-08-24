@@ -60,11 +60,8 @@ public class CommonMethod extends MasterPage {
 		base = new CommonMethod();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.get(propConfig.getProperty("url"));
+		
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	     Date currentDate = new Date();
-	     String formattedDate = dateFormat.format(currentDate);
-	     test.log(LogStatus.INFO, "Current Date and Time: " + formattedDate);
 	}
 
 	// Click on the webelement
@@ -91,6 +88,18 @@ public class CommonMethod extends MasterPage {
 		}
 
 	}
+	
+	// Enter the Locationproperty
+		public void enterLocationproperty(String locatorKey, String testData) {
+			try {
+
+				getWebElement(locatorKey).sendKeys(propTestData.getProperty(System.getProperty("user.dir") +testData));
+				test.log(LogStatus.PASS, "Enter the : " + locatorKey, "Enter the text into " + testData + " Successfully");
+			} catch (Exception e) {
+				test.log(LogStatus.FAIL, "Enter the : " + locatorKey, "Failed to enter " + testData + e.getMessage());
+			}
+
+		}
 
 	// Select the dropdown values
 	public void selectDropdown(String locatorKey, String testData) {

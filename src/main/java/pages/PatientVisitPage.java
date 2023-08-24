@@ -1,7 +1,5 @@
 package pages;
 
-import org.openqa.selenium.WebElement;
-
 import genericPages.CommonMethod;
 
 public class PatientVisitPage extends CommonMethod {
@@ -33,6 +31,12 @@ public class PatientVisitPage extends CommonMethod {
 		scrollTillElement("patientVisitPrimaryComplaint");
 		base.waitForElementVisibility("patientVisitPrimaryComplaint", 10);
 		enterData("patientVisitPrimaryComplaint", "primaryComplaint");
+	}
+
+	public void clearPrimaryComplaint() throws Exception {
+		scrollTillElement("patientVisitPrimaryComplaint");
+		base.waitForElementVisibility("patientVisitPrimaryComplaint", 10);
+		clearData("patientVisitPrimaryComplaint");
 	}
 
 	public void getClickingSymptomsPlusSign() {
@@ -91,16 +95,17 @@ public class PatientVisitPage extends CommonMethod {
 		enterData("patientVisitRemarks", "Remarks");
 	}
 
-	public void uploadFile() {
+	public void uploadFile() throws InterruptedException {
 		scrollDown();
-		//click("patientVisitFileUpload");
 		base.waitForElementVisibility("patientVisitFileUpload", 10);
-		enterData("patientVisitFileUpload", "fileUpload");
-		base.waitForElementVisibility("patientVisitFileUpload", 10);
-		enterData("patientVisitFileUpload", "demotxtUpload");
+		enterLocationproperty("patientVisitFileUpload", "fileUpload");
+		//base.waitForElementVisibility("patientVisitFileUpload", 10);
+		//enterData("patientVisitFileUpload", "demotxtUpload");
 	}
-	
-	
+
+	public void deleteUploadedFile() {
+		click("patientVisitFileDelete");
+	}
 
 	public void getSaveButton() throws InterruptedException {
 		scrollDown();

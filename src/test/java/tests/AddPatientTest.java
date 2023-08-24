@@ -13,6 +13,8 @@ import pages.LoginPage;
 
 public class AddPatientTest extends CommonMethod {
 	public AddPatientTest() throws Exception {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	Logger logger = LogManager.getLogger(AddPatientTest.class);

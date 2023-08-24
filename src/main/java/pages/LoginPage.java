@@ -46,7 +46,7 @@ public class LoginPage extends CommonMethod {
 
 	public void clickSubmitLoginBtn()  {
 		scrollDown();
-		base.waitForElementToBeClickable("submitLogin", 10);
+		base.waitForElementVisibility("submitLogin", 10);
 		click("submitLogin");
 	}
 
@@ -70,8 +70,9 @@ public class LoginPage extends CommonMethod {
 	}
 
 	public boolean verifyHomePage() throws Exception {
+		scrollDown();
+		base.waitForElementVisibility("homePageTitle", 10);
 		verifyElementPresent("homePageTitle");
-		base.waitForElementToBeClickable("homePageTitle", 10);
 		return true;
 	}
 }
