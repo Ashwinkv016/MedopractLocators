@@ -81,6 +81,8 @@ public class AddPatientTest extends CommonMethod {
 		test = reports.startTest("TC002 Add Patient Test");
 		 driver.navigate().refresh();
 		AddPatientPage app = new AddPatientPage();
+		app.clickPatientMenu();
+		logger.info("Clicking Patients");
 		app.clickAddPatient();
 		logger.info("Clicking Add Patient");
 		app.enterValiedPatientName();

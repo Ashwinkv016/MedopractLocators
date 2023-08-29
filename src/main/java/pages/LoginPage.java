@@ -51,7 +51,7 @@ public class LoginPage extends CommonMethod {
 	}
 
 	public void clickLogoutBtn() {
-		scrollTillElement("logoutBtn");
+		scrollTillElement();
 		base.waitForElementVisibility("logoutBtn", 10);
 		base.waitForElementToBeClickable("logoutBtn", 10);
 		click("logoutBtn");

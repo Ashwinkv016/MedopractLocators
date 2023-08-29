@@ -10,8 +10,8 @@ public class ViewPrescriptionPage extends CommonMethod {
 	}
 
 	public void getPrescriptionsLink() throws Exception {
+		scrollTillElement();
 		base.waitForElementToBeClickable("prescriptionMenu", 10);
-		scrollTillElement("prescriptionMenu");
 		click("prescriptionMenu");
 	}
 
@@ -37,8 +37,8 @@ public class ViewPrescriptionPage extends CommonMethod {
 	}
 
 	public void getgoToPatientDetails() throws InterruptedException {
-		base.waitForElementToBeClickable("viewPrescriptionGoToPatientDetails", 10);
 		scrollDown();
+		base.waitForElementToBeClickable("viewPrescriptionGoToPatientDetails", 10);
 		click("viewPrescriptionGoToPatientDetails");
 	}
 
@@ -48,7 +48,7 @@ public class ViewPrescriptionPage extends CommonMethod {
 	}
 
 	public boolean verifyAddPatientPage() throws Exception {
-		verifyElementPresent("addpatientPage");
+		verifyElementPresent("viewOrEditPage");
 		return true;
 	}
 }

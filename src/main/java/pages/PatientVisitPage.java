@@ -10,7 +10,7 @@ public class PatientVisitPage extends CommonMethod {
 	}
 
 	public void getPatientsClick() throws Exception {
-		scrollTillElement("patientMenu");
+		scrollTillElement();
 		base.waitForElementToBeClickable("patientMenu", 10);
 		click("patientMenu");
 	}
@@ -28,13 +28,13 @@ public class PatientVisitPage extends CommonMethod {
 	}
 
 	public void getPrimaryComplaint() throws Exception {
-		scrollTillElement("patientVisitPrimaryComplaint");
+		scrollTillElement();
 		base.waitForElementVisibility("patientVisitPrimaryComplaint", 10);
 		enterData("patientVisitPrimaryComplaint", "primaryComplaint");
 	}
 
 	public void clearPrimaryComplaint() throws Exception {
-		scrollTillElement("patientVisitPrimaryComplaint");
+		scrollTillElement();
 		base.waitForElementVisibility("patientVisitPrimaryComplaint", 10);
 		clearData("patientVisitPrimaryComplaint");
 	}

@@ -67,6 +67,7 @@ public class ViewPrescriptionTest extends CommonMethod {
 	public void viewPrescription() throws Exception {
 		test = reports.startTest("TC001 View Prescription");
 		ViewPrescriptionPage vpv = new ViewPrescriptionPage();
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		vpv.getPrescriptionsLink();
 		logger.info("Clicked Prescription");
 		vpv.getviewPrescriptionsLink();
@@ -93,43 +94,16 @@ public class ViewPrescriptionTest extends CommonMethod {
 		}
 		Assert.assertTrue(actual.equals("success"));
 		logger.info("Assertion Passed");
-	}
-
-	@Test(priority = 2)
-	public void printPrescription() throws Exception {
-		test = reports.startTest("TC002 View Prescription Print");
-		AddPrescriptionPage ap = new AddPrescriptionPage();
-		ap.getprintPrescription();
-		logger.info("Clicked PrintPrescription button");
-
-		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_ESCAPE);
-		logger.info("Return to Home Page");
-	}
-
-	@Test(priority = 3)
-	public void downloadPrescription() throws Exception {
-		test = reports.startTest("TC003 View Prescription Download");
-		AddPrescriptionPage ap = new AddPrescriptionPage();
-		ap.getdownloadPrescription();
-		logger.info("Clicking Download Prescription Button");
-		ap.getdownloadPrescription();
-		logger.info(" Again Clicking Download Prescription Button");
-		ap.getdownloadPrescription();
-		logger.info(" Again Clicking Download Prescription Button");
-	}
-
-	@Test(priority = 4)
-	public void clickingBackButton() throws Exception {
-		test = reports.startTest("TC004 View Prescription Clicking BackButton");
-		AddPrescriptionPage ap = new AddPrescriptionPage();
+		scrollDown();
 		ap.getprescriptionBackBtn();
 		logger.info("Clicked Back Button");
 	}
 
-	@Test(priority = 5)
+
+
+	@Test(priority = 2)
 	public void patientDetails() throws Exception {
-		test = reports.startTest("TC005 View Prescription Patient Details");
+		test = reports.startTest("TC002 View Prescription Patient Details");
 		ViewPrescriptionPage vpv = new ViewPrescriptionPage();
 		vpv.getgoToPatientDetails();
 

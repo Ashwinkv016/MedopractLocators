@@ -1,9 +1,9 @@
 package genericPages;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
@@ -20,17 +20,19 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
 
 public class CommonMethod extends MasterPage {
 
 	public static WebDriverWait wait;
 	public static ExtentTest test;
-	public static ExtentReports reports = new ExtentReports("src\\main\\resources\\reports\\ExtentReport.html", false);
-	 
-     
+	public static ExtentReports reports = new ExtentReports("src\\main\\resources\\reports\\ExtentReport.html", true);
+
 	public CommonMethod base;
 
 	public CommonMethod() throws Exception {
@@ -39,19 +41,31 @@ public class CommonMethod extends MasterPage {
 
 	}
 
+	@BeforeSuite
+	public void configuration() {
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formattedDateTime = currentDateTime.format(formatter);
+		System.out.println("Current Date and Time: " + formattedDateTime);
+
+	}
+
+	@AfterSuite
+	public void closure() {
+		reports.flush();
+		driver.quit();
+	}
+
 	// Initializing the browser
 	public void initializeBrowser() throws Exception {
 
 		if (propConfig.getProperty("browser").equalsIgnoreCase("chrome")) {
-			 ChromeOptions o = new ChromeOptions();
-			 o.addArguments("--disable-notifications");
-			 o.addArguments("--remote-allow-origins=*");
-			//System.setProperty("webdriver.chrome.driver",
-				//	System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\chromedriver.exe");
+			ChromeOptions o = new ChromeOptions();
+			o.addArguments("--disable-notifications");
+			o.addArguments("--remote-allow-origins=*");
+			
 			driver = new ChromeDriver(o);
 		} else if (propConfig.getProperty("browser").equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver",
-					System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
 
@@ -60,7 +74,6 @@ public class CommonMethod extends MasterPage {
 		base = new CommonMethod();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.get(propConfig.getProperty("url"));
-		
 
 	}
 
@@ -88,18 +101,18 @@ public class CommonMethod extends MasterPage {
 		}
 
 	}
-	
+
 	// Enter the Locationproperty
-		public void enterLocationproperty(String locatorKey, String testData) {
-			try {
+	public void enterLocationproperty(String locatorKey, String testData) {
+		try {
 
-				getWebElement(locatorKey).sendKeys(propTestData.getProperty(System.getProperty("user.dir") +testData));
-				test.log(LogStatus.PASS, "Enter the : " + locatorKey, "Enter the text into " + testData + " Successfully");
-			} catch (Exception e) {
-				test.log(LogStatus.FAIL, "Enter the : " + locatorKey, "Failed to enter " + testData + e.getMessage());
-			}
-
+			getWebElement(locatorKey).sendKeys(propTestData.getProperty(System.getProperty("user.dir") + testData));
+			test.log(LogStatus.PASS, "Enter the : " + locatorKey, "Enter the text into " + testData + " Successfully");
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, "Enter the : " + locatorKey, "Failed to enter " + testData + e.getMessage());
 		}
+
+	}
 
 	// Select the dropdown values
 	public void selectDropdown(String locatorKey, String testData) {
@@ -206,11 +219,10 @@ public class CommonMethod extends MasterPage {
 	public void scrollDown() {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
-		base.waitForElementVisibility("locatorKey", 10);
 	}
 
 	// Scroll till the Element
-	public void scrollTillElement(String locatorKey) {
+	public void scrollTillElement() {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollTo(0, -document.body.scrollHeight);");
 	}

@@ -12,8 +12,8 @@ public class RegistrationPage extends CommonMethod {
 	}
 
 	public void clickRegisterNow() throws InterruptedException {
-		base.waitForElementToBeClickable("registerNow", 10);
 		scrollDown();
+		base.waitForElementToBeClickable("registerNow", 10);
 		click("registerNow");
 	}
 
@@ -54,7 +54,7 @@ public class RegistrationPage extends CommonMethod {
 
 	public String cnfrmUserNameErrorMsg(String text) throws Exception {
 		verifyElementPresent("cnfrmUserNameErrorMsg");
-		Thread.sleep(1000);
+		base.waitForElementVisibility("cnfrmUserNameErrorMsg", 10);
 		verifyTextPresent("cnfrmUserNameErrorMsg");
 		return text;
 	}
@@ -65,12 +65,13 @@ public class RegistrationPage extends CommonMethod {
 	
 	public String AgreeTermsErrorMsg(String text) throws Exception {
 		verifyElementPresent("agreeTermsRegisterErrorMsg");
-		Thread.sleep(1000);
+		base.waitForElementVisibility("agreeTermsRegisterErrorMsg", 10);
 		verifyTextPresent("agreeTermsRegisterErrorMsg");
 		return text;
 	}
 
 	public void clickRegisterButton(){
+		base.waitForElementToBeClickable("registerBtn", 10);
 		click("registerBtn");
 	}
 	
@@ -86,9 +87,9 @@ public class RegistrationPage extends CommonMethod {
 	}
 
 	public void clickImAlreadyUser() throws InterruptedException{
-		base.waitForElementToBeClickable("alreadyUserRegister", 10);
 		scrollDown();
-		 click("alreadyUserRegister");
+		base.waitForElementToBeClickable("alreadyUserRegister", 10);
+		click("alreadyUserRegister");
 	}
 	public void clickHelp(){
 		 click("helpLogin");

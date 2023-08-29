@@ -11,8 +11,8 @@ public class ReportsPage extends CommonMethod {
 	}
 
 	public void getClickReports() throws Exception {
+		scrollTillElement();
 		base.waitForElementToBeClickable("reportsMenu", 10);
-		scrollTillElement("reportsMenu");
 		 click("reportsMenu");
 	}
 
@@ -46,9 +46,9 @@ public class ReportsPage extends CommonMethod {
 		click("cancelReports");
 	}
 
-	public String verifyReportsdate(String text) throws Exception {
+	public Boolean verifyReportsdate() throws Exception {
 		verifyElementPresent("reportsDate");
-		return text;
+		return true;
 	}
 }
 

@@ -10,7 +10,7 @@ public class AddPrescriptionPage extends CommonMethod {
 	}
 
 	public void getclickPrescription() {
-		scrollTillElement("prescriptionMenu");
+		scrollTillElement();
 		base.waitForElementToBeClickable("prescriptionMenu", 10);
 		click("prescriptionMenu");
 	}
@@ -89,6 +89,8 @@ public class AddPrescriptionPage extends CommonMethod {
 	}
 
 	public void getprintPrescription() {
+		scrollDown();
+		base.waitForElementToBeClickable("printPrescriptionBtn", 10);
 		click("printPrescriptionBtn");
 	}
 

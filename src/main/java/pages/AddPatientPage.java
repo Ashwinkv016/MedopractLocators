@@ -10,7 +10,7 @@ public class AddPatientPage extends CommonMethod {
 	}
 
 	public void clickPatientMenu() throws Exception {
-		scrollTillElement("patientMenu");
+		scrollTillElement();
 		base.waitForElementVisibility("patientMenu", 10);
 		click("patientMenu");
 	}
@@ -25,7 +25,7 @@ public class AddPatientPage extends CommonMethod {
 	}
 
 	public void enterInValiedPatientName() {
-		scrollTillElement("patientName");
+		scrollTillElement();
 		base.waitForElementVisibility("patientName", 10);
 		enterData("patientName", "invalied_PatientName");
 	}

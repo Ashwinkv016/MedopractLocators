@@ -2,5 +2,23 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
+	  
+	  <classes>
+		  <class name="tests.RegistrationTest"></class>
+	      <class name="tests.ForgetPasswordTest"></class>
+	      <class name="tests.HomePageTest"></class>
+	      <class name="tests.HomePageAppointmentTest"></class>
+	      <class name="tests.ToDoListTest"></class>
+	      <class name="tests.AddPatientTest"></class>
+	      <class name="tests.PatientVisitTest"></class>
+	      <class name="tests.ViewOrEditTest"></class>
+	      <class name="tests.AppointmentsCalenderTest"></class>
+	      <class name="tests.AddPrescriptionTest"></class>
+	      <class name="tests.ViewPrescriptionTest"></class>
+	      <class name="tests.AddBillTest"></class>
+	      <class name="tests.ViewBillTest"></class>
+	      <class name="tests.ReportsTest"></class>
+	  
+	  </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

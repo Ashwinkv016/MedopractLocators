@@ -105,7 +105,7 @@ public class ToDoListTest extends CommonMethod {
 		test = reports.startTest("TC003 Without ToDoList TaskDetails");
 		ToDoList tdl = new ToDoList();
 		tdl.clearTaskfield();
-		logger.info("Entering Value");
+		logger.info("Cleared Task Field");
 		tdl.clickAddtask();
 		logger.info("Clicked on Add Task Button");
 		Thread.sleep(2000);
@@ -138,7 +138,6 @@ public class ToDoListTest extends CommonMethod {
 	public void viewCompletedTask() throws Exception {
 		test = reports.startTest("TC003 View Completed Task");
 		ToDoList tdl = new ToDoList();
-		Thread.sleep(10000);
 		tdl.clickViewCompletedTask();
 		logger.info("Clicking on View Completed Task");
 		Thread.sleep(2000);
@@ -159,12 +158,8 @@ public class ToDoListTest extends CommonMethod {
 		ToDoList tdl = new ToDoList();
 		tdl.clickDeleteTask();
 		logger.info("Clicking on Delete Task");
-		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_ENTER);
-		logger.info("Clicking Cancel popup");
-		Thread.sleep(2000);
-
-		Assert.assertTrue(true, tdl.verifyNotification("Record deleted with tasks ID :64c9f813e046e4c0d6c73da6"));
+        alertHandling();
+		Assert.assertTrue(true, tdl.verifyNotification("Record deleted with tasks ID "));
 		logger.info("Assertion Passed");
 
 		tdl.clickCancelNotification();

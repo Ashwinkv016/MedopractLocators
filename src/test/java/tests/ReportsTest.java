@@ -48,10 +48,6 @@ public class ReportsTest extends CommonMethod{
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
 
-		DateFormat date=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-		Date systemDate = new Date(0); 
-		String dateOfSystem=date.format(systemDate);
-		
 		String actual=null;
 		try {
 		if(l.verifyHomePage()) {
@@ -76,6 +72,7 @@ public class ReportsTest extends CommonMethod{
 		ReportsPage rp = new ReportsPage();
 		rp.getClickReports();
 		logger.info("Clicked on Reports");
+		scrollDown();
 		rp.getYearlyTab();
 		logger.info("Clicked on Yearly Tab");
 		rp.getDailyTab();
@@ -108,7 +105,7 @@ public class ReportsTest extends CommonMethod{
 		logger.info("Clicking Add Patient");
 		app.enterValiedPatientName();
 		logger.info("Added Patient's Name");
-		app.enterInValiedPhoneNo();
+		app.enterValiedPhoneNo();
 		logger.info("Added Patient's Phone Number");
 		app.clickGenderField();
 		logger.info("Selected Gender Field");
@@ -159,7 +156,7 @@ public class ReportsTest extends CommonMethod{
 		rp.getClickReports();
 		logger.info("Clicked on Reports");
 		
-		Assert.assertEquals(true, driver.findElement(By.xpath("//div[@class='reports_date__ZqmDS']")));
+		Assert.assertEquals(true,rp.verifyReportsdate());
 		logger.info("Assertion Passed");
 	}
 	

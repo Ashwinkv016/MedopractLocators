@@ -10,7 +10,7 @@ public class AppointmentsCalenderPage extends CommonMethod {
 	}
 
 	public void getClickAppointmentCalender() {
-		scrollTillElement("appointmentsMenu");
+		scrollTillElement();
 		base.waitForElementVisibility("appointmentsMenu", 10);
 		click("appointmentsMenu");
 	}

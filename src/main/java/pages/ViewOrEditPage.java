@@ -25,12 +25,13 @@ public class ViewOrEditPage extends CommonMethod{
 	}
 
 	public void clickPatientList() {
+		 base.waitForElementToBeClickable("viewOrEditListClick", 10);
 		 click("viewOrEditListClick");
 	}
 
 	public void clickUpdateBtn() throws InterruptedException {
-         base.waitForElementToBeClickable("viewOrEditUpdate", 10);
-		 scrollDown();
+		scrollDown();
+		 base.waitForElementToBeClickable("viewOrEditUpdate", 10);
 		 click("viewOrEditUpdate");
 	}
 

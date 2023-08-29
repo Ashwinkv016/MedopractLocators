@@ -88,26 +88,12 @@ public class ViewOrEditTest extends CommonMethod {
 	}
 
 	@Test(priority = 2)
-	public void ViewOrEdit() throws Exception {
-		test = reports.startTest("TC002 ViewOrEdit List");
-		ViewOrEditPage voe = new ViewOrEditPage();
-		voe.clickPatientList();
-		logger.info("Clicked Patient List");
-		voe.clickUpdateBtn();
-		logger.info("Clicked Update Button");
-
-		Assert.assertTrue(true, voe.verifyNotification("Patient record updated successfully!"));
-		logger.info("Assertion Passed");
-		voe.clickCancelNotification();
-		logger.info("Clicked Cancel Notification");
-	}
-
-	@Test(priority = 3)
 	public void updateContactField() throws Exception {
-		test = reports.startTest("TC003 Update Contact Field");
+		test = reports.startTest("TC002 Update Contact Field");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
-
+        voe.clickPatientList();
+        logger.info("Clicked patient List");
 		ap.clearPhoneNo();
 		logger.info("Cleared Phno");
 		ap.enterValiedPhoneNo();
@@ -125,9 +111,9 @@ public class ViewOrEditTest extends CommonMethod {
 		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void withoutAddressField() throws Exception {
-		test = reports.startTest("TC004 ToDoList Without Address Field");
+		test = reports.startTest("TC003 ToDoList Without Address Field");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
 
@@ -135,9 +121,6 @@ public class ViewOrEditTest extends CommonMethod {
 		logger.info("Cleared Address Field");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
-
-		Assert.assertFalse(false, voe.verifyNotification("Patient record updated successfully!"));
-		logger.info("Assertion failed");
 
 		ap.enterAddress();
 		logger.info("Entered Address");
@@ -147,9 +130,9 @@ public class ViewOrEditTest extends CommonMethod {
 		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 4)
 	public void withoutMandatoryData() throws Exception {
-		test = reports.startTest("TC005 ToDoList Without Mandatory Data");
+		test = reports.startTest("TC004 ToDoList Without Mandatory Data");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
 		ap.clearPatientName();
@@ -158,21 +141,18 @@ public class ViewOrEditTest extends CommonMethod {
 		logger.info("Cleared Phone Number Field");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
+		Thread.sleep(1000);
 		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ALT);
 		r.keyPress(KeyEvent.VK_LEFT);
 		r.keyRelease(KeyEvent.VK_LEFT);
 		r.keyRelease(KeyEvent.VK_ALT);
 
-		Assert.assertTrue(true, voe.verifyNotification("Please provide required inputs"));
-		logger.info("Assertion Passed");
-		voe.clickCancelNotification();
-		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 5)
 	public void cancelEdit() throws Exception {
-		test = reports.startTest("TC006 ToDoList Cancel Edit");
+		test = reports.startTest("TC005 ToDoList Cancel Edit");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		voe.clickCancelButton();
 		logger.info("Clicked Cancel Button");

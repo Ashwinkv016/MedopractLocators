@@ -54,7 +54,7 @@ public class HomePage extends CommonMethod{
 	}
 	
 	public void verifyHomeMenu() throws Exception  {
-		scrollTillElement("homePageTitle");
+		scrollTillElement();
 		base.waitForElementVisibility("homePageTitle", 10);
 		verifyElementPresent("homePageTitle");
 	}
