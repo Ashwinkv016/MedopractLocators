@@ -7,6 +7,7 @@
 		  <class name="tests.RegistrationTest"></class>
 	      <class name="tests.ForgetPasswordTest"></class>
 	      <class name="tests.HomePageTest"></class>
+	       <class name="tests.LoginTest"></class>
 	      <class name="tests.HomePageAppointmentTest"></class>
 	      <class name="tests.ToDoListTest"></class>
 	      <class name="tests.AddPatientTest"></class>

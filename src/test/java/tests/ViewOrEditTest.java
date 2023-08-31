@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -77,8 +79,7 @@ public class ViewOrEditTest extends CommonMethod {
 		logger.info("Entered Patient Name");
 		voe.clickDeleteButton();
 		logger.info("Clicked delete button");
-		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_ENTER);
+		alertHandling();
 		logger.info("Pressed Enter");
 
 		Assert.assertTrue(true, voe.verifyNotification("Patient record deleted successfully!"));
@@ -92,8 +93,9 @@ public class ViewOrEditTest extends CommonMethod {
 		test = reports.startTest("TC002 Update Contact Field");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
-        voe.clickPatientList();
-        logger.info("Clicked patient List");
+		voe.clickPatientList();
+		logger.info("Clicked patient List");
+        scrollTillElement();
 		ap.clearPhoneNo();
 		logger.info("Cleared Phno");
 		ap.enterValiedPhoneNo();
@@ -117,17 +119,14 @@ public class ViewOrEditTest extends CommonMethod {
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
 
+		scrollTillElement();
+		Thread.sleep(1000);
 		ap.clearAddress();
 		logger.info("Cleared Address Field");
+		Thread.sleep(1000);
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
 
-		ap.enterAddress();
-		logger.info("Entered Address");
-		voe.clickUpdateBtn();
-		logger.info("Clicked Update Button");
-		voe.clickCancelNotification();
-		logger.info("Clicked Cancel Notification");
 	}
 
 	@Test(priority = 4)
@@ -139,15 +138,22 @@ public class ViewOrEditTest extends CommonMethod {
 		logger.info("Cleared Name Field");
 		ap.clearPhoneNo();
 		logger.info("Cleared Phone Number Field");
+		ap.enterAddress();
+		logger.info("Entered Address");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
-		Thread.sleep(1000);
-		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_ALT);
-		r.keyPress(KeyEvent.VK_LEFT);
-		r.keyRelease(KeyEvent.VK_LEFT);
-		r.keyRelease(KeyEvent.VK_ALT);
-
+		Thread.sleep(2000);
+		
+		 Robot r = new Robot();
+         r.keyPress(KeyEvent.VK_ALT);
+         r.keyPress(KeyEvent.VK_LEFT);
+         r.keyRelease(KeyEvent.VK_LEFT);
+         r.keyRelease(KeyEvent.VK_ALT);	
+         
+         Assert.assertTrue(true, voe.verifyNotification("Please provide required inputs"));
+ 		logger.info("Assertion Passed");
+ 		voe.clickCancelNotification();
+ 		logger.info("Clicked Cancel Notification");
 	}
 
 	@Test(priority = 5)

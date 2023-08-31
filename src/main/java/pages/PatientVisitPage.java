@@ -20,7 +20,7 @@ public class PatientVisitPage extends CommonMethod {
 	}
 
 	public void getPatientVisitName() {
-		enterData("patientVisitName", "valied_PatientName");
+		enterData("patientName", "valied_PatientName");
 	}
 
 	public void getpatientVisitNameSuggestions() {
@@ -39,8 +39,9 @@ public class PatientVisitPage extends CommonMethod {
 		clearData("patientVisitPrimaryComplaint");
 	}
 
-	public void getClickingSymptomsPlusSign() {
+	public void getClickingSymptomsPlusSign() throws InterruptedException {
 		base.waitForElementToBeClickable("patientVisitSymptomsPlusSign", 10);
+		Thread.sleep(1000);
 		click("patientVisitSymptomsPlusSign");
 	}
 
@@ -77,8 +78,9 @@ public class PatientVisitPage extends CommonMethod {
 		enterData("patientVisitInvestigations", "investigations2");
 	}
 
-	public void getClickingInvestigationPlusSign() {
+	public void getClickingInvestigationPlusSign() throws InterruptedException {
 		base.waitForElementToBeClickable("patientVisitInvestigationsPlusSign", 10);
+		Thread.sleep(1000);
 		click("patientVisitInvestigationsPlusSign");
 	}
 
@@ -120,10 +122,12 @@ public class PatientVisitPage extends CommonMethod {
 	}
 
 	public void getAddAppointment() {
+		base.waitForElementToBeClickable("followUpAddAppointment", 10);
 		click("followUpAddAppointment");
 	}
 
 	public void getVisitReason() {
+		base.waitForElementVisibility("followVisitReason", 10);
 		enterData("followVisitReason", "patient_VisitReason1");
 	}
 

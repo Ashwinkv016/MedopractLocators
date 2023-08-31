@@ -76,9 +76,11 @@ public class RegistrationPage extends CommonMethod {
 	}
 	
 	
-	public boolean registrationSuccessMsg() throws Exception {
+	public String registrationSuccessMsg(String text) throws Exception {
 		verifyElementPresent("registrationSuccessMsg");
-		return true;
+		base.waitForElementVisibility("registrationSuccessMsg", 10);
+		verifyTextPresent("registrationSuccessMsg");
+		return text;
 	}
 	
 	
@@ -92,6 +94,7 @@ public class RegistrationPage extends CommonMethod {
 		click("alreadyUserRegister");
 	}
 	public void clickHelp(){
+		scrollTillElement();
 		 click("helpLogin");
 	}
 

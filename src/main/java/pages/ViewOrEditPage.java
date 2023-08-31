@@ -17,7 +17,7 @@ public class ViewOrEditPage extends CommonMethod{
 	}
 
 	public void enterPatientName() {
-		enterData("viewOrEditPatientname","valied_PatientName");
+		enterData("patientName","valied_PatientName");
 	}
 
 	public void enterPatientPhno() {
@@ -30,17 +30,19 @@ public class ViewOrEditPage extends CommonMethod{
 	}
 
 	public void clickUpdateBtn() throws InterruptedException {
-		scrollDown();
+		 scrollDown();
 		 base.waitForElementToBeClickable("viewOrEditUpdate", 10);
 		 click("viewOrEditUpdate");
 	}
 
 	public void clickCancelButton() {
+		 base.waitForElementToBeClickable("viewOrEditCancel", 10);
 		 click("viewOrEditCancel");
 	}
 	
-    public void clickDeleteButton() {
+    public void clickDeleteButton() throws InterruptedException {
     	 base.waitForElementToBeClickable("viewOrEditDelete", 10);
+    	 Thread.sleep(1000);
 	     click("viewOrEditDelete");
     }
    

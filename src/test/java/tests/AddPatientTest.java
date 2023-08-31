@@ -58,7 +58,7 @@ public class AddPatientTest extends CommonMethod {
 		Assert.assertTrue(actual.equals("success"));
 		logger.info("Assertion Passed");
 	}
-	
+
 	@Test(priority = 1)
 	public void withoutMandatoryAllData() throws Exception {
 		test = reports.startTest("TC001 Without Mandatory All Field");
@@ -79,7 +79,7 @@ public class AddPatientTest extends CommonMethod {
 	@Test(priority = 2)
 	public void AddPatient() throws Exception {
 		test = reports.startTest("TC002 Add Patient Test");
-		 driver.navigate().refresh();
+		driver.navigate().refresh();
 		AddPatientPage app = new AddPatientPage();
 		app.clickPatientMenu();
 		logger.info("Clicking Patients");
@@ -134,7 +134,7 @@ public class AddPatientTest extends CommonMethod {
 	}
 
 	@Test(priority = 3)
-	public void resetPatientData() throws Exception {
+	public void resetPatientWithData() throws Exception {
 		test = reports.startTest("TC003 Reset patient data");
 		AddPatientPage app = new AddPatientPage();
 
@@ -143,10 +143,23 @@ public class AddPatientTest extends CommonMethod {
 
 	}
 
-
 	@Test(priority = 4)
+	public void resetPatientWithoutData() throws Exception {
+		test = reports.startTest("TC004 Reset patient Without Data");
+		driver.navigate().refresh();
+		AddPatientPage app = new AddPatientPage();
+		app.clickPatientMenu();
+		logger.info("Clicking Patients");
+		app.clickAddPatient();
+		logger.info("Clicking Add Patient");
+		app.clickPatientResetBtn();
+		logger.info("Clicked Reset Button");
+
+	}
+
+	@Test(priority = 5)
 	public void nameWithSpecialCharacter() throws Exception {
-		test = reports.startTest("TC004 Patient Name with Special Character");
+		test = reports.startTest("TC005 Patient Name with Special Character");
 		AddPatientPage app = new AddPatientPage();
 		app.enterInValiedPatientName();
 		logger.info("Added Patient's Name");
@@ -157,10 +170,15 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Assertion Passed");
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void withIncorrectPhoneNo() throws Exception {
-		test = reports.startTest("TC005 Add Patient with Incorrect Phno");
+		test = reports.startTest("TC006 Add Patient with Incorrect Phno");
+		driver.navigate().refresh();
 		AddPatientPage app = new AddPatientPage();
+		app.clickPatientMenu();
+		logger.info("Clicking Patients");
+		app.clickAddPatient();
+		logger.info("Clicking Add Patient");
 		app.clearPatientName();
 		logger.info("Cleared Patient's Name");
 		app.clearPhoneNo();
@@ -173,11 +191,16 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Assertion Passed");
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 7)
 	public void sameContactNoInEmergencyField() throws Exception {
-		test = reports.startTest("TC006 Add Patient with Same ContactNo in Emergency Field");
+		test = reports.startTest("TC007 Add Patient with Same ContactNo in Emergency Field");
+		driver.navigate().refresh();
 		AddPatientPage app = new AddPatientPage();
-		app.enterValiedPatientName();
+		app.clickPatientMenu();
+		logger.info("Clicking Patients");
+		app.clickAddPatient();
+		logger.info("Clicking Add Patient");
+		app.enterPatientName();
 		logger.info("Added Patient's Name");
 		app.clearPhoneNo();
 		app.enterValiedPhoneNo();

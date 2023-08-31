@@ -16,6 +16,7 @@ public class ToDoList extends CommonMethod {
 	}
 
 	public void enterTaskfield() {
+		base.waitForElementVisibility("toDoTaskField", 10);
 		enterData("toDoTaskField", "patient_TaskDetails");
 	}
 
@@ -46,7 +47,7 @@ public class ToDoList extends CommonMethod {
 	}
 
 	public void clickCompleteTaskField() throws Exception {
-		scrollDown();
+	    scrollDown();
 		base.waitForElementToBeClickable("toDoCompleteTask", 10);
 		click("toDoCompleteTask");
 	}

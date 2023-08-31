@@ -20,6 +20,7 @@ public class AddPrescriptionPage extends CommonMethod {
 	}
 
 	public void getpatientNameSuggestion() {
+		base.waitForElementToBeClickable("prescriptionNameFieldSugg", 10);
 		click("prescriptionNameFieldSugg");
 	}
 

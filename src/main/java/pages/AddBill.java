@@ -24,8 +24,8 @@ public class AddBill extends CommonMethod {
 	}
 
 	public void clickPatientNameSugg() {
-		base.waitForElementVisibility("billingPatientNameSugg", 10);
-		click("billingPatientNameSugg");
+		base.waitForElementVisibility("addBillingPatientNameSugg", 10);
+		click("addBillingPatientNameSugg");
 	}
 
 	public void enterEmail() {
@@ -76,7 +76,7 @@ public class AddBill extends CommonMethod {
 
 	public void clickbillItemDetailsPlusSign() {
 		base.waitForElementVisibility("billItemDetailsPlusBtn", 10);
-		scrollTillElement();
+		//scrollTillElement();
 		base.waitForElementToBeClickable("billItemDetailsPlusBtn", 10);
 		click("billItemDetailsPlusBtn");
 	}
@@ -154,6 +154,7 @@ public class AddBill extends CommonMethod {
 
 	public void clickBillBackBtn() {
 		scrollDown();
+		base.waitForElementVisibility("billBackBtn", 10);
 		base.waitForElementToBeClickable("billBackBtn", 10);
 		click("billBackBtn");
 	}

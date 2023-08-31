@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.DoctorProfileTest">
+      <class name="tests.LoginTestDDT">
         <methods>
-          <include name="configuration"/>
-          <include name="saveDoctorprofile"/>
           <include name="openApplication"/>
+          <include name="closeBrowser"/>
+          <include name="configuration"/>
+          <include name="login" invocation-numbers="1 2 3"/>
           <include name="closure"/>
         </methods>
-      </class> <!-- tests.DoctorProfileTest -->
+      </class> <!-- tests.LoginTestDDT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

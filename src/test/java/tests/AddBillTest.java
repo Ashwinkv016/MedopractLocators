@@ -18,7 +18,7 @@ public class AddBillTest extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	Logger logger = LogManager.getLogger("AddBillTest.class");
+	Logger logger = LogManager.getLogger(AddBillTest.class);
 
 	@BeforeClass
 	public void openApplication() throws Exception {
@@ -112,7 +112,6 @@ public class AddBillTest extends CommonMethod {
 		ab.clickCancelNotification();
 		logger.info("Clicked cancel Notification");
 
-		scrollDown();
 		ab.clickBillBackBtn();
 		logger.info("Clicked Bill Back Btn");
 
@@ -145,6 +144,7 @@ public class AddBillTest extends CommonMethod {
 		logger.info("Entered Bill Qty");
 		ab.billRate();
 		logger.info("Entered bill Rate");
+		scrollTillElement();
 		ab.clickbillItemDetailsPlusSign();
 		logger.info("Clicked Bill plus sign");
 		ab.billdescription();
@@ -170,8 +170,11 @@ public class AddBillTest extends CommonMethod {
 		logger.info("Clicked cancel Notification");
 	
 		ab.clearBilldescription();
+		logger.info("Cleared Bill Description");
 		ab.clearBillQty();
+		logger.info("Cleared Bill Qty");
 		ab.clearBillRate();
+		logger.info("Cleared Bill Rate");
 	}
 	
 	@Test(priority = 4)

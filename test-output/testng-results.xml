@@ -1,29 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-29T14:05:12 IST" name="Default suite" finished-at="2023-08-29T14:05:23 IST" duration-ms="11659">
+  <suite started-at="2023-08-31T13:29:51 IST" name="Default suite" finished-at="2023-08-31T13:30:31 IST" duration-ms="40590">
     <groups>
     </groups>
-    <test started-at="2023-08-29T14:05:12 IST" name="Default test" finished-at="2023-08-29T14:05:23 IST" duration-ms="11659">
-      <class name="tests.DoctorProfileTest">
-        <test-method is-config="true" signature="configuration()[pri:0, instance:tests.DoctorProfileTest@7188af83]" started-at="2023-08-29T14:05:12 IST" name="configuration" finished-at="2023-08-29T14:05:12 IST" duration-ms="12" status="PASS">
+    <test started-at="2023-08-31T13:29:51 IST" name="Default test" finished-at="2023-08-31T13:30:31 IST" duration-ms="40590">
+      <class name="tests.LoginTestDDT">
+        <test-method is-config="true" signature="configuration()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:29:51 IST" name="configuration" finished-at="2023-08-31T13:29:51 IST" duration-ms="12" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configuration -->
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:tests.DoctorProfileTest@7188af83]" started-at="2023-08-29T14:05:12 IST" name="openApplication" finished-at="2023-08-29T14:05:20 IST" duration-ms="8479" status="PASS">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:29:51 IST" name="openApplication" finished-at="2023-08-31T13:29:54 IST" duration-ms="3622" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method signature="saveDoctorprofile()[pri:1, instance:tests.DoctorProfileTest@7188af83]" started-at="2023-08-29T14:05:20 IST" name="saveDoctorprofile" finished-at="2023-08-29T14:05:23 IST" duration-ms="3155" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:29:54 IST" name="login" data-provider="LoginData" finished-at="2023-08-31T13:30:04 IST" duration-ms="9349" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ashwinkv016]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ashwinkv016]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[successful]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- saveDoctorprofile -->
-        <test-method is-config="true" signature="closure()[pri:0, instance:tests.DoctorProfileTest@7188af83]" started-at="2023-08-29T14:05:23 IST" name="closure" finished-at="2023-08-29T14:05:24 IST" duration-ms="295" status="PASS">
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:04 IST" name="closeBrowser" finished-at="2023-08-31T13:30:04 IST" duration-ms="368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:04 IST" name="openApplication" finished-at="2023-08-31T13:30:07 IST" duration-ms="2674" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApplication -->
+        <test-method signature="login(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:07 IST" name="login" data-provider="LoginData" finished-at="2023-08-31T13:30:12 IST" duration-ms="5335" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ashwin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ashwinkv016]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[failure]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:12 IST" name="closeBrowser" finished-at="2023-08-31T13:30:12 IST" duration-ms="178" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:12 IST" name="openApplication" finished-at="2023-08-31T13:30:15 IST" duration-ms="3035" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApplication -->
+        <test-method signature="login(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:15 IST" name="login" data-provider="LoginData" finished-at="2023-08-31T13:30:21 IST" duration-ms="5358" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ashwinkv016]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ashwin]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[failure]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:21 IST" name="closeBrowser" finished-at="2023-08-31T13:30:21 IST" duration-ms="150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:21 IST" name="openApplication" finished-at="2023-08-31T13:30:26 IST" duration-ms="4994" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApplication -->
+        <test-method signature="login(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:26 IST" name="login" data-provider="LoginData" finished-at="2023-08-31T13:30:31 IST" duration-ms="5269" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[failure]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:31 IST" name="closeBrowser" finished-at="2023-08-31T13:30:31 IST" duration-ms="226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="closure()[pri:0, instance:tests.LoginTestDDT@7ae0a9ec]" started-at="2023-08-31T13:30:31 IST" name="closure" finished-at="2023-08-31T13:30:31 IST" duration-ms="94" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closure -->
-      </class> <!-- tests.DoctorProfileTest -->
+      </class> <!-- tests.LoginTestDDT -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

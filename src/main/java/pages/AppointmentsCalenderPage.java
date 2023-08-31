@@ -116,15 +116,21 @@ public class AppointmentsCalenderPage extends CommonMethod {
 		click("appCalenderAgendaBtn");
 	}
 
-	public void getTodayButton() {
+	public void getTodayButton() throws InterruptedException {
+		base.waitForElementToBeClickable("appCalenderTodayBtn", 10);
+		Thread.sleep(1000);
 		click("appCalenderTodayBtn");
 	}
 
-	public void getBackButton() {
+	public void getBackButton() throws InterruptedException {
+		base.waitForElementToBeClickable("appCalenderBackBtn", 10);
+		Thread.sleep(1000);
 		click("appCalenderBackBtn");
 	}
 
-	public void getNextButton() {
+	public void getNextButton() throws InterruptedException {
+		base.waitForElementToBeClickable("appCalenderNextBtn", 10);
+		Thread.sleep(1000);
 		click("appCalenderNextBtn");
 	}
 
@@ -143,7 +149,9 @@ public class AppointmentsCalenderPage extends CommonMethod {
 		click("appCalenderAgendaexistingApp");
 	}
 
-	public void getcancelExistingAppointment() {
+	public void getcancelExistingAppointment() throws InterruptedException {
+		base.waitForElementToBeClickable("appCalenderCancelExistingApp", 10);
+		Thread.sleep(1000);
 		click("appCalenderCancelExistingApp");
 	}
 

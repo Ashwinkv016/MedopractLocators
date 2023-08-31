@@ -44,7 +44,7 @@ public class LoginPage extends CommonMethod {
 		click("remenberMeLogin");
 	}
 
-	public void clickSubmitLoginBtn()  {
+	public void clickSubmitLoginBtn() {
 		scrollDown();
 		base.waitForElementVisibility("submitLogin", 10);
 		click("submitLogin");
@@ -57,7 +57,7 @@ public class LoginPage extends CommonMethod {
 		click("logoutBtn");
 	}
 
-	public String verifyNotification(String text) throws Exception  {
+	public String verifyNotification(String text) throws Exception {
 		verifyElementPresent("notification");
 		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
@@ -70,7 +70,7 @@ public class LoginPage extends CommonMethod {
 	}
 
 	public boolean verifyHomePage() throws Exception {
-		scrollDown();
+        scrollTillElement();
 		base.waitForElementVisibility("homePageTitle", 10);
 		verifyElementPresent("homePageTitle");
 		return true;

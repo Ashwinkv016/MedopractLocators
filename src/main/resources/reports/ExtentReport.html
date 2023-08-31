@@ -53,7 +53,7 @@
 					<i class='mdi-hardware-desktop-windows'></i>
 				</li>
 				<li>
-					<span class='suite-started-time'>2023-08-29 14:05:23</span>
+					<span class='suite-started-time'>2023-08-31 13:30:31</span>
 				</li>
 				<li>
 					<span>v2.41.1</span>
@@ -83,25 +83,25 @@
 					<div class='col l2 m4 s12'>
 						<div class='card suite-total-time-current'> 
 							<span class='panel-name'>Total Time Taken (Current Run)</span> 
-							<span class='suite-total-time-current-value panel-lead'>0h 0m 12s+23ms</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 0m 40s+837ms</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s12'>
 						<div class='card suite-total-time-overall'> 
 							<span class='panel-name'>Total Time Taken (Overall)</span> 
-							<span class='suite-total-time-overall-value panel-lead'>0h 0m 12s+23ms</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 0m 40s+837ms</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s6 suite-start-time'>
 						<div class='card accent green-accent'> 
 							<span class='panel-name'>Start</span> 
-							<span class='panel-lead suite-started-time'>2023-08-29 14:05:11</span> 
+							<span class='panel-lead suite-started-time'>2023-08-31 13:29:50</span> 
 						</div> 
 					</div>
 					<div class='col l2 m4 s6 suite-end-time'>
 						<div class='card accent pink-accent'> 
 							<span class='panel-name'>End</span> 
-							<span class='panel-lead suite-ended-time'>2023-08-29 14:05:23</span> 
+							<span class='panel-lead suite-ended-time'>2023-08-31 13:30:31</span> 
 						</div> 
 					</div>
 				</div>
@@ -206,6 +206,7 @@
 									<li class='pass'><a href='#!'>Pass</a></li>
 									<li class='fail'><a href='#!'>Fail</a></li>
 									<li class='skip'><a href='#!'>Skip</a></li>
+										<li class='unknown'><a href='#!'>Unknown</a></li>
 									<li class='divider'></li>
 									<li class='clear'><a href='#!'>Clear Filters</a></li>
 								</ul>
@@ -237,17 +238,49 @@
 						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
 							<div class='wrapper'>
 								<ul id='test-collection' class='test-collection'>
-										<li class='collection-item test displayed active pass ' extentid='3cf73e3c-a8cb-4ad0-8e36-232ede31cb2f'>
+										<li class='collection-item test displayed active unknown ' extentid='f62a9a00-e5c7-4ef7-a596-cb27e1fba9f9'>
 											<div class='test-head'>
 												<span class='test-name'>Open Application </span>
+												<span class='test-status label right outline capitalize unknown'>unknown</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:29:51</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1b5b970b-81f2-454f-82eb-09ad22608834'>
+											<div class='test-head'>
+												<span class='test-name'>Login Operation through Data Driven </span>
 												<span class='test-status label right outline capitalize pass'>pass</span>
 												<span class='category-assigned hide '></span>
 											</div>
 											<div class='test-body'>
 												<div class='test-info'>
-													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-29 14:05:12</span>
-													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
-													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:29:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2023-08-31 13:30:04</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 9s+479ms</span>
 												</div>
 												<div class='test-desc'></div>
 												<div class='test-attributes'>
@@ -265,58 +298,52 @@
 														<tbody>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:15</td>
+																	<td class='timestamp'>13:29:54</td>
 																		<td class='step-name'>Click on the element: gotItBtn</td>
 																	<td class='step-details'>Click on the element gotItBtn Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:16</td>
-																		<td class='step-name'>Wait for the element to be visible userLogin</td>
-																	<td class='step-details'>The element visible userLogin Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:16</td>
-																		<td class='step-name'>Enter the : userLogin</td>
-																	<td class='step-details'>Enter the text into valied_UserName Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:16</td>
-																		<td class='step-name'>Enter the : passLogin</td>
-																	<td class='step-details'>Enter the text into valied_Password Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:16</td>
-																		<td class='step-name'>Click on the element: remenberMeLogin</td>
-																	<td class='step-details'>Click on the element remenberMeLogin Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:17</td>
+																	<td class='timestamp'>13:29:58</td>
 																		<td class='step-name'>Wait for the element to be visible submitLogin</td>
 																	<td class='step-details'>The element visible submitLogin Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:18</td>
+																	<td class='timestamp'>13:29:58</td>
 																		<td class='step-name'>Click on the element: submitLogin</td>
 																	<td class='step-details'>Click on the element submitLogin Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:20</td>
+																	<td class='timestamp'>13:30:01</td>
 																		<td class='step-name'>Wait for the element to be visible homePageTitle</td>
 																	<td class='step-details'>The element visible homePageTitle Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:20</td>
+																	<td class='timestamp'>13:30:01</td>
 																		<td class='step-name'>Verify element presence:homePageTitle</td>
 																	<td class='step-details'>Text 'MedoPract
 Managing your Medical Practice made easy' is displayed Successfully<a href='screenshots\homePageTitle.png' data-featherlight='image'><img class='report-img' src='screenshots\homePageTitle.png' /></a></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:30:02</td>
+																		<td class='step-name'>Wait for the element to be visible logoutBtn</td>
+																	<td class='step-details'>The element visible logoutBtn Successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:30:03</td>
+																		<td class='step-name'>Wait for the Element to be clickable: logoutBtn</td>
+																	<td class='step-details'>The element clicked logoutBtn Successfully</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:30:04</td>
+																		<td class='step-name'>Click on the element: logoutBtn</td>
+																	<td class='step-details'>Click on the element logoutBtn Successfully</td>
 																</tr>
 														</tbody>
 													</table>
@@ -325,17 +352,49 @@ Managing your Medical Practice made easy' is displayed Successfully<a href='scre
 												</div>
 											</div>
 										</li>
-										<li class='collection-item test displayed active fail ' extentid='32d52733-d48d-4c1a-b13f-d07d029d4755'>
+										<li class='collection-item test displayed active unknown ' extentid='6fb4913a-08e5-4a83-9c8e-cce67ce36ad0'>
 											<div class='test-head'>
-												<span class='test-name'>TC001 Save DoctorProfile </span>
-												<span class='test-status label right outline capitalize fail'>fail</span>
+												<span class='test-name'>Open Application </span>
+												<span class='test-status label right outline capitalize unknown'>unknown</span>
 												<span class='category-assigned hide '></span>
 											</div>
 											<div class='test-body'>
 												<div class='test-info'>
-													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-29 14:05:20</span>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:30:04</span>
 													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
 													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='decc6dbc-c56f-4623-b59f-97b46b69ef2b'>
+											<div class='test-head'>
+												<span class='test-name'>Login Operation through Data Driven </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:30:07</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2023-08-31 13:30:12</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 5s+491ms</span>
 												</div>
 												<div class='test-desc'></div>
 												<div class='test-attributes'>
@@ -353,95 +412,187 @@ Managing your Medical Practice made easy' is displayed Successfully<a href='scre
 														<tbody>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:21</td>
-																		<td class='step-name'>Wait for the Element to be clickable: doctorMenu</td>
-																	<td class='step-details'>The element clicked doctorMenu Successfully</td>
+																	<td class='timestamp'>13:30:07</td>
+																		<td class='step-name'>Click on the element: gotItBtn</td>
+																	<td class='step-details'>Click on the element gotItBtn Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:21</td>
-																		<td class='step-name'>Click on the element: doctorMenu</td>
-																	<td class='step-details'>Click on the element doctorMenu Successfully</td>
+																	<td class='timestamp'>13:30:10</td>
+																		<td class='step-name'>Wait for the element to be visible submitLogin</td>
+																	<td class='step-details'>The element visible submitLogin Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:21</td>
-																		<td class='step-name'>Enter the : doctorGender</td>
-																	<td class='step-details'>Enter the text into Gender Successfully</td>
+																	<td class='timestamp'>13:30:10</td>
+																		<td class='step-name'>Click on the element: submitLogin</td>
+																	<td class='step-details'>Click on the element submitLogin Successfully</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active unknown ' extentid='2c90260d-347a-48aa-bb03-0cbfca1ee837'>
+											<div class='test-head'>
+												<span class='test-name'>Open Application </span>
+												<span class='test-status label right outline capitalize unknown'>unknown</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:30:12</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='7f45911f-80d8-474e-9d2a-caa844a06e4b'>
+											<div class='test-head'>
+												<span class='test-name'>Login Operation through Data Driven </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:30:15</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2023-08-31 13:30:21</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 5s+484ms</span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																	<th>StepName</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:30:15</td>
+																		<td class='step-name'>Click on the element: gotItBtn</td>
+																	<td class='step-details'>Click on the element gotItBtn Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:21</td>
-																		<td class='step-name'>Enter the : doctorBirthDate</td>
-																	<td class='step-details'>Enter the text into DateOfBirth Successfully</td>
+																	<td class='timestamp'>13:30:19</td>
+																		<td class='step-name'>Wait for the element to be visible submitLogin</td>
+																	<td class='step-details'>The element visible submitLogin Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : doctorQualification</td>
-																	<td class='step-details'>Enter the text into Qualification Successfully</td>
+																	<td class='timestamp'>13:30:19</td>
+																		<td class='step-name'>Click on the element: submitLogin</td>
+																	<td class='step-details'>Click on the element submitLogin Successfully</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active unknown ' extentid='9e5b410b-b9d6-467e-be4b-86eb1930e8be'>
+											<div class='test-head'>
+												<span class='test-name'>Open Application </span>
+												<span class='test-status label right outline capitalize unknown'>unknown</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:30:21</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='91d74ebb-6181-4dee-8f8c-d59e359c29d0'>
+											<div class='test-head'>
+												<span class='test-name'>Login Operation through Data Driven </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2023-08-31 13:30:26</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2023-08-31 13:30:31</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 5s+447ms</span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																	<th>StepName</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>13:30:26</td>
+																		<td class='step-name'>Click on the element: gotItBtn</td>
+																	<td class='step-details'>Click on the element gotItBtn Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : doctorMobileNo</td>
-																	<td class='step-details'>Enter the text into doctorPhno Successfully</td>
+																	<td class='timestamp'>13:30:29</td>
+																		<td class='step-name'>Wait for the element to be visible submitLogin</td>
+																	<td class='step-details'>The element visible submitLogin Successfully</td>
 																</tr>
 																<tr>
 																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : hospitalName</td>
-																	<td class='step-details'>Enter the text into Hospitalname Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : hospitalPhno</td>
-																	<td class='step-details'>Enter the text into valied_PhoneNo1 Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : hospitalFax</td>
-																	<td class='step-details'>Enter the text into Fax Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : hospitalAddress</td>
-																	<td class='step-details'>Enter the text into HospitalAddress Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : hospitalCity</td>
-																	<td class='step-details'>Enter the text into City Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : hospitalState</td>
-																	<td class='step-details'>Enter the text into State Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
-																	<td class='timestamp'>14:05:22</td>
-																		<td class='step-name'>Enter the : hospitalPinCode</td>
-																	<td class='step-details'>Enter the text into Pin Successfully</td>
-																</tr>
-																<tr>
-																	<td class='status fail' title='fail' alt='fail'><i class='mdi-navigation-cancel'></i></td>
-																	<td class='timestamp'>14:05:23</td>
-																		<td class='step-name'>Click on the element: saveChangesBtn</td>
-																	<td class='step-details'>Failed to click on the element saveChangesBtnelement click intercepted: Element is not clickable at point (358, 814)
-  (Session info: chrome=116.0.5845.111)
-Build info: version: '4.11.0', revision: '040bc5406b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [dd5ea1ee8d7ac73f790c3ec944bdfffa, clickElement {id=572E9E7D7C8B9137D4A19D0246404756_element_54}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.111, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62050}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62050/devtoo..., se:cdpVersion: 116.0.5845.111, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (dd5ea1ee8d7ac73f790c3ec944bdfffa)] -> xpath: //button[text()='Save Changes']]
-Session ID: dd5ea1ee8d7ac73f790c3ec944bdfffa</td>
+																	<td class='timestamp'>13:30:29</td>
+																		<td class='step-name'>Click on the element: submitLogin</td>
+																	<td class='step-details'>Click on the element submitLogin Successfully</td>
 																</tr>
 														</tbody>
 													</table>

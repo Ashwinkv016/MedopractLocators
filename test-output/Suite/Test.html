@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>74/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>81/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 28 14:37:19 IST 2023</td>
+<td>Started on:</td><td>Wed Aug 30 14:25:57 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>636 seconds (636071 ms)</td>
+<tr><td>Total time:</td><td>651 seconds (651627 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,56 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='tests.ToDoListTest.deleteTask()'><b>deleteTask</b><br>Test class: tests.ToDoListTest</td>
-<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because the return value of &quot;genericPages.CommonMethod.getWebElement(String)&quot; is null
-	at genericPages.CommonMethod.verifyElementPresent(CommonMethod.java:271)
-	at pages.ToDoList.verifyNotification(ToDoList.java:70)
-	at tests.ToDoListTest.deleteTask(ToDoListTest.java:167)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace748761773", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace748761773'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because the return value of &quot;genericPages.CommonMethod.getWebElement(String)&quot; is null
-	at genericPages.CommonMethod.verifyElementPresent(CommonMethod.java:271)
-	at pages.ToDoList.verifyNotification(ToDoList.java:70)
-	at tests.ToDoListTest.deleteTask(ToDoListTest.java:167)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:848)
-	at org.testng.TestRunner.run(TestRunner.java:621)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-	at org.testng.TestNG.runSuites(TestNG.java:1114)
-	at org.testng.TestNG.run(TestNG.java:1082)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>12</td>
-<td>tests.ToDoListTest@616ac46a</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -126,375 +76,410 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.PatientVisitTest.savePatientVisit()'><b>savePatientVisit</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>6</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.ToDoListTest.viewCompletedTask()'><b>viewCompletedTask</b><br>Test class: tests.ToDoListTest</td>
-<td></td>
-<td>13</td>
-<td>tests.ToDoListTest@616ac46a</td></tr>
-<tr>
-<td title='tests.ToDoListTest.withoutTaskDetails()'><b>withoutTaskDetails</b><br>Test class: tests.ToDoListTest</td>
-<td></td>
-<td>5</td>
-<td>tests.ToDoListTest@616ac46a</td></tr>
-<tr>
-<td title='tests.PatientVisitTest.addNewPatientData()'><b>addNewPatientData</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>1</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.AddPatientTest.withoutMandatoryAllData()'><b>withoutMandatoryAllData</b><br>Test class: tests.AddPatientTest</td>
-<td></td>
-<td>6</td>
-<td>tests.AddPatientTest@67b9b51a</td></tr>
-<tr>
-<td title='tests.AddPatientTest.sameContactNoInEmergencyField()'><b>sameContactNoInEmergencyField</b><br>Test class: tests.AddPatientTest</td>
-<td></td>
-<td>17</td>
-<td>tests.AddPatientTest@67b9b51a</td></tr>
-<tr>
-<td title='tests.AddBillTest.addingIncorrectBillItemDetails()'><b>addingIncorrectBillItemDetails</b><br>Test class: tests.AddBillTest</td>
-<td></td>
-<td>17</td>
-<td>tests.AddBillTest@31920ade</td></tr>
-<tr>
-<td title='tests.ViewPrescriptionTest.viewPrescription()'><b>viewPrescription</b><br>Test class: tests.ViewPrescriptionTest</td>
-<td></td>
-<td>5</td>
-<td>tests.ViewPrescriptionTest@5c669da8</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.AddAppointmentWithoutName()'><b>AddAppointmentWithoutName</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td title='tests.AppointmentsCalenderTest.existingAppointmentInDay()'><b>existingAppointmentInDay</b><br>Test class: tests.AppointmentsCalenderTest</td>
 <td></td>
 <td>4</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.RegistrationTest.invalidConfirmUsernameField()'><b>invalidConfirmUsernameField</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>3</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.ToDoListTest.Todolist()'><b>Todolist</b><br>Test class: tests.ToDoListTest</td>
-<td></td>
-<td>8</td>
-<td>tests.ToDoListTest@616ac46a</td></tr>
-<tr>
-<td title='tests.AddPatientTest.nameWithSpecialCharacter()'><b>nameWithSpecialCharacter</b><br>Test class: tests.AddPatientTest</td>
-<td></td>
-<td>5</td>
-<td>tests.AddPatientTest@67b9b51a</td></tr>
-<tr>
-<td title='tests.ViewOrEditTest.withoutAddressField()'><b>withoutAddressField</b><br>Test class: tests.ViewOrEditTest</td>
-<td></td>
-<td>4</td>
-<td>tests.ViewOrEditTest@7ef27d7f</td></tr>
-<tr>
-<td title='tests.ForgetPasswordTest.BackLoginPage()'><b>BackLoginPage</b><br>Test class: tests.ForgetPasswordTest</td>
-<td></td>
-<td>2</td>
-<td>tests.ForgetPasswordTest@125290e5</td></tr>
-<tr>
-<td title='tests.RegistrationTest.withoutMandatoryAllField()'><b>withoutMandatoryAllField</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>4</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.AddPrescriptionTest.downloadPrescriptionAgain()'><b>downloadPrescriptionAgain</b><br>Test class: tests.AddPrescriptionTest</td>
-<td></td>
-<td>2</td>
-<td>tests.AddPrescriptionTest@6337c201</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.updateAppointmentWithValidData()'><b>updateAppointmentWithValidData</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>6</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.existingAppointmentInMonth()'><b>existingAppointmentInMonth</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>10</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.addAppointment()'><b>addAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>4</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.existingAppointmentInWeek()'><b>existingAppointmentInWeek</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>8</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.AddBillTest.downloadBill()'><b>downloadBill</b><br>Test class: tests.AddBillTest</td>
-<td></td>
-<td>5</td>
-<td>tests.AddBillTest@31920ade</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.addAppointmentWithoutVisitReason()'><b>addAppointmentWithoutVisitReason</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>1</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.PatientVisitTest.followup()'><b>followup</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>13</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.RegistrationTest.withoutConfirmUsernameField()'><b>withoutConfirmUsernameField</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>2</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.RegistrationTest.withoutAgreeTermCheckBox()'><b>withoutAgreeTermCheckBox</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>2</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.AddBillTest.saveAndprintBill()'><b>saveAndprintBill</b><br>Test class: tests.AddBillTest</td>
-<td></td>
-<td>24</td>
-<td>tests.AddBillTest@31920ade</td></tr>
-<tr>
-<td title='tests.AddBillTest.printWithoutAddingBillingItem()'><b>printWithoutAddingBillingItem</b><br>Test class: tests.AddBillTest</td>
-<td></td>
-<td>3</td>
-<td>tests.AddBillTest@31920ade</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.clickingPlusSign()'><b>clickingPlusSign</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>0</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.ToDoListTest.viewOpenTask()'><b>viewOpenTask</b><br>Test class: tests.ToDoListTest</td>
-<td></td>
-<td>1</td>
-<td>tests.ToDoListTest@616ac46a</td></tr>
-<tr>
-<td title='tests.AddPatientTest.AddPatient()'><b>AddPatient</b><br>Test class: tests.AddPatientTest</td>
-<td></td>
-<td>19</td>
-<td>tests.AddPatientTest@67b9b51a</td></tr>
-<tr>
-<td title='tests.ReportsTest.cancel()'><b>cancel</b><br>Test class: tests.ReportsTest</td>
-<td></td>
-<td>2</td>
-<td>tests.ReportsTest@4032d386</td></tr>
-<tr>
-<td title='tests.RegistrationTest.registerWithExistingDataAgain()'><b>registerWithExistingDataAgain</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>4</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.ReportsTest.AddPatient()'><b>AddPatient</b><br>Test class: tests.ReportsTest</td>
-<td></td>
-<td>20</td>
-<td>tests.ReportsTest@4032d386</td></tr>
-<tr>
-<td title='tests.ViewOrEditTest.updateContactField()'><b>updateContactField</b><br>Test class: tests.ViewOrEditTest</td>
-<td></td>
-<td>7</td>
-<td>tests.ViewOrEditTest@7ef27d7f</td></tr>
-<tr>
-<td title='tests.RegistrationTest.alreadyAnUser()'><b>alreadyAnUser</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>1</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.CancelAppointment()'><b>CancelAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>4</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.AddPrescriptionTest.printPrescription()'><b>printPrescription</b><br>Test class: tests.AddPrescriptionTest</td>
-<td></td>
-<td>2</td>
-<td>tests.AddPrescriptionTest@6337c201</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.ClickSMSReminder()'><b>ClickSMSReminder</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>5</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.AddPatientTest.withIncorrectPhoneNo()'><b>withIncorrectPhoneNo</b><br>Test class: tests.AddPatientTest</td>
-<td></td>
-<td>2</td>
-<td>tests.AddPatientTest@67b9b51a</td></tr>
-<tr>
-<td title='tests.PatientVisitTest.patientVisitWithPrimaryComplaintUpload()'><b>patientVisitWithPrimaryComplaintUpload</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>11</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.AddAppointmentsCalender()'><b>AddAppointmentsCalender</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>7</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.ReportsTest.dateView()'><b>dateView</b><br>Test class: tests.ReportsTest</td>
-<td></td>
-<td>1</td>
-<td>tests.ReportsTest@4032d386</td></tr>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
 <tr>
 <td title='tests.ForgetPasswordTest.forgotpassword()'><b>forgotpassword</b><br>Test class: tests.ForgetPasswordTest</td>
 <td></td>
 <td>1</td>
-<td>tests.ForgetPasswordTest@125290e5</td></tr>
+<td>tests.ForgetPasswordTest@57bc27f5</td></tr>
 <tr>
-<td title='tests.HomePageAppointmentTest.ClickAgainSMSReminder()'><b>ClickAgainSMSReminder</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td title='tests.HomePageAppointmentTest.clickingPlusSign()'><b>clickingPlusSign</b><br>Test class: tests.HomePageAppointmentTest</td>
 <td></td>
-<td>5</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.addPatientWithoutContactNo()'><b>addPatientWithoutContactNo</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>5</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.EditExistingAppointment()'><b>EditExistingAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>5</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.addAppointmentwithoutContactNo()'><b>addAppointmentwithoutContactNo</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>4</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
-<tr>
-<td title='tests.HomePageAppointmentTest.addAppointmentWithoutData()'><b>addAppointmentWithoutData</b><br>Test class: tests.HomePageAppointmentTest</td>
-<td></td>
-<td>1</td>
-<td>tests.HomePageAppointmentTest@57576994</td></tr>
+<td>0</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
 <tr>
 <td title='tests.AppointmentsCalenderTest.updateWithInvaliedData()'><b>updateWithInvaliedData</b><br>Test class: tests.AppointmentsCalenderTest</td>
 <td></td>
 <td>6</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.AddAppointmentWithoutVisitReason()'><b>AddAppointmentWithoutVisitReason</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>5</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.PatientVisitTest.cancelSymptoms()'><b>cancelSymptoms</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>8</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.PatientVisitTest.cancelInvstigations()'><b>cancelInvstigations</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>4</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.agenda()'><b>agenda</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>1</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.ToDoListTest.withoutDueDate()'><b>withoutDueDate</b><br>Test class: tests.ToDoListTest</td>
-<td></td>
-<td>6</td>
-<td>tests.ToDoListTest@616ac46a</td></tr>
-<tr>
-<td title='tests.RegistrationTest.withClickHelp()'><b>withClickHelp</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>10</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.AppointmentsCalenderTest.existingAppointmentInDay()'><b>existingAppointmentInDay</b><br>Test class: tests.AppointmentsCalenderTest</td>
-<td></td>
-<td>4</td>
-<td>tests.AppointmentsCalenderTest@490caf5f</td></tr>
-<tr>
-<td title='tests.AddPrescriptionTest.clickingBack()'><b>clickingBack</b><br>Test class: tests.AddPrescriptionTest</td>
-<td></td>
-<td>5</td>
-<td>tests.AddPrescriptionTest@6337c201</td></tr>
-<tr>
-<td title='tests.AddPrescriptionTest.withoutAddingMedicineField()'><b>withoutAddingMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
-<td></td>
-<td>6</td>
-<td>tests.AddPrescriptionTest@6337c201</td></tr>
-<tr>
-<td title='tests.AddPrescriptionTest.cancelAddedMedicineField()'><b>cancelAddedMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
-<td></td>
-<td>31</td>
-<td>tests.AddPrescriptionTest@6337c201</td></tr>
-<tr>
-<td title='tests.PatientVisitTest.deleteFile()'><b>deleteFile</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>2</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.AddPrescriptionTest.addPrescription()'><b>addPrescription</b><br>Test class: tests.AddPrescriptionTest</td>
-<td></td>
-<td>8</td>
-<td>tests.AddPrescriptionTest@6337c201</td></tr>
-<tr>
-<td title='tests.ViewOrEditTest.withoutMandatoryData()'><b>withoutMandatoryData</b><br>Test class: tests.ViewOrEditTest</td>
-<td></td>
-<td>12</td>
-<td>tests.ViewOrEditTest@7ef27d7f</td></tr>
-<tr>
-<td title='tests.ViewBillTest.viewBill()'><b>viewBill</b><br>Test class: tests.ViewBillTest</td>
-<td></td>
-<td>32</td>
-<td>tests.ViewBillTest@1d483de4</td></tr>
-<tr>
-<td title='tests.RegistrationTest.Registration()'><b>Registration</b><br>Test class: tests.RegistrationTest</td>
-<td></td>
-<td>3</td>
-<td>tests.RegistrationTest@6a47b187</td></tr>
-<tr>
-<td title='tests.ToDoListTest.CompletedTask()'><b>CompletedTask</b><br>Test class: tests.ToDoListTest</td>
-<td></td>
-<td>4</td>
-<td>tests.ToDoListTest@616ac46a</td></tr>
-<tr>
-<td title='tests.AddPatientTest.resetPatientData()'><b>resetPatientData</b><br>Test class: tests.AddPatientTest</td>
-<td></td>
-<td>1</td>
-<td>tests.AddPatientTest@67b9b51a</td></tr>
-<tr>
-<td title='tests.ViewOrEditTest.cancelEdit()'><b>cancelEdit</b><br>Test class: tests.ViewOrEditTest</td>
-<td></td>
-<td>0</td>
-<td>tests.ViewOrEditTest@7ef27d7f</td></tr>
-<tr>
-<td title='tests.HomePageTest.checkTitle()'><b>checkTitle</b><br>Test class: tests.HomePageTest</td>
-<td></td>
-<td>10</td>
-<td>tests.HomePageTest@6fa34d52</td></tr>
-<tr>
-<td title='tests.ViewOrEditTest.deleteList()'><b>deleteList</b><br>Test class: tests.ViewOrEditTest</td>
-<td></td>
-<td>6</td>
-<td>tests.ViewOrEditTest@7ef27d7f</td></tr>
-<tr>
-<td title='tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint()'><b>patientVisitWithoutPrimaryComplaint</b><br>Test class: tests.PatientVisitTest</td>
-<td></td>
-<td>7</td>
-<td>tests.PatientVisitTest@1205bd62</td></tr>
-<tr>
-<td title='tests.AddBillTest.printBill()'><b>printBill</b><br>Test class: tests.AddBillTest</td>
-<td></td>
-<td>6</td>
-<td>tests.AddBillTest@31920ade</td></tr>
-<tr>
-<td title='tests.AddPrescriptionTest.withInvaliedMedicineField()'><b>withInvaliedMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
-<td></td>
-<td>6</td>
-<td>tests.AddPrescriptionTest@6337c201</td></tr>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
 <tr>
 <td title='tests.ViewPrescriptionTest.patientDetails()'><b>patientDetails</b><br>Test class: tests.ViewPrescriptionTest</td>
 <td></td>
 <td>1</td>
-<td>tests.ViewPrescriptionTest@5c669da8</td></tr>
+<td>tests.ViewPrescriptionTest@6e2829c7</td></tr>
+<tr>
+<td title='tests.ReportsTest.cancel()'><b>cancel</b><br>Test class: tests.ReportsTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ReportsTest@1c742ed4</td></tr>
+<tr>
+<td title='tests.AddPatientTest.sameContactNoInEmergencyField()'><b>sameContactNoInEmergencyField</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>17</td>
+<td>tests.AddPatientTest@d554c5f</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint()'><b>patientVisitWithoutPrimaryComplaint</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>7</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.LoginTest.incorrectDetails()'><b>incorrectDetails</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>6</td>
+<td>tests.LoginTest@4b8d604b</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.addNewPatientData()'><b>addNewPatientData</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>1</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.deleteList()'><b>deleteList</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>6</td>
+<td>tests.ViewOrEditTest@15888343</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithoutPassword()'><b>loginWithoutPassword</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>2</td>
+<td>tests.LoginTest@4b8d604b</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointmentwithoutContactNo()'><b>addAppointmentwithoutContactNo</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>5</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.cancelAddedMedicineField()'><b>cancelAddedMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>27</td>
+<td>tests.AddPrescriptionTest@14fc5f04</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.ClickAgainSMSReminder()'><b>ClickAgainSMSReminder</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>4</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.ReportsTest.dateView()'><b>dateView</b><br>Test class: tests.ReportsTest</td>
+<td></td>
+<td>1</td>
+<td>tests.ReportsTest@1c742ed4</td></tr>
+<tr>
+<td title='tests.ToDoListTest.Todolist()'><b>Todolist</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>9</td>
+<td>tests.ToDoListTest@68c9d179</td></tr>
+<tr>
+<td title='tests.ToDoListTest.deleteTask()'><b>deleteTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>3</td>
+<td>tests.ToDoListTest@68c9d179</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.withoutAddingMedicineField()'><b>withoutAddingMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>6</td>
+<td>tests.AddPrescriptionTest@14fc5f04</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.addPrescription()'><b>addPrescription</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>8</td>
+<td>tests.AddPrescriptionTest@14fc5f04</td></tr>
+<tr>
+<td title='tests.ViewBillTest.viewBill()'><b>viewBill</b><br>Test class: tests.ViewBillTest</td>
+<td></td>
+<td>22</td>
+<td>tests.ViewBillTest@6a8658ff</td></tr>
+<tr>
+<td title='tests.RegistrationTest.invalidConfirmUsernameField()'><b>invalidConfirmUsernameField</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>3</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.cancelEdit()'><b>cancelEdit</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>0</td>
+<td>tests.ViewOrEditTest@15888343</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.AddAppointmentWithoutVisitReason()'><b>AddAppointmentWithoutVisitReason</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>4</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.EditExistingAppointment()'><b>EditExistingAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>5</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.CancelAppointment()'><b>CancelAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>4</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.cancelSymptoms()'><b>cancelSymptoms</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>8</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithInvaliedPassword()'><b>loginWithInvaliedPassword</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>4</td>
+<td>tests.LoginTest@4b8d604b</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.followup()'><b>followup</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>13</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.AddPatientTest.AddPatient()'><b>AddPatient</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>18</td>
+<td>tests.AddPatientTest@d554c5f</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointmentWithoutVisitReason()'><b>addAppointmentWithoutVisitReason</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>1</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.AddPatientTest.withoutMandatoryAllData()'><b>withoutMandatoryAllData</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>6</td>
+<td>tests.AddPatientTest@d554c5f</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withoutConfirmUsernameField()'><b>withoutConfirmUsernameField</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>2</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.patientVisitWithPrimaryComplaintUpload()'><b>patientVisitWithPrimaryComplaintUpload</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>12</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.ReportsTest.AddPatient()'><b>AddPatient</b><br>Test class: tests.ReportsTest</td>
+<td></td>
+<td>21</td>
+<td>tests.ReportsTest@1c742ed4</td></tr>
+<tr>
+<td title='tests.AddBillTest.addingIncorrectBillItemDetails()'><b>addingIncorrectBillItemDetails</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>17</td>
+<td>tests.AddBillTest@3feb2dda</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.clickingBack()'><b>clickingBack</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>5</td>
+<td>tests.AddPrescriptionTest@14fc5f04</td></tr>
+<tr>
+<td title='tests.ToDoListTest.viewOpenTask()'><b>viewOpenTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>1</td>
+<td>tests.ToDoListTest@68c9d179</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withoutAgreeTermCheckBox()'><b>withoutAgreeTermCheckBox</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>2</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithRememberMe()'><b>loginWithRememberMe</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>5</td>
+<td>tests.LoginTest@4b8d604b</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointment()'><b>addAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>4</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.ForgetPasswordTest.BackLoginPage()'><b>BackLoginPage</b><br>Test class: tests.ForgetPasswordTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ForgetPasswordTest@57bc27f5</td></tr>
+<tr>
+<td title='tests.RegistrationTest.registerWithExistingDataAgain()'><b>registerWithExistingDataAgain</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>4</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.ToDoListTest.withoutTaskDetails()'><b>withoutTaskDetails</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>5</td>
+<td>tests.ToDoListTest@68c9d179</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.addPatientWithoutContactNo()'><b>addPatientWithoutContactNo</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>5</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.AddBillTest.downloadBill()'><b>downloadBill</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>6</td>
+<td>tests.AddBillTest@3feb2dda</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.updateContactField()'><b>updateContactField</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>7</td>
+<td>tests.ViewOrEditTest@15888343</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.withoutMandatoryData()'><b>withoutMandatoryData</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>12</td>
+<td>tests.ViewOrEditTest@15888343</td></tr>
+<tr>
+<td title='tests.RegistrationTest.alreadyAnUser()'><b>alreadyAnUser</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>1</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.AddBillTest.printWithoutAddingBillingItem()'><b>printWithoutAddingBillingItem</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>3</td>
+<td>tests.AddBillTest@3feb2dda</td></tr>
 <tr>
 <td title='tests.ReportsTest.PatientsTab()'><b>PatientsTab</b><br>Test class: tests.ReportsTest</td>
 <td></td>
 <td>11</td>
-<td>tests.ReportsTest@4032d386</td></tr>
+<td>tests.ReportsTest@1c742ed4</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.ClickSMSReminder()'><b>ClickSMSReminder</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>5</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.AddBillTest.saveAndprintBill()'><b>saveAndprintBill</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>22</td>
+<td>tests.AddBillTest@3feb2dda</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.downloadPrescriptionAgain()'><b>downloadPrescriptionAgain</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>2</td>
+<td>tests.AddPrescriptionTest@14fc5f04</td></tr>
+<tr>
+<td title='tests.ToDoListTest.CompletedTask()'><b>CompletedTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>4</td>
+<td>tests.ToDoListTest@68c9d179</td></tr>
+<tr>
+<td title='tests.LoginTest.loginwithoutRememberMe()'><b>loginwithoutRememberMe</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>8</td>
+<td>tests.LoginTest@4b8d604b</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.printPrescription()'><b>printPrescription</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>2</td>
+<td>tests.AddPrescriptionTest@14fc5f04</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.agenda()'><b>agenda</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>1</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.deleteFile()'><b>deleteFile</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>2</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.RegistrationTest.Registration()'><b>Registration</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>3</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.updateAppointmentWithValidData()'><b>updateAppointmentWithValidData</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>6</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.AddBillTest.printBill()'><b>printBill</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>6</td>
+<td>tests.AddBillTest@3feb2dda</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointmentWithoutData()'><b>addAppointmentWithoutData</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>1</td>
+<td>tests.HomePageAppointmentTest@5e7cd6cc</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.AddAppointmentsCalender()'><b>AddAppointmentsCalender</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>7</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.existingAppointmentInWeek()'><b>existingAppointmentInWeek</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>8</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.AddAppointmentWithoutName()'><b>AddAppointmentWithoutName</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>4</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.withoutAddressField()'><b>withoutAddressField</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>3</td>
+<td>tests.ViewOrEditTest@15888343</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithoutData()'><b>loginWithoutData</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>1</td>
+<td>tests.LoginTest@4b8d604b</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withoutMandatoryAllField()'><b>withoutMandatoryAllField</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>4</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.savePatientVisit()'><b>savePatientVisit</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>6</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.withInvaliedMedicineField()'><b>withInvaliedMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>6</td>
+<td>tests.AddPrescriptionTest@14fc5f04</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.existingAppointmentInMonth()'><b>existingAppointmentInMonth</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>10</td>
+<td>tests.AppointmentsCalenderTest@33ecda92</td></tr>
+<tr>
+<td title='tests.AddPatientTest.withIncorrectPhoneNo()'><b>withIncorrectPhoneNo</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>2</td>
+<td>tests.AddPatientTest@d554c5f</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.cancelInvstigations()'><b>cancelInvstigations</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>3</td>
+<td>tests.PatientVisitTest@2dfaea86</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withClickHelp()'><b>withClickHelp</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>10</td>
+<td>tests.RegistrationTest@194fad1</td></tr>
+<tr>
+<td title='tests.ToDoListTest.withoutDueDate()'><b>withoutDueDate</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>6</td>
+<td>tests.ToDoListTest@68c9d179</td></tr>
+<tr>
+<td title='tests.HomePageTest.checkTitle()'><b>checkTitle</b><br>Test class: tests.HomePageTest</td>
+<td></td>
+<td>11</td>
+<td>tests.HomePageTest@5fb759d6</td></tr>
+<tr>
+<td title='tests.ViewPrescriptionTest.viewPrescription()'><b>viewPrescription</b><br>Test class: tests.ViewPrescriptionTest</td>
+<td></td>
+<td>5</td>
+<td>tests.ViewPrescriptionTest@6e2829c7</td></tr>
+<tr>
+<td title='tests.AddPatientTest.nameWithSpecialCharacter()'><b>nameWithSpecialCharacter</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>4</td>
+<td>tests.AddPatientTest@d554c5f</td></tr>
+<tr>
+<td title='tests.ToDoListTest.viewCompletedTask()'><b>viewCompletedTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>3</td>
+<td>tests.ToDoListTest@68c9d179</td></tr>
+<tr>
+<td title='tests.AddPatientTest.resetPatientData()'><b>resetPatientData</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>1</td>
+<td>tests.AddPatientTest@d554c5f</td></tr>
 </table><p>
 </body>
 </html>

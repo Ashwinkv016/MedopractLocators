@@ -16,12 +16,19 @@ public class AddPatientPage extends CommonMethod {
 	}
 
 	public void clickAddPatient() {
-		base.waitForElementToBeClickable("addPatientClick", 10);
+		base.waitForElementVisibility("addPatientClick", 30);
+		base.waitForElementToBeClickable("addPatientClick", 30);
 		click("addPatientClick");
 	}
 
 	public void enterValiedPatientName() throws Exception {
+		base.waitForElementVisibility("patientName", 10);
 		enterData("patientName", "valied_PatientName");
+	}
+	
+	public void enterPatientName() throws Exception {
+		base.waitForElementVisibility("patientName", 10);
+		enterData("patientName", "patient_FirstName3");
 	}
 
 	public void enterInValiedPatientName() {
@@ -31,6 +38,8 @@ public class AddPatientPage extends CommonMethod {
 	}
 
 	public void clearPatientName() {
+		scrollTillElement();
+		base.waitForElementVisibility("patientName", 10);
 		clearData("patientName");
 	}
 
@@ -49,7 +58,7 @@ public class AddPatientPage extends CommonMethod {
 
 	public void clickGenderField() {
 		base.waitForElementVisibility("patientgender", 10);
-		selectDropdown("patientgender","patientGender");
+		selectDropdown("patientgender", "patientGender");
 	}
 
 	public void clickBirthDateField() {
@@ -73,7 +82,7 @@ public class AddPatientPage extends CommonMethod {
 
 	public void clickBloodGroup() {
 		base.waitForElementVisibility("patientBloodGroup", 10);
-		selectDropdown("patientBloodGroup","patientBloodGroup");
+		selectDropdown("patientBloodGroup", "patientBloodGroup");
 	}
 
 	public void enterOccupation() throws InterruptedException {
@@ -121,6 +130,7 @@ public class AddPatientPage extends CommonMethod {
 	}
 
 	public void clickHabitsPlus() {
+		base.waitForElementToBeClickable("habitsPlusBtn", 10);
 		click("habitsPlusBtn");
 	}
 
@@ -135,10 +145,12 @@ public class AddPatientPage extends CommonMethod {
 	}
 
 	public void clickPatientResetBtn() throws Exception {
+		scrollDown();
 		base.waitForElementToBeClickable("patientResetBtn", 10);
 		click("patientResetBtn");
 	}
-	public String verifyNotification(String text) throws Exception  {
+
+	public String verifyNotification(String text) throws Exception {
 		verifyElementPresent("notification");
 		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");

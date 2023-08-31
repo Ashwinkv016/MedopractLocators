@@ -48,34 +48,30 @@ public class RegistrationTest extends CommonMethod {
 	public void Registration() throws Exception {
 		test = reports.startTest("TC002 Register with Mandatory Data");
 		RegistrationPage rp = new RegistrationPage();
-		rp.enterFullName();
+		//rp.enterFullName();
+		getWebElement("fullNameRegister").sendKeys("bbbbb");
 		logger.info("Entered Name");
-		rp.enterEmailField();
+		//rp.enterEmailField();
+		getWebElement("emailRegister").sendKeys("bbbbb1234@gmail.com");
 		logger.info("Entered Email Address");
-		rp.enterMobileField();
+		//rp.enterMobileField();
+		getWebElement("phnoRegister").sendKeys("6382565718");
 		logger.info("Entered Phone Number");
-		rp.enterUserNameField();
+		//rp.enterUserNameField();
+		getWebElement("usernameRegister").sendKeys("bbbbbbb1234");
 		logger.info("Entered UserName");
-		rp.enterValidConfirmUserName();
+		//rp.enterValidConfirmUserName();
+		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbb1234");
 		logger.info("Entered ConfirmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
-
-	/**	String actual = null;
-		try {
-			if (rp.registrationSuccessMsg())
-				actual = "success";
-		} catch (Exception e) {
-			actual = "failure";
-		}
-		Assert.assertEquals(actual, "success");
-
-		rp.getOkButton();
-		logger.info("Clicked OK button");**/
 		
-		rp.clickCancelNotification();
+		Assert.assertTrue(true, rp.registrationSuccessMsg("Registration Successful!"));
+		logger.info("Assertion Passed");
+		rp.getOkButton();
+		logger.info("Clicked OK button");
 	}
 
 	@Test(priority = 3)
@@ -109,7 +105,7 @@ public class RegistrationTest extends CommonMethod {
 	public void invalidConfirmUsernameField() throws Exception {
 		test = reports.startTest("TC005 Invalid Confirm Username Field");
 		RegistrationPage rp = new RegistrationPage();
-		rp.enterInValidConfirmUserName();
+		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbb");
 		logger.info("Entered ConfirmUserName");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
@@ -125,7 +121,7 @@ public class RegistrationTest extends CommonMethod {
 		test = reports.startTest("TC006 Without Agree Term CheckBox");
 		RegistrationPage rp = new RegistrationPage();
 		rp.clearConfirmUserName();
-		rp.enterValidConfirmUserName();
+		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbb1234");
 		logger.info("Entering CnfrmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");

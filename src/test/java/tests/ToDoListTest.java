@@ -66,10 +66,9 @@ public class ToDoListTest extends CommonMethod {
 	public void Todolist() throws Exception {
 		test = reports.startTest("TC001 Open ToDo List");
 		ToDoList tdl = new ToDoList();
-
+        scrollDown();
 		tdl.clickPlusSign();
 		logger.info("Clicking plus Sign");
-		Thread.sleep(3000);
 		tdl.enterTaskfield();
 		logger.info("Entering Value");
 		tdl.clickDateAndTime();
@@ -86,23 +85,11 @@ public class ToDoListTest extends CommonMethod {
 		logger.info("Clicked Cancel Notification");
 	}
 
+
+
 	@Test(priority = 2)
-	public void CompletedTask() throws Exception {
-		test = reports.startTest("TC002 Complete ToDoList Task");
-		ToDoList tdl = new ToDoList();
-		tdl.clickCompleteTaskField();
-		logger.info("Clicking on View Completed Task");
-
-		Assert.assertTrue(true, tdl.verifyNotification("Tasks record updated as completed"));
-		logger.info("Assertion Passed");
-
-		tdl.clickCancelNotification();
-		logger.info("Clicked Cancel Notification");
-	}
-
-	@Test(priority = 3)
 	public void withoutTaskDetails() throws Exception {
-		test = reports.startTest("TC003 Without ToDoList TaskDetails");
+		test = reports.startTest("TC002 Without ToDoList TaskDetails");
 		ToDoList tdl = new ToDoList();
 		tdl.clearTaskfield();
 		logger.info("Cleared Task Field");
@@ -115,7 +102,7 @@ public class ToDoListTest extends CommonMethod {
 
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void withoutDueDate() throws Exception {
 		test = reports.startTest("TC003 Without ToDoList Due Date");
 		ToDoList tdl = new ToDoList();
@@ -134,18 +121,31 @@ public class ToDoListTest extends CommonMethod {
 		logger.info("Clicked Cancel Notification");
 	}
 
+	@Test(priority =4 )
+	public void CompletedTask() throws Exception {
+		test = reports.startTest("TC004 Complete ToDoList Task");
+		ToDoList tdl = new ToDoList();
+		tdl.clickCompleteTaskField();
+		logger.info("Clicking on View Completed Task");
+
+		Assert.assertTrue(true, tdl.verifyNotification("Tasks record updated as completed"));
+		logger.info("Assertion Passed");
+
+		tdl.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+	}
+	
 	@Test(priority = 5)
 	public void viewCompletedTask() throws Exception {
-		test = reports.startTest("TC003 View Completed Task");
+		test = reports.startTest("TC005 View Completed Task");
 		ToDoList tdl = new ToDoList();
 		tdl.clickViewCompletedTask();
 		logger.info("Clicking on View Completed Task");
-		Thread.sleep(2000);
 	}
 
 	@Test(priority = 6)
 	public void viewOpenTask() throws Exception {
-		test = reports.startTest("TC003 View Open Task");
+		test = reports.startTest("TC006 View Open Task");
 		ToDoList tdl = new ToDoList();
 		logger.info("Clicking on View Completed Task");
 		tdl.clickViewOpenTask();
@@ -154,7 +154,7 @@ public class ToDoListTest extends CommonMethod {
 
 	@Test(priority = 7)
 	public void deleteTask() throws Exception {
-		test = reports.startTest("TC003 ToDoList Delete Task");
+		test = reports.startTest("TC007 ToDoList Delete Task");
 		ToDoList tdl = new ToDoList();
 		tdl.clickDeleteTask();
 		logger.info("Clicking on Delete Task");

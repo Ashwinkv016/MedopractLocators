@@ -24,8 +24,8 @@ public class ViewBill extends CommonMethod{
 	}
 
 	public void clickPatientNameSugg() {
-		base.waitForElementVisibility("billingPatientNameSugg", 10);
-		click("billingPatientNameSugg");
+		base.waitForElementVisibility("viewBillPatientNameSugg", 10);
+		click("viewBillPatientNameSugg");
 	}
 	
 	public void clickViewBillList() {
