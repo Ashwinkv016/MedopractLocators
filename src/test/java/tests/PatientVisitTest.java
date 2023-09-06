@@ -96,6 +96,7 @@ public class PatientVisitTest extends CommonMethod {
 		test = reports.startTest("TC002 PatientVisit Without PrimaryComplaint");
 		PatientVisitPage pvp = new PatientVisitPage();
 		pvp.getPatientsClick();
+		logger.info("Clicked Patient Menu");
 		pvp.getPatientvisitClick();
 		logger.info("Clicked Patient Visit");
 		pvp.getPatientVisitName();
@@ -122,16 +123,21 @@ public class PatientVisitTest extends CommonMethod {
 		logger.info("Entered Clinical Observation");
 		pvp.getdiagnosisRemark();
 		logger.info("Entered Diagnosis Remark");
-	   // pvp.uploadFile();
 		scrollDown();
 		Thread.sleep(1000);
 		WebElement uploadFile = driver.findElement(By.xpath("//input[@id='fileButton']"));
 		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\demoupload.txt");
+		pvp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+		Thread.sleep(1000);
 		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\homePageTitle.png");
 		logger.info("File Uploaded Successfully");
 
-		Assert.assertTrue(true, pvp.verifyNotification("File uploaded successfully!"));
+		String actual = getWebElement("notification").getText();
+		String expected="File uploaded successfully!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 
@@ -145,8 +151,11 @@ public class PatientVisitTest extends CommonMethod {
 		pvp.deleteUploadedFile();
 		logger.info("Deleted Uploaded File");
 
-		Assert.assertTrue(true, pvp.verifyNotification("File deleted successfully!"));
+		String actual = getWebElement("notification").getText();
+		String expected="File deleted successfully!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 
@@ -160,8 +169,11 @@ public class PatientVisitTest extends CommonMethod {
 		pvp.getSaveButton();
 		logger.info("Clicked Save Button");
 
-		Assert.assertTrue(true, pvp.verifyNotification("Appointment added Successfully"));
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment added Successfully";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -180,8 +192,11 @@ public class PatientVisitTest extends CommonMethod {
 		pvp.getSaveButton();
 		logger.info("Clicked Save Button");
 
-		Assert.assertTrue(true, pvp.verifyNotification("Please add Primary complaint"));
+		String actual = getWebElement("notification").getText();
+		String expected="Please add Primary complaint";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -227,8 +242,6 @@ public class PatientVisitTest extends CommonMethod {
 		logger.info("Entered Investigation Test Again");
 		pvp.getClickingInvestigationPlusSign();
 		logger.info("Clicked Investigation Plus Sign Again");
-		pvp.getinvestigationDelete();
-		logger.info("Clicked Investigations Delete Again");
 		pvp.getInvestigationTests1();
 		logger.info("Entered Investigation Test Again");
 		pvp.getClickingInvestigationPlusSign();
@@ -243,9 +256,26 @@ public class PatientVisitTest extends CommonMethod {
 	@Test(priority = 8)
 	public void followup() throws Exception {
 		test = reports.startTest("TC008 PatientVisit With FollowUp");
+		driver.navigate().refresh();
 		PatientVisitPage pvp = new PatientVisitPage();
+		pvp.getPatientsClick();
+		logger.info("Clicked Patient Menu");
+		pvp.getPatientvisitClick();
+		logger.info("Clicked Patient Visit");
+		pvp.getPatientVisitName();
+		logger.info("Clicked Patient Name Field");
+		pvp.getpatientVisitNameSuggestions();
+		logger.info("Clicked Patient Nmae Suggestion");
 		pvp.getPrimaryComplaint();
-		logger.info("Entered Primary Complaint");
+		logger.info("Entered primary complaint field");
+		pvp.getSymptoms1();
+		logger.info("Entered symptoms field");
+		pvp.getClickingSymptomsPlusSign();
+		logger.info("ClickedSymptoms Plus Sign");
+		pvp.getSymptoms1();
+		logger.info("Entered Symptoms");
+		pvp.getClickingSymptomsPlusSign();
+		logger.info("Clicked Symptoms Plus");
 		pvp.getbloodPressure();
 		logger.info("Entered Blood Pressure Level");
 		pvp.getsugarLevel();
@@ -256,26 +286,43 @@ public class PatientVisitTest extends CommonMethod {
 		logger.info("Entered Investigation Test");
 		pvp.getClickingInvestigationPlusSign();
 		logger.info("Clicked Investigation Plus Sign");
+		pvp.getInvestigationTests2();
+		logger.info("Entered Investigation Test Again");
+		pvp.getClickingInvestigationPlusSign();
+		logger.info("Clicked Investigation Plus Sign Again");
 		pvp.getclinicalObservation();
 		logger.info("Entered Clinical Observation");
 		pvp.getdiagnosisRemark();
 		logger.info("Entered Diagnosis Remark");
+		scrollDown();
+		Thread.sleep(1000);
+		WebElement uploadFile = driver.findElement(By.xpath("//input[@id='fileButton']"));
+		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\demoupload.txt");
+		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\homePageTitle.png");
+		logger.info("File Uploaded Successfully");
+		pvp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 		pvp.getSaveButton();
 		logger.info("Clicked Save Button");
+		pvp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 		pvp.getFollowup();
 		logger.info("Clicked Follow Up");
 		pvp.getVisitReason();
 		pvp.getDateAndTimePickFollowUp();
 		logger.info("Clicked Date and Time");
-		pvp.getdatePickFollowUp();
-		logger.info("Clicked Date ");
+		//pvp.getdatePickFollowUp();
+		//logger.info("Clicked Date ");
 		pvp.gettimePickFollowUp();
 		logger.info("Clicked Time");
 		pvp.getAddAppointment();
 		logger.info("Added Appointment");
 
-		Assert.assertTrue(true, pvp.verifyNotification("Appointment added Successfully"));
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment added Successfully";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}

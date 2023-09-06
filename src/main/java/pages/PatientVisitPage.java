@@ -53,8 +53,9 @@ public class PatientVisitPage extends CommonMethod {
 		enterData("patientVisitSymptoms", "symptoms2");
 	}
 
-	public void getsymptomsDelete() {
+	public void getsymptomsDelete() throws InterruptedException {
 		base.waitForElementToBeClickable("patientVisitSymptomsCancel", 10);
+		Thread.sleep(1000);
 		click("patientVisitSymptomsCancel");
 	}
 
@@ -84,7 +85,9 @@ public class PatientVisitPage extends CommonMethod {
 		click("patientVisitInvestigationsPlusSign");
 	}
 
-	public void getinvestigationDelete() {
+	public void getinvestigationDelete() throws InterruptedException {
+		base.waitForElementToBeClickable("patientVisitInvestigationsCancel", 10);
+		Thread.sleep(1000);
 		click("patientVisitInvestigationsCancel");
 	}
 
@@ -106,6 +109,7 @@ public class PatientVisitPage extends CommonMethod {
 	}
 
 	public void deleteUploadedFile() {
+		base.waitForElementToBeClickable("patientVisitFileDelete", 10);
 		click("patientVisitFileDelete");
 	}
 

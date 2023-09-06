@@ -81,23 +81,13 @@ public class HomePageAppointmentTest extends CommonMethod {
 	}
 	
 	@Test(priority = 2)
-	public void clickingPlusSign() throws Exception  {	
-		test=reports.startTest("TC002 Clicking Plus Sign");
-		HomePageAppointment hpa = new HomePageAppointment();
-		hpa.clickPlusSigns();
-		logger.info("Clicked Sign");
-		hpa.clickPlusSigns();
-		logger.info("Clicked Sign");
-		hpa.clickPlusSigns();
-		logger.info("Again Clicked Sign");
-	}
-	
-	@Test(priority = 3)
 	public void addAppointmentWithoutVisitReason() throws Exception  {	
-		test=reports.startTest("TC003 AddAppointment Without VisitReason");
+		test=reports.startTest("TC002 AddAppointment Without VisitReason");
 		HomePageAppointment hpa = new HomePageAppointment();
 		hpa.clickPlusSigns();
 		logger.info("Clicked Plus");
+		hpa.clickPlusSigns();
+		logger.info("Clicked Sign");
 		hpa.enterFirstName1();
 		logger.info("Entered Name");
 		hpa.enterLastName2();
@@ -120,24 +110,27 @@ public class HomePageAppointmentTest extends CommonMethod {
 	
 	
      
-	@Test(priority = 4)
+	@Test(priority = 3)
 	public void addAppointment() throws Exception  {
-		test=reports.startTest("TC004 AddAppointment ");
+		test=reports.startTest("TC003 AddAppointment ");
 		HomePageAppointment hpa = new HomePageAppointment();
 		hpa.enterVisitReasonField1();
 		logger.info("Entered VisitReason");
 		hpa.clickAddAppointmentBtn();
 		logger.info("Clicked AddAppointment Button");
-
-		Assert.assertTrue(true, hpa.verifyNotification("Appointment added Successfully"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment added Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		hpa.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 4)
 	public void addAppointmentwithoutContactNo() throws Exception {	
-		test=reports.startTest("TC005 AddAppointment without ContactNo ");
+		test=reports.startTest("TC004 AddAppointment without ContactNo ");
 		HomePageAppointment hpa = new HomePageAppointment();
 		hpa.enterFirstName1();
 		logger.info("Entered Name");
@@ -145,35 +138,45 @@ public class HomePageAppointmentTest extends CommonMethod {
 		logger.info("Entered LastName");
 		hpa.enterVisitReasonField1();
 		logger.info("Entered VisitReason");
-		hpa.enterPhno1();
-		logger.info("Entered MobileNo");
 		hpa.clickAddAppointmentBtn();
 		logger.info("Clicked AddAppointment Button");
 		
-		Assert.assertTrue(true, hpa.verifyNotification("Appointment added Successfully"));
-
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment added Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		hpa.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
+	
 
-
-	@Test(priority = 6)
+	@Test(priority = 5)
 	public void EditExistingAppointment() throws Exception {
 		test=reports.startTest("TC006 Edit Existing Appointment");
 		HomePageAppointment hpa = new HomePageAppointment();
 		hpa.clickEditAppointment();
 		logger.info("clicked on Edit option");
 		hpa.clearFirstName();
+		logger.info("Cleared First Name");
 		hpa.enterFirstName2();
+		logger.info("Entered First Name");
 		hpa.clearLastName();
+		logger.info("Cleared last Name");
 		hpa.enterLastName1();
+		logger.info("Entered Last Name");
 		hpa.clearPhno();
+		logger.info("Cleared Phno");
 		hpa.enterPhno2();
+		logger.info("Entered Phno");
 		hpa.clickUpdateButton();
 		logger.info("clicked on Update Button");
 		
-		Assert.assertTrue(true, hpa.verifyNotification("Appointment Updated Successfully"));
-
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment Updated Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		hpa.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -181,44 +184,75 @@ public class HomePageAppointmentTest extends CommonMethod {
 	
 
 
-	@Test(priority = 7)
+	@Test(priority = 6)
 	public void ClickSMSReminder() throws Exception  {
 		test=reports.startTest("TC007 Click SMS Reminder");
 		HomePageAppointment hpa = new HomePageAppointment();
 		hpa.clickSMSReminder();
 		logger.info("Clicking on SMS Reminder");
 		
-		Assert.assertTrue(true, hpa.verifyNotification("Reminder SMS Sent to : 9597277526"));
-
+		String actual = getWebElement("notification").getText();
+		String expected="Reminder SMS Sent to : 9597277526";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		hpa.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
 
 
-	@Test(priority = 8)
+	@Test(priority = 7)
 	public void ClickAgainSMSReminder() throws Exception {
 		test=reports.startTest("TC008 Click Again SMS Reminder");
 		HomePageAppointment hpa = new HomePageAppointment();
 		hpa.clickSMSReminder();
 		logger.debug("Clicking again on SMS Reminder");
 		
-		Assert.assertTrue(true, hpa.verifyNotification("SMS Not Sent: Reminder Already Sent"));
-
+		String actual = getWebElement("notification").getText();
+		String expected="SMS Not Sent: Reminder Already Sent";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		hpa.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
 	
-	@Test(priority = 9)
+	@Test(priority = 8)
 	public void CancelAppointment() throws Exception {
 		test=reports.startTest("TC009 Cancel Appointment");
 		HomePageAppointment hpa = new HomePageAppointment();
 		hpa.clickDeleteAppointment();
 		logger.info("Clicked on Cancel ");
 		
-		Assert.assertTrue(true, hpa.verifyNotification("Appointment Cancelled successfully!"));
-
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment Cancelled successfully!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		hpa.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
+	}
+	
+	@Test(priority = 9)
+	public void clickSMSRemainderWithoutProperDetails() throws Exception {
+		test=reports.startTest("TC005 Click SMS Remainder Without Proper Details");
+		HomePageAppointment hpa = new HomePageAppointment();
+		hpa.clickSMSReminder();
+		logger.info("Clicking on SMS Reminder");
+		
+		String actual = getWebElement("notification").getText();
+		String expected="No sufficient information to send Reminder. Edit the appointment to add necessary details.";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
+		hpa.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+		
+		hpa.clickDeleteAppointment();
+		logger.info("Clicked on Cancel ");
+		hpa.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+		
 	}
 	
 	 @AfterClass

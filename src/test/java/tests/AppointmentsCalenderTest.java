@@ -78,8 +78,11 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-
-		Assert.assertTrue(true, acp.verifyNotification("Appointment added Successfully"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment added Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -97,14 +100,17 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered ContactNumber Field");
 		acp.getdateAndTimeField();
 		logger.info("Clicked DateAndTime Field");
-		acp.getdatePick();
+		//acp.getdatePick();
 		acp.gettimePick();
 		acp.getDurationField();
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-
-		Assert.assertTrue(true, acp.verifyNotification("something went wrong!"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="something went wrong!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -124,14 +130,17 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered ContactNumber Field");
 		acp.getdateAndTimeField();
 		logger.info("Clicked DateAndTime Field");
-		acp.getdatePick();
+		//acp.getdatePick();
 		acp.gettimePick();
 		acp.getDurationField();
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-
-		Assert.assertTrue(true, acp.verifyNotification("something went wrong!"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="something went wrong!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -151,14 +160,17 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered VisitReason Field");
 		acp.getdateAndTimeField();
 		logger.info("Clicked DateAndTime Field");
-		acp.getdatePick();
+		//acp.getdatePick();
 		acp.gettimePick();
 		acp.getDurationField();
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-
-		Assert.assertTrue(true, acp.verifyNotification("Appointment added Successfully"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment added Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -184,7 +196,10 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Button");
 
-		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment Updated Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -213,8 +228,11 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Button");
 
-		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
-
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment Updated Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -236,7 +254,11 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked Save Button");
 
-		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment Updated Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 
@@ -267,8 +289,12 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered Visit Reason");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked Save Button");
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Appointment Updated Successfully";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
-		Assert.assertTrue(true, acp.verifyNotification("Appointment Updated Successfully"));
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 

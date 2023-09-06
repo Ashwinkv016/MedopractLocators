@@ -95,6 +95,7 @@ public class RegistrationPage extends CommonMethod {
 	}
 	public void clickHelp(){
 		scrollTillElement();
+		base.waitForElementToBeClickable("helpLogin", 10);
 		 click("helpLogin");
 	}
 
@@ -112,6 +113,11 @@ public class RegistrationPage extends CommonMethod {
 	public void clickCancelNotification() {
 		base.waitForElementToBeClickable("cancelNotification", 10);
 		click("cancelNotification");
+	}
+	
+	public boolean verifyLoginPage() throws Exception  {
+		verifyElementPresent("loginPage");
+		return true;
 	}
 
 	

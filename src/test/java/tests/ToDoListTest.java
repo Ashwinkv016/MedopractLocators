@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
+
 import genericPages.CommonMethod;
 import pages.LoginPage;
 import pages.ToDoList;
@@ -73,13 +75,15 @@ public class ToDoListTest extends CommonMethod {
 		logger.info("Entering Value");
 		tdl.clickDateAndTime();
 		logger.info("Clicked Date and Time");
-		tdl.clickDateSelect();
+		//tdl.clickDateSelect();
 		tdl.clickTimeSelect();
 		tdl.clickAddtask();
 		logger.info("Clicked on Add Task Button");
 
-		Assert.assertTrue(true, tdl.verifyNotification("Tasks record added"));
-		logger.info("Assertion Passed");
+	     String actual = getWebElement("notification").getText();
+	     String expected="Tasks record added";
+		 Assert.assertEquals(actual, expected);
+		 logger.info("Assertion Passed");
 
 		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -96,9 +100,11 @@ public class ToDoListTest extends CommonMethod {
 		tdl.clickAddtask();
 		logger.info("Clicked on Add Task Button");
 		Thread.sleep(2000);
-
-		Assert.assertTrue(true, tdl.verifyErrorMsg("Task Description is empty"));
-		logger.info("Assertion Passed");
+		
+		 String actual = getWebElement("toDoErrorMsg").getText();
+	     String expected="Task Description is empty";
+		 Assert.assertEquals(actual, expected);
+		 logger.info("Assertion Passed");
 
 	}
 
@@ -112,11 +118,12 @@ public class ToDoListTest extends CommonMethod {
 		logger.info("Cancelled Due Date");
 		tdl.clickAddtask();
 		logger.info("Clicked on Add Task Button");
-		Thread.sleep(2000);
 
-		Assert.assertTrue(true, tdl.verifyNotification("Tasks record added"));
-		logger.info("Assertion Passed");
-
+		 String actual = getWebElement("notification").getText();
+	     String expected="Tasks record added";
+		 Assert.assertEquals(actual, expected);
+		 logger.info("Assertion Passed");
+		 
 		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -128,8 +135,10 @@ public class ToDoListTest extends CommonMethod {
 		tdl.clickCompleteTaskField();
 		logger.info("Clicking on View Completed Task");
 
-		Assert.assertTrue(true, tdl.verifyNotification("Tasks record updated as completed"));
-		logger.info("Assertion Passed");
+		 String actual = getWebElement("notification").getText();
+	     String expected="Tasks record updated as completed";
+		 Assert.assertEquals(actual, expected);
+		 logger.info("Assertion Passed");
 
 		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -158,10 +167,13 @@ public class ToDoListTest extends CommonMethod {
 		ToDoList tdl = new ToDoList();
 		tdl.clickDeleteTask();
 		logger.info("Clicking on Delete Task");
-        alertHandling();
-		Assert.assertTrue(true, tdl.verifyNotification("Record deleted with tasks ID "));
-		logger.info("Assertion Passed");
+        Alert alert=  driver.switchTo().alert();
 
+		 String actual = alert.getText();
+	     String expected="Task would be permanently deleted. Are you sure, you want to delete the task ? ";
+		 Assert.assertEquals(actual, expected);
+		 logger.info("Assertion Passed");
+		 
 		tdl.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}

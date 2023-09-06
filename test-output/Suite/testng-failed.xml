@@ -3,13 +3,15 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="tests.ToDoListTest">
+      <class name="tests.RegistrationTest">
         <methods>
-          <include name="deleteTask"/>
-          <include name="afterTest"/>
-          <include name="openApplication"/>
+          <include name="configuration"/>
+          <include name="withoutAgreeTermCheckBox"/>
+          <include name="logout"/>
+          <include name="OpenApplication"/>
+          <include name="closure"/>
         </methods>
-      </class> <!-- tests.ToDoListTest -->
+      </class> <!-- tests.RegistrationTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

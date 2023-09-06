@@ -90,7 +90,7 @@ public class LoginTest extends CommonMethod {
 		logger.info("Clicked submit button");
 
 		Assert.assertTrue(true, l.verifyNotification("No record available with Doctor ID :!*(&"));
-
+		logger.info("Assertion Passed");
 		l.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 

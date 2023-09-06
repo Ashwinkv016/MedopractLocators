@@ -82,8 +82,11 @@ public class ViewOrEditTest extends CommonMethod {
 		alertHandling();
 		logger.info("Pressed Enter");
 
-		Assert.assertTrue(true, voe.verifyNotification("Patient record deleted successfully!"));
+		String actual = getWebElement("notification").getText();
+		String expected="Patient record deleted successfully!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		voe.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -107,8 +110,11 @@ public class ViewOrEditTest extends CommonMethod {
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
 
-		Assert.assertTrue(true, voe.verifyNotification("Patient record updated successfully!"));
+		String actual = getWebElement("notification").getText();
+		String expected="Patient record updated successfully!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		voe.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -150,8 +156,11 @@ public class ViewOrEditTest extends CommonMethod {
          r.keyRelease(KeyEvent.VK_LEFT);
          r.keyRelease(KeyEvent.VK_ALT);	
          
-         Assert.assertTrue(true, voe.verifyNotification("Please provide required inputs"));
- 		logger.info("Assertion Passed");
+ 		String actual = getWebElement("notification").getText();
+		String expected="Please provide required inputs";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
  		voe.clickCancelNotification();
  		logger.info("Clicked Cancel Notification");
 	}

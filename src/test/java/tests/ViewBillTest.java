@@ -1,5 +1,8 @@
 package tests;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -8,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import genericPages.CommonMethod;
+import pages.AddBill;
 import pages.LoginPage;
 import pages.ViewBill;
 
@@ -76,10 +80,36 @@ public class ViewBillTest extends CommonMethod{
        logger.info("Clicking View Bill List");
       
 	}
-	/**
+	
 	@Test(priority = 2)
+	public void printBill() throws Exception {
+		test=reports.startTest("TC002 Print Bill");
+		ViewBill vb=new ViewBill();
+		vb.clickBillPrintBtn();
+		logger.info("Clicked print Btn");
+		Thread.sleep(1000);
+		Robot r=new Robot();
+		r.keyPress(KeyEvent.VK_ESCAPE);
+		
+	}
+	
+	@Test(priority=3)
+	public void downloadBill() throws Exception {
+		test=reports.startTest("TC003 Downloading Bill");
+		ViewBill vb=new ViewBill();
+		vb.clickBillDownloadBtn();
+		logger.info("Downloading Bill");
+		vb.clickBillDownloadBtn();
+		logger.info("Downloading Bill Again");
+		vb.clickBillBackBtn();
+		logger.info("Clicking Bill Back Btn");
+	}
+	
+	
+	/**
+	@Test(priority = 4)
 	public void goToPatientDetails() throws Exception {
-		test=reports.startTest("TC002 Go To Patient Details");
+		test=reports.startTest("TC004 Go To Patient Details");
 		ViewBill vb=new ViewBill();
 		vb.clickGoToPatientDetails();
 		logger.info("Go To Patient Details");	

@@ -69,9 +69,12 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Clicking Add Patient");
 		app.clickPatientSaveBtn();
 		logger.info("Clicked SaveButton");
-
-		Assert.assertTrue(true, app.verifyNotification("Please provide required inputs"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Please provide required inputs";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+
 		app.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -126,8 +129,11 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Canceled Habit field");
 		app.clickPatientSaveBtn();
 		logger.info("Clicked Save Button");
-
-		Assert.assertTrue(true, app.verifyNotification("Patient Record created successfully!"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Patient Record created successfully!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		app.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -164,10 +170,13 @@ public class AddPatientTest extends CommonMethod {
 		app.enterInValiedPatientName();
 		logger.info("Added Patient's Name");
 		app.enterValiedPhoneNo();
-
-		Assert.assertTrue(true,
-				app.verifyPatientNameErrorMsg("Please enter valid name- Only Alphabets and spaces are allowed"));
+		
+		String actual = getWebElement("patientNameErrorMsg").getText();
+		String expected="Please enter valid name- Only Alphabets and spaces are allowed";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+
+	
 	}
 
 	@Test(priority = 6)
@@ -187,8 +196,12 @@ public class AddPatientTest extends CommonMethod {
 		app.clickGenderField();
 		logger.info("Selected Gender Field");
 
-		Assert.assertTrue(true, app.verifyPatientPhnoErrorMsg("Mobile number must be 10 digits long valid number"));
+		
+		String actual = getWebElement("patientPhnoErrorMsg").getText();
+		String expected="Mobile number must be 10 digits long valid number";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 	}
 
 	@Test(priority = 7)
@@ -231,8 +244,10 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Added Habit field by clicking Plus");
 		app.clickPatientSaveBtn();
 		logger.info("Clicked Save Button");
-
-		Assert.assertTrue(true, app.verifyNotification("Patient Record created successfully!"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Patient Record created successfully!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
 
 		app.clickCancelNotification();

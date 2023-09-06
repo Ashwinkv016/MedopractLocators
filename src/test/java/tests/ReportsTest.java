@@ -143,8 +143,11 @@ public class ReportsTest extends CommonMethod{
 		Thread.sleep(2000);
 		app.clickPatientSaveBtn();
 		
-		Assert.assertTrue(true, app.verifyNotification("Patient Record created successfully!"));
-
+		String actual = getWebElement("notification").getText();
+		String expected="Patient Record created successfully!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
 		app.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}

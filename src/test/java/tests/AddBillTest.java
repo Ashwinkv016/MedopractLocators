@@ -1,6 +1,10 @@
 package tests;
 
 import org.apache.log4j.Logger;
+
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.apache.log4j.LogManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -107,36 +111,54 @@ public class AddBillTest extends CommonMethod {
 		ab.clickSaveAndPrintBtn();
 		logger.info("Clicked Print and Save btn");
 
-		Assert.assertTrue(true, ab.verifyNotification("Billing created successfully!"));
-		logger.info("Assertion passed");
+		String actual = getWebElement("notification").getText();
+		String expected="Billing created successfully!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+
 		ab.clickCancelNotification();
 		logger.info("Clicked cancel Notification");
 
+		scrollDown();
 		ab.clickBillBackBtn();
 		logger.info("Clicked Bill Back Btn");
 
 	}
 
 	@Test(priority = 2)
-	public void printWithoutAddingBillingItem() throws Exception {
-		test = reports.startTest("TC002 SaveBill without adding Billing Item");
+	public void clickResetBtn() throws Exception {
+		test = reports.startTest("TC002 Clicking Reset Btn");
 		AddBill ab = new AddBill();
+		Thread.sleep(5000);
+		ab.clickResetBtn();
+		logger.info("Clicked Reset Btn");
+	}
 
-		scrollDown();
-		ab.clickbillItemDetailsCancel();
-		logger.info("Clicked Bill Item Cancel");
+	@Test(priority = 3)
+	public void printWithoutAddingBillingItem() throws Exception {
+		test = reports.startTest("TC003 SaveBill without adding Billing Item");
+		AddBill ab = new AddBill();
+		ab.enterPatientName();
+		logger.info("Entered Patient name");
+		ab.clickPatientNameSugg();
+		logger.info("Clicked Patient Name Suggestion");
+		ab.enterEmail();
+		logger.info("Entered Email");
 		ab.clickSaveAndPrintBtn();
 		logger.info("Clicked Save and print Btn");
 
-		Assert.assertTrue(true, "Please Add Billing Items");
-		logger.info("Assertion passed");
+		String actual = getWebElement("notification").getText();
+		String expected="Please Add Billing Items";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+
 		ab.clickCancelNotification();
 		logger.info("Clicked cancel Notification");
 	}
-	
-	@Test(priority = 3)
+
+	@Test(priority = 4)
 	public void addingIncorrectBillItemDetails() throws Exception {
-		test = reports.startTest("TC003 Adding more than One Billing Item");
+		test = reports.startTest("TC004 Adding more than One Billing Item");
 		AddBill ab = new AddBill();
 		ab.billdescription();
 		logger.info("Entered Bill Description");
@@ -163,12 +185,15 @@ public class AddBillTest extends CommonMethod {
 		logger.info("Entered Invaliedbill Rate");
 		ab.clickbillItemDetailsPlusSign();
 		logger.info("Clicked Bill plus sign");
-		
-		Assert.assertTrue(true, "Please Fill Rate in with number");
-		logger.info("Assertion passed");
+
+		String actual = getWebElement("notification").getText();
+		String expected="Please Fill Rate in with number";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+
 		ab.clickCancelNotification();
 		logger.info("Clicked cancel Notification");
-	
+
 		ab.clearBilldescription();
 		logger.info("Cleared Bill Description");
 		ab.clearBillQty();
@@ -176,24 +201,28 @@ public class AddBillTest extends CommonMethod {
 		ab.clearBillRate();
 		logger.info("Cleared Bill Rate");
 	}
-	
-	@Test(priority = 4)
+
+	@Test(priority = 5)
 	public void printBill() throws Exception {
-		test=reports.startTest("TC004 Printing the Bill");
+		test=reports.startTest("TC005 Printing the Bill");
 		//driver.navigate().refresh();
 		AddBill ab=new AddBill();
 		ab.clickSaveAndPrintBtn();
 		logger.info("Clicked Print and Save btn");
-		alertHandling();
+		//alertHandling();
 		ab.clickCancelNotification();
 		logger.info("Cancelling Notification");
 		ab.clickBillPrintBtn();
 		logger.info("Printing Bill");
+		Thread.sleep(4000);
+		Robot r=new Robot();
+		r.keyPress(KeyEvent.VK_ESCAPE);
+
 	}
-	
-	@Test(priority=5)
+
+	@Test(priority=6)
 	public void downloadBill() throws Exception {
-		test=reports.startTest("TC005 Downloading Bill");
+		test=reports.startTest("TC006 Downloading Bill");
 		AddBill ab=new AddBill();
 		ab.clickBillDownloadBtn();
 		logger.info("Downloading Bill");
@@ -201,6 +230,9 @@ public class AddBillTest extends CommonMethod {
 		logger.info("Downloading Bill Again");
 		ab.clickBillBackBtn();
 		logger.info("Clicking Bill Back Btn");
+		ab.clickBackBtn();
+		logger.info("Clicking Back Btn");
+
 	}
 
 	@AfterClass

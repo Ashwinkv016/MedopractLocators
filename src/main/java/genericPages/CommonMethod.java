@@ -1,6 +1,5 @@
 package genericPages;
 
-import java.io.File;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -25,15 +24,24 @@ import org.testng.annotations.BeforeSuite;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class CommonMethod extends MasterPage {
 
 	public static WebDriverWait wait;
 	public static ExtentTest test;
 	public static ExtentReports reports = new ExtentReports("src\\main\\resources\\reports\\ExtentReport.html", true);
-
-	public CommonMethod base;
+	public static CommonMethod base;
 
 	public CommonMethod() throws Exception {
 		super();
@@ -63,7 +71,7 @@ public class CommonMethod extends MasterPage {
 			ChromeOptions o = new ChromeOptions();
 			o.addArguments("--disable-notifications");
 			o.addArguments("--remote-allow-origins=*");
-			
+
 			driver = new ChromeDriver(o);
 		} else if (propConfig.getProperty("browser").equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
@@ -76,6 +84,16 @@ public class CommonMethod extends MasterPage {
 		driver.get(propConfig.getProperty("url"));
 
 	}
+
+
+	public static String getExcelData(String sheetName,int rowNum,int cell) throws EncryptedDocumentException,IOException {
+		FileInputStream fisexcel=new FileInputStream("C:\\Users\\vashw\\git\\repository\\Medopract\\Excel\\Login.xlsx");
+		//FileInputStream fisexcel=new FileInputStream(System.getProperty("user.dir") + "\\Excel\\Login.xlsx");
+		Workbook wb = WorkbookFactory.create(fisexcel);
+		String data = wb.getSheet(sheetName).getRow(rowNum).getCell(cell).getStringCellValue();
+		return data;
+	}
+
 
 	// Click on the webelement
 	public void click(String locatorKey) {
@@ -287,18 +305,23 @@ public class CommonMethod extends MasterPage {
 		}
 	}
 
-	// Verify text presence on webpage
 	public void verifyTextPresent(String locatorkey) throws Exception {
-		try {
-			getWebElement(locatorkey).getText();
-			test.log(LogStatus.PASS, "Verify element presence:" + locatorkey,
-					"Text '" + getWebElement(locatorkey).getText() + "' is displayed Successfully"
-							+ test.addScreenCapture(takeScreenShot(locatorkey)));
-		} catch (Exception e) {
-			test.log(LogStatus.FAIL, "Verify element presence: " + locatorkey,
-					"Text '" + getWebElement(locatorkey).getText() + "' is not displayed");
-		}
+	    try {
+	        WebElement webElement = getWebElement(locatorkey); // Get the web element
+	        String text = webElement.getText(); // Get the text of the web element
+	        if (!text.isEmpty()) { // Check if the text is not empty
+	            test.log(LogStatus.PASS, "Verify element presence: " + locatorkey,
+	                    "Text '" + text + "' is displayed Successfully" + test.addScreenCapture(takeScreenShot(locatorkey)));
+	        } else {
+	            test.log(LogStatus.FAIL, "Verify element presence: " + locatorkey,
+	                    "Text is not displayed");
+	        }
+	    } catch (Exception e) {
+	        test.log(LogStatus.FAIL, "Verify element presence: " + locatorkey,
+	                "An exception occurred: " + e.getMessage());
+	    }
 	}
+
 
 	public void waitForElementToBeClickable(String locatorKey, int timeoutInSeconds) {
 		try {

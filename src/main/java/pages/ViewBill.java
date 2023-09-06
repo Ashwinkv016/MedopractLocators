@@ -33,19 +33,16 @@ public class ViewBill extends CommonMethod{
 	}
 	
 	public void clickBillPrintBtn() {
-		scrollDown();
 		base.waitForElementToBeClickable("billPrintBtn", 10);
 		click("billPrintBtn");
 	}
 
 	public void clickBillDownloadBtn() {
-		scrollDown();
 		base.waitForElementToBeClickable("billDownloadBtn", 10);
 		click("billDownloadBtn");
 	}
 
 	public void clickBillBackBtn() {
-		 scrollDown();
 		base.waitForElementToBeClickable("billBackBtn", 10);
 		click("billBackBtn");
 	}

@@ -67,7 +67,7 @@ public class ToDoList extends CommonMethod {
 		click("toDoViewOpenTask");
 	}
 
-	public String verifyNotification(String text) throws Exception {
+	public  String verifyNotification(String text) throws Exception  {
 		verifyElementPresent("notification");
 		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
@@ -79,10 +79,4 @@ public class ToDoList extends CommonMethod {
 		click("cancelNotification");
 	}
 
-	public String verifyErrorMsg(String text) throws Exception {
-		verifyElementPresent("toDoErrorMsg");
-		base.waitForElementVisibility("toDoErrorMsg", 10);
-		verifyTextPresent("toDoErrorMsg");
-		return text;
-	}
 }

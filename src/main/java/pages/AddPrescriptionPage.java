@@ -29,7 +29,7 @@ public class AddPrescriptionPage extends CommonMethod {
 	}
 
 	public void getClickingPlusSign() {
-		base.waitForElementVisibility("prescriptionMedicineplus", 10);
+		base.waitForElementToBeClickable("prescriptionMedicineplus", 10);
 		click("prescriptionMedicineplus");
 	}
 

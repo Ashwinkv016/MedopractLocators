@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.LoginTestDDT">
+      <class name="tests.ToDoListTest">
         <methods>
+          <include name="deleteTask"/>
+          <include name="afterTest"/>
           <include name="openApplication"/>
-          <include name="closeBrowser"/>
           <include name="configuration"/>
-          <include name="login" invocation-numbers="1 2 3"/>
+          <include name="withoutTaskDetails"/>
           <include name="closure"/>
         </methods>
-      </class> <!-- tests.LoginTestDDT -->
+      </class> <!-- tests.ToDoListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -135,26 +135,28 @@ public class AddBill extends CommonMethod {
 		base.waitForElementToBeClickable("billSaveAndPrint", 10);
 		click("billSaveAndPrint");
 	}
+	
+	public void clickResetBtn() {
+		scrollDown();
+		base.waitForElementToBeClickable("addBillResetBtn", 60);
+		click("addBillResetBtn");
+	}
 
 	public void clickBackBtn() {
 		click("addBillbackBtn");
 	}
 
 	public void clickBillPrintBtn() {
-		scrollDown();
 		base.waitForElementToBeClickable("billPrintBtn", 10);
 		click("billPrintBtn");
 	}
 
 	public void clickBillDownloadBtn() {
-		scrollDown();
 		base.waitForElementToBeClickable("billDownloadBtn", 10);
 		click("billDownloadBtn");
 	}
 
 	public void clickBillBackBtn() {
-		scrollDown();
-		base.waitForElementVisibility("billBackBtn", 10);
 		base.waitForElementToBeClickable("billBackBtn", 10);
 		click("billBackBtn");
 	}

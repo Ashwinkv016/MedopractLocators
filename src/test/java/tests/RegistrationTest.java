@@ -40,7 +40,9 @@ public class RegistrationTest extends CommonMethod {
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 
-		Assert.assertTrue(true,rp.FullNameRegisterErrorMsg("Please enter valid name - Only Alphabets and spaces are allowed"));
+		String actual = getWebElement("fullNameRegisterErrorMsg").getText();
+		String expected="Please enter valid name - Only Alphabets and spaces are allowed";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
 	}
 
@@ -49,27 +51,30 @@ public class RegistrationTest extends CommonMethod {
 		test = reports.startTest("TC002 Register with Mandatory Data");
 		RegistrationPage rp = new RegistrationPage();
 		//rp.enterFullName();
-		getWebElement("fullNameRegister").sendKeys("bbbbb");
+		getWebElement("fullNameRegister").sendKeys("bbbbbbb");
 		logger.info("Entered Name");
 		//rp.enterEmailField();
-		getWebElement("emailRegister").sendKeys("bbbbb1234@gmail.com");
+		getWebElement("emailRegister").sendKeys("bbbbb12345@gmail.com");
 		logger.info("Entered Email Address");
 		//rp.enterMobileField();
 		getWebElement("phnoRegister").sendKeys("6382565718");
 		logger.info("Entered Phone Number");
 		//rp.enterUserNameField();
-		getWebElement("usernameRegister").sendKeys("bbbbbbb1234");
+		getWebElement("usernameRegister").sendKeys("bbbbbbbbbbbb1234");
 		logger.info("Entered UserName");
 		//rp.enterValidConfirmUserName();
-		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbb1234");
+		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbbbbbbb1234");
 		logger.info("Entered ConfirmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 		
-		Assert.assertTrue(true, rp.registrationSuccessMsg("Registration Successful!"));
+		String actual = getWebElement("registrationSuccessMsg").getText();
+		String expected="Registration Successful!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		rp.getOkButton();
 		logger.info("Clicked OK button");
 	}
@@ -81,8 +86,11 @@ public class RegistrationTest extends CommonMethod {
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 
-		Assert.assertTrue(true, rp.verifyNotification("Doctor Already Registered"));
+		String actual = getWebElement("notification").getText();
+		String expected="Doctor Already Registered";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
 		rp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -95,9 +103,14 @@ public class RegistrationTest extends CommonMethod {
 		logger.info("Entered ConfirmUserName");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
-
-		Assert.assertTrue(true, rp.cnfrmUserNameErrorMsg("Confirm Username must be 8-16 Characters, Alphabets, Numbers and ._%+-@ allowed"));
+		
+		String actual = getWebElement("notification").getText();
+		String expected="Username and ConfirmUserName does not match!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
+		
+		rp.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
 
 	}
 
@@ -110,10 +123,11 @@ public class RegistrationTest extends CommonMethod {
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 
-		Assert.assertTrue(true, rp.verifyNotification("Username and ConfirmUserName does not match!"));
+		String actual = getWebElement("cnfrmUserNameErrorMsg").getText();
+		String expected="Confirm Username must be 8-16 Characters, Alphabets, Numbers and ._%+-@ allowed";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
-		rp.clickCancelNotification();
-		logger.info("Clicked Cancel Notification");
+		
 	}
 
 	@Test(priority = 6)
@@ -121,35 +135,56 @@ public class RegistrationTest extends CommonMethod {
 		test = reports.startTest("TC006 Without Agree Term CheckBox");
 		RegistrationPage rp = new RegistrationPage();
 		rp.clearConfirmUserName();
-		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbb1234");
+		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbbbbbbb1234");
 		logger.info("Entering CnfrmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 
-		Assert.assertTrue(true, rp.AgreeTermsErrorMsg("Please check this box if you want to Proceed!"));
+		String actual = getWebElement("agreeTermsRegisterErrorMsg").getText();
+		String expected="Please check this box if you want to Proceed!";
+		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
 
 	}
 
-	@Test(priority = 7)
-	public void withClickHelp() throws Exception {
-		test = reports.startTest("TC007 Click Help");
-		RegistrationPage rp = new RegistrationPage();
-		rp.clickHelp();
-		logger.info("Clicked Help Button");
-		Robot r = new Robot();
-		r.keyPress(KeyEvent.VK_ESCAPE);
-	}
 
-	@Test(priority = 8)
+	@Test(priority = 7)
 	public void alreadyAnUser() throws Exception {
-		test = reports.startTest("TC008 Already an User");
+		test = reports.startTest("TC007 Already an User");
 		RegistrationPage rp = new RegistrationPage();
 		logger.info("Clicked RegisterNow Button");
 		rp.clickImAlreadyUser();
 		logger.info("Clicked I'm already an User Button");
+		
+		
+		String actual = null;
+		try {
+			if (rp.verifyLoginPage()) {
+				actual = "success";
+				logger.info("Success");
+			} else {
+				actual = "failure";
+				logger.error("failure");
+			}
+		} catch (Exception e) {
+			actual = "failure";
+			logger.error("failure");
+		}
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
+	}
+	
+	@Test(priority = 8)
+	public void withClickHelp() throws Exception {
+		test = reports.startTest("TC008 Click Help");
+		RegistrationPage rp = new RegistrationPage();
+		rp.clickHelp();
+		logger.info("Clicked Help Button");
+		Thread.sleep(3000);
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_ESCAPE);
 	}
 
 	@AfterClass

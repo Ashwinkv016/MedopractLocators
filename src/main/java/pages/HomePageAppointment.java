@@ -47,11 +47,11 @@ public class HomePageAppointment extends CommonMethod{
 	}
 
 	public void enterPhno1() {
-		enterData("appPhno","valied_PhoneNo1");
+		enterData("appPhno","valied_PhoneNo2");
 	}
 	
 	public void enterPhno2() {
-		enterData("appPhno","valied_PhoneNo2");
+		enterData("appPhno","valied_PhoneNo1");
 	}
 	
 	public void clearPhno() {

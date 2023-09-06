@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Medopract]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Medopract(failed)">
+    <classes>
+      <class name="tests.RegistrationTest">
+        <methods>
+          <include name="configuration"/>
+          <include name="withoutAgreeTermCheckBox"/>
+          <include name="logout"/>
+          <include name="OpenApplication"/>
+          <include name="Registration"/>
+          <include name="closure"/>
+        </methods>
+      </class> <!-- tests.RegistrationTest -->
+      <class name="tests.ViewPrescriptionTest">
+        <methods>
+          <include name="configuration"/>
+          <include name="patientDetails"/>
+          <include name="openApplication"/>
+          <include name="viewPrescription"/>
+          <include name="closure"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- tests.ViewPrescriptionTest -->
+    </classes>
+  </test> <!-- Medopract(failed) -->
+</suite> <!-- Failed suite [Medopract] -->

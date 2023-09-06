@@ -77,7 +77,10 @@ public class AddPrescriptionTest extends CommonMethod {
 		ap.getSaveAndPrintButton();
 		logger.info("Clicked Save and Print Button");
 
-		Assert.assertTrue(true, ap.verifyNotification("Please add medicines"));
+		String actual = getWebElement("notification").getText();
+		String expected="Please add medicines";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		ap.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -102,7 +105,10 @@ public class AddPrescriptionTest extends CommonMethod {
 		ap.getyesButtonField();
 		logger.info("Clicked yes");
 
-		Assert.assertTrue(true, ap.verifyNotification("Prescription created successfully!"));
+		String actual = getWebElement("notification").getText();
+		String expected="Prescription created successfully!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
 
 		ap.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
@@ -114,9 +120,10 @@ public class AddPrescriptionTest extends CommonMethod {
 		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getprintPrescription();
 		logger.info("Clicked PrintPrescription button");
+		Thread.sleep(3000);
 		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_ENTER);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		r.keyPress(KeyEvent.VK_ESCAPE);
 		logger.info("Return to Home Page");
 	}
@@ -187,8 +194,10 @@ public class AddPrescriptionTest extends CommonMethod {
 		logger.info("Again entering  Time Inputs");
 		ap.getAmountInput1();
 		logger.info("Again entering  number Of amount to be used");
+		scrollTillElement();
 		ap.getClickingPlusSign();
 		logger.info("Again clicking Medicine Field Plus Sign");
+		scrollDown();
 		ap.getdeleteMedicineField();
 		logger.info("Cancelled Medicine field");
 		ap.getdeleteMedicineField();
@@ -215,8 +224,11 @@ public class AddPrescriptionTest extends CommonMethod {
 		ap.getyesButtonField();
 		logger.info("Clicked yes");
 
-		Assert.assertTrue(true, ap.verifyNotification(
-				"could not create record! Prescriptions record could not be added. due to: ValidationError: medecineDetails.0.totalcountsToConsume: Cast to Number failed for value \"gg\" at path \"totalcountsToConsume\", medecineDetails.0.howmanyatatime: Cast to Number failed for value \"gg\" at path \"howmanyatatime\""));
+		String actual = getWebElement("notification").getText();
+		String expected="could not create record! Prescriptions record could not be added. due to: ValidationError: medecineDetails.0.totalcountsToConsume: Cast to Number failed for value \"gg\" at path \"totalcountsToConsume\", medecineDetails.0.howmanyatatime: Cast to Number failed for value \"gg\" at path \"howmanyatatime\"";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+
 		ap.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
