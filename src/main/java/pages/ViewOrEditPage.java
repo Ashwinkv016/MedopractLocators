@@ -12,36 +12,32 @@ public class ViewOrEditPage extends CommonMethod{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void clickViewOrEdit() {
+	public void clickViewOrEdit() throws Exception {
 		click("viewOrEditBtn");
 	}
 
-	public void enterPatientName() {
-		enterData("patientName","valied_PatientName");
+	public void enterPatientName() throws Exception {
+		enterData("patientName","valid_PatientName");
 	}
 
-	public void enterPatientPhno() {
-		enterData("viewOrEditPhno","valied_PhoneNo1");
+	public void enterPatientPhno() throws Exception {
+		enterData("viewOrEditPhno","valid_PhoneNo1");
 	}
 
-	public void clickPatientList() {
-		 base.waitForElementToBeClickable("viewOrEditListClick", 10);
+	public void clickPatientList() throws Exception {
 		 click("viewOrEditListClick");
 	}
 
-	public void clickUpdateBtn() throws InterruptedException {
+	public void clickUpdateBtn() throws Exception {
 		 scrollDown();
-		 base.waitForElementToBeClickable("viewOrEditUpdate", 10);
 		 click("viewOrEditUpdate");
 	}
 
-	public void clickCancelButton() {
-		 base.waitForElementToBeClickable("viewOrEditCancel", 10);
+	public void clickCancelButton() throws Exception {
 		 click("viewOrEditCancel");
 	}
 	
-    public void clickDeleteButton() throws InterruptedException {
-    	 base.waitForElementToBeClickable("viewOrEditDelete", 10);
+    public void clickDeleteButton() throws Exception {
     	 Thread.sleep(1000);
 	     click("viewOrEditDelete");
     }
@@ -49,13 +45,11 @@ public class ViewOrEditPage extends CommonMethod{
 
     public String verifyNotification(String text) throws Exception  {
 		verifyElementPresent("notification");
-		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
 		return text;
 	}
 
-	public void clickCancelNotification() {
-		base.waitForElementToBeClickable("cancelNotification", 10);
+	public void clickCancelNotification() throws Exception {
 		click("cancelNotification");
 	}
 

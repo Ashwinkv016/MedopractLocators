@@ -9,37 +9,33 @@ public class ForgotPasswordField extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void clickForgotPassword() {
+	public void clickForgotPassword() throws Exception {
 		click("forgetPass");
 	}
 
-	public void clickbackLoginPage() throws InterruptedException {
+	public void clickbackLoginPage() throws Exception {
 		scrollDown();
-        base.waitForElementToBeClickable("backToLogin", 10);
 		click("backToLogin");
 	}
 
-	public void enterUsernamefield() {
-		enterData("userForget", "valied_UserName");
+	public void enterUsernamefield() throws Exception {
+		enterData("userForget", "valid_UserName");
 	}
 
-	public void clickResetButton() {
-		 base.waitForElementToBeClickable("resetPassBtn", 10);
+	public void clickResetButton() throws Exception {
 		click("resetPassBtn");
 	}
 
-	public void clickGotItBtn() {
+	public void clickGotItBtn() throws Exception {
 		click("gotItBtn");
 	}
 
 	public boolean verifyForgetPassPage() throws Exception  {
-		base.waitForElementVisibility("forgetPassPage", 10);
 		verifyElementPresent("forgetPassPage");
 		return true;
 	}
 	
 	public boolean verifyLoginPage() throws Exception  {
-		base.waitForElementVisibility("loginPage", 10);
 		verifyElementPresent("loginPage");
 		return true;
 	}

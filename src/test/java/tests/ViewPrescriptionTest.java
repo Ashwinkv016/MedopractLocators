@@ -4,10 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import genericPages.CommonMethod;

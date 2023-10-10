@@ -4,15 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-
 import genericPages.CommonMethod;
 import pages.AddPatientPage;
 import pages.LoginPage;
@@ -97,12 +90,12 @@ public class ReportsTest extends CommonMethod{
 
 	@Test(priority = 2)
 	public void AddPatient() throws Exception {
-		test=reports.startTest("TC002 Add Patient");
+		test=reports.startTest("TC002 Add Patient in Reports");
+		ReportsPage rp = new ReportsPage();
 		AddPatientPage app=new AddPatientPage();
-		app.clickPatientMenu();
-		logger.info("Clicking Patients");
-		app.clickAddPatient();
-		logger.info("Clicking Add Patient");
+		Thread.sleep(2000);
+		rp.addPatientReportsClick();
+        logger.info("Clicked Add Patients in Reports Page");		
 		app.enterValiedPatientName();
 		logger.info("Added Patient's Name");
 		app.enterValiedPhoneNo();

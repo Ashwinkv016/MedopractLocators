@@ -71,6 +71,7 @@ public class PatientVisitTest extends CommonMethod {
 		logger.info("Clicked Patients Field");
 		pvp.getPatientvisitClick();
 		logger.info("Clicked Patient Visit");
+		Thread.sleep(2000);
 		pvp.getaddNewPatientHyperLink();
 		logger.info("Clicked Add New Patient HyperLink");
 
@@ -93,7 +94,7 @@ public class PatientVisitTest extends CommonMethod {
 
 	@Test(priority = 2)
 	public void patientVisitWithPrimaryComplaintUpload() throws Exception {
-		test = reports.startTest("TC002 PatientVisit Without PrimaryComplaint");
+		test = reports.startTest("TC002 PatientVisit With PrimaryComplaint Upload File");
 		PatientVisitPage pvp = new PatientVisitPage();
 		pvp.getPatientsClick();
 		logger.info("Clicked Patient Menu");
@@ -105,20 +106,42 @@ public class PatientVisitTest extends CommonMethod {
 		logger.info("Clicked Patient Nmae Suggestion");
 		pvp.getPrimaryComplaint();
 		logger.info("Entered primary complaint field");
+		scrollDown();
 		pvp.getSymptoms1();
 		logger.info("Entered symptoms field");
 		pvp.getClickingSymptomsPlusSign();
 		logger.info("ClickedSymptoms Plus Sign");
+		pvp.getSymptoms2();
+		logger.info("Entered Symptoms Again");
+		pvp.getClickingSymptomsPlusSign();
+		logger.info("Clicked Symptoms Plus Again");
+		pvp.getSymptoms1();
+		logger.info("Entered Symptoms");
+		pvp.getClickingSymptomsPlusSign();
+		logger.info("Clicked Symptoms Plus");
+		pvp.getsymptomsDelete();
+		logger.info("Clicked Symptoms cancel");
 		pvp.getbloodPressure();
 		logger.info("Entered Blood Pressure Level");
 		pvp.getsugarLevel();
 		logger.info("Entered SugarLevel");
 		pvp.getheartRate();
 		logger.info("Entered Heart Rate Level");
+		scrollDown();
 		pvp.getInvestigationTests1();
 		logger.info("Entered Investigation Test");
 		pvp.getClickingInvestigationPlusSign();
 		logger.info("Clicked Investigation Plus Sign");
+		pvp.getInvestigationTests2();
+		logger.info("Entered Investigation Test Again");
+		pvp.getClickingInvestigationPlusSign();
+		logger.info("Clicked Investigation Plus Sign Again");
+		pvp.getInvestigationTests1();
+		logger.info("Entered Investigation Test Again");
+		pvp.getClickingInvestigationPlusSign();
+		logger.info("Clicked Investigation Plus Sign Again");
+		pvp.getinvestigationDelete();
+		logger.info("Clicked Investigations Delete");
 		pvp.getclinicalObservation();
 		logger.info("Entered Clinical Observation");
 		pvp.getdiagnosisRemark();
@@ -130,6 +153,7 @@ public class PatientVisitTest extends CommonMethod {
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 		Thread.sleep(1000);
+		
 		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\homePageTitle.png");
 		logger.info("File Uploaded Successfully");
 
@@ -145,7 +169,7 @@ public class PatientVisitTest extends CommonMethod {
 
 	@Test(priority = 3)
 	public void deleteFile() throws Exception {
-		test = reports.startTest("TC003 PatientVisit deleteFile");
+		test = reports.startTest("TC003 PatientVisit Delete File");
 		PatientVisitPage pvp = new PatientVisitPage();
 
 		pvp.deleteUploadedFile();
@@ -163,14 +187,15 @@ public class PatientVisitTest extends CommonMethod {
 
 	@Test(priority = 4)
 	public void savePatientVisit() throws Exception {
-		test = reports.startTest("TC004 PatientVisit deleteFile");
+		test = reports.startTest("TC004 Save PatientVisit");
 		PatientVisitPage pvp = new PatientVisitPage();
 
 		pvp.getSaveButton();
 		logger.info("Clicked Save Button");
 
+		base.waitForElementVisibility1("notification", 50);
 		String actual = getWebElement("notification").getText();
-		String expected="Appointment added Successfully";
+		String expected="Patient visit added successfully!";
 		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
 		
@@ -180,11 +205,11 @@ public class PatientVisitTest extends CommonMethod {
 
 	@Test(priority = 5)
 	public void patientVisitWithoutPrimaryComplaint() throws Exception {
-		test = reports.startTest("TC005 PatientVisit With PrimaryComplaint");
+		test = reports.startTest("TC005 PatientVisit Without PrimaryComplaint");
 		driver.navigate().refresh();
 		PatientVisitPage pvp = new PatientVisitPage();
-		pvp.getPatientvisitClick();
-		logger.info("Clicked Patient Visit");
+		pvp.getPatientsClick();
+		logger.info("Clicked Patients Field");
 		pvp.getPatientVisitName();
 		logger.info("Clicked Patient Name Field");
 		pvp.getpatientVisitNameSuggestions();
@@ -201,61 +226,10 @@ public class PatientVisitTest extends CommonMethod {
 		logger.info("Clicked Cancel Notification");
 	}
 
+	
 	@Test(priority = 6)
-	public void cancelSymptoms() throws Exception {
-		test = reports.startTest("TC006 PatientVisit With Cancel Symptoms");
-		PatientVisitPage pvp = new PatientVisitPage();
-		pvp.getSymptoms1();
-		logger.info("Entered Symptoms");
-		pvp.getClickingSymptomsPlusSign();
-		logger.info("Clicked Symptoms Plus");
-		pvp.getsymptomsDelete();
-		logger.info("Clicked Symptoms cancel");
-		pvp.getSymptoms1();
-		logger.info("Entered Symptoms");
-		pvp.getClickingSymptomsPlusSign();
-		logger.info("Clicked Symptoms Plus");
-		pvp.getSymptoms2();
-		logger.info("Entered Symptoms Again");
-		pvp.getClickingSymptomsPlusSign();
-		logger.info("Clicked Symptoms Plus Again");
-		pvp.getSymptoms1();
-		logger.info("Entered Symptoms Again");
-		pvp.getClickingSymptomsPlusSign();
-		logger.info("Clicked Symptoms Plus Again");
-		pvp.getsymptomsDelete();
-		logger.info("Clicked Symptoms Cancel Again");
-		pvp.getsymptomsDelete();
-		logger.info("Clicked Symptoms Cancel Again");
-
-	}
-
-	@Test(priority = 7)
-	public void cancelInvstigations() throws Exception {
-		test = reports.startTest("TC007 PatientVisit With Cancel Investigstions");
-		PatientVisitPage pvp = new PatientVisitPage();
-		pvp.getInvestigationTests1();
-		logger.info("Entered Investigation Test");
-		pvp.getClickingInvestigationPlusSign();
-		logger.info("Clicked Investigation Plus Sign");
-		pvp.getInvestigationTests2();
-		logger.info("Entered Investigation Test Again");
-		pvp.getClickingInvestigationPlusSign();
-		logger.info("Clicked Investigation Plus Sign Again");
-		pvp.getInvestigationTests1();
-		logger.info("Entered Investigation Test Again");
-		pvp.getClickingInvestigationPlusSign();
-		logger.info("Clicked Investigation Plus Sign Again");
-		pvp.getinvestigationDelete();
-		logger.info("Clicked Investigations Delete Again");
-		pvp.getinvestigationDelete();
-		logger.info("Clicked Investigations Delete");
-
-	}
-
-	@Test(priority = 8)
-	public void followup() throws Exception {
-		test = reports.startTest("TC008 PatientVisit With FollowUp");
+	public void followup() throws Throwable {
+		test = reports.startTest("TC006  PatientVisit With FollowUp");
 		driver.navigate().refresh();
 		PatientVisitPage pvp = new PatientVisitPage();
 		pvp.getPatientsClick();
@@ -300,10 +274,12 @@ public class PatientVisitTest extends CommonMethod {
 		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\demoupload.txt");
 		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\homePageTitle.png");
 		logger.info("File Uploaded Successfully");
+		Thread.sleep(1000);
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 		pvp.getSaveButton();
 		logger.info("Clicked Save Button");
+		Thread.sleep(1000);
 		pvp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 		pvp.getFollowup();

@@ -33,7 +33,7 @@ public class LoginTestExcel extends CommonMethod {
 		LoginPage l = new LoginPage();
 		l.clickGotItBtn();
 		logger.info("Clicked Got It Btn");
-		base.waitForElementVisibility("userLogin", 10);
+		base.waitForElementVisibility1("userLogin", 10);
 		getWebElement("userLogin").sendKeys(getExcelData("Login",1, 1));
 		logger.info("Entered UserName");
 		Thread.sleep(1000);
@@ -65,36 +65,11 @@ public class LoginTestExcel extends CommonMethod {
 		LoginPage l = new LoginPage();
 		l.clickGotItBtn();
 		logger.info("Clicked Got It Btn");
-		base.waitForElementVisibility("userLogin", 10);
+		base.waitForElementVisibility1("userLogin", 10);
 		getWebElement("userLogin").sendKeys(getExcelData("Login",1,1));
 		logger.info("Entered UserName");
 		Thread.sleep(1000);
 		getWebElement("passLogin").sendKeys(getExcelData("Login",4,1));
-		logger.info("Entered Password");
-		Thread.sleep(1000);
-		l.clickSubmitLoginBtn();
-		logger.info("Clicked Submit Btn");
-
-		String actual = getWebElement("notification").getText();
-		String expected="No record available with Doctor ID :ashwin";
-		Assert.assertEquals(actual, expected);
-		logger.info("Assertion Passed");
-
-		l.clickCancelNotification();
-		logger.info("Clicked Cancel Notification");
-	}
-
-	@Test(priority = 3)
-	public void InvaliedLogin2() throws Exception {
-		test = reports.startTest("InvaliedLogin2 Operation through Excel Data Driven");
-		LoginPage l = new LoginPage();
-		l.clickGotItBtn();
-		logger.info("Clicked Got It Btn");
-		base.waitForElementVisibility("userLogin", 10);
-		getWebElement("userLogin").sendKeys(getExcelData("Login",3,1));
-		logger.info("Entered UserName");
-		Thread.sleep(1000);
-		getWebElement("passLogin").sendKeys(getExcelData("Login",2,1));
 		logger.info("Entered Password");
 		Thread.sleep(1000);
 		l.clickSubmitLoginBtn();
@@ -107,6 +82,33 @@ public class LoginTestExcel extends CommonMethod {
 
 		l.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
+		
+	}
+
+	@Test(priority = 3)
+	public void InvaliedLogin2() throws Exception {
+		test = reports.startTest("InvaliedLogin2 Operation through Excel Data Driven");
+		LoginPage l = new LoginPage();
+		l.clickGotItBtn();
+		logger.info("Clicked Got It Btn");
+		base.waitForElementVisibility1("userLogin", 10);
+		getWebElement("userLogin").sendKeys(getExcelData("Login",3,1));
+		logger.info("Entered UserName");
+		Thread.sleep(1000);
+		getWebElement("passLogin").sendKeys(getExcelData("Login",2,1));
+		logger.info("Entered Password");
+		Thread.sleep(1000);
+		l.clickSubmitLoginBtn();
+		logger.info("Clicked Submit Btn");
+
+		String actual = getWebElement("notification").getText();
+		String expected="No record available with Doctor ID :ashwin";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+
+		l.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+		
 	}
 
 
@@ -116,7 +118,7 @@ public class LoginTestExcel extends CommonMethod {
 		LoginPage l = new LoginPage();
 		l.clickGotItBtn();
 		logger.info("Clicked Got It Btn");
-		base.waitForElementVisibility("userLogin", 10);
+		base.waitForElementVisibility1("userLogin", 10);
 		getWebElement("userLogin").sendKeys(getExcelData("Login",5,1));
 		logger.info("Entered UserName");
 		getWebElement("passLogin").sendKeys(getExcelData("Login",6,1));

@@ -9,119 +9,108 @@ public class HomePageAppointment extends CommonMethod{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void clickPlusSigns() {
+	public void clickPlusSigns() throws Exception {
 		 click("homePageAppPlusSign");
 	}
 
-	public void enterFirstName1() {
+	public void enterFirstName1() throws Exception {
 		enterData("appFirstName","patient_FirstName1");
 	}
 	
-	public void enterFirstName2() {
+	public void enterFirstName2() throws Exception {
 		enterData("appFirstName","patient_FirstName2");
 	}
 	
-	public void clearFirstName() {
+	public void clearFirstName() throws Exception {
 		clearData("appFirstName");
 	}
 
-	public void enterLastName1() {
+	public void enterLastName1() throws Exception {
 		enterData("appLastName","patient_LastName1");
 	}
 	
-	public void enterLastName2() {
+	public void enterLastName2() throws Exception {
 		enterData("appLastName","patient_LastName2");
 	}
 	
-	public void clearLastName() {
+	public void clearLastName() throws Exception {
 		clearData("appLastName");
 	}
 
 
-	public void enterVisitReasonField1() {
+	public void enterVisitReasonField1() throws Exception {
 		enterData("appVisitReason","patient_VisitReason1");
 	}
 	
-	public void enterVisitReasonField2() {
+	public void enterVisitReasonField2() throws Exception {
 		enterData("appVisitReason","patient_VisitReason2");
 	}
 
-	public void enterPhno1() {
-		enterData("appPhno","valied_PhoneNo2");
+	public void enterPhno1() throws Exception {
+		enterData("appPhno","valid_PhoneNo2");
 	}
 	
-	public void enterPhno2() {
-		enterData("appPhno","valied_PhoneNo1");
+	public void enterPhno2() throws Exception {
+		enterData("appPhno","valid_PhoneNo1");
 	}
 	
-	public void clearPhno() {
+	public void clearPhno() throws Exception {
 		clearData("appPhno");
 	}
 	
-	public void clickDateAndTime() {
+	public void clickDateAndTime() throws Exception {
 		click("appDateAndTime");
 	}
 	
-	public void clickDatePick() {
+	public void clickDatePick() throws Exception {
 		click("appDatePick");
 	}
 
-	public void clickTimePick() {
+	public void clickTimePick() throws Exception {
 		click("appTimePick");
 	}
 	
-	public void clickDuration() {
+	public void clickDuration() throws Exception {
 		click("appDuration");
 	}
 	
-	public void clickAddAppointmentBtn() {
-		base.waitForElementToBeClickable("AddAppointment", 10);
+	public void clickAddAppointmentBtn() throws Exception {
 		click("AddAppointment");
 	}
 
-	public void clickCancelAppointment() {
-		base.waitForElementToBeClickable("homePageAppCancelBtn", 10);
+	public void clickCancelAppointment() throws Exception {
 		 click("homePageAppCancelBtn");
 	}
 
-	public void clickEditAppointment() {
-		base.waitForElementToBeClickable("homepageEditAppointment", 10);
+	public void clickEditAppointment() throws Exception {
 		 click("homepageEditAppointment");
 	}
 
-	public void clickUpdateButton() {
-		base.waitForElementToBeClickable("homePageAppUpdateBtn", 10);
+	public void clickUpdateButton() throws Exception {
 		click("homePageAppUpdateBtn");
 	}
 	
-	public void clickDeleteAppointment() {
-		base.waitForElementToBeClickable("homePageDeleteAppointment", 10);
+	public void clickDeleteAppointment() throws Exception {
 		 click("homePageDeleteAppointment");
 	}
 
-	public void clickSMSReminder() {
-		base.waitForElementToBeClickable("homePageAppSendSMS", 10);
+	public void clickSMSReminder() throws Exception {
 		click("homePageAppSendSMS");
 	}
 	
 	public String verifyNotification(String text) throws Exception  {
 		verifyElementPresent("notification");
-		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
 		return text;
 	}
 
-	public void clickCancelNotification() {
-		base.waitForElementToBeClickable("cancelNotification", 10);
+	public void clickCancelNotification() throws Exception {
 		click("cancelNotification");
 	}
 	
 	public boolean verifyErrorMsg() throws Exception {
 		verifyElementPresent("homePageAppErrorMsg");
 		return true;
-	}
-
-	
-	
+	}	
 }
 

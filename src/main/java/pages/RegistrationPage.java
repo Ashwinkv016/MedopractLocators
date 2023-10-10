@@ -11,13 +11,12 @@ public class RegistrationPage extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void clickRegisterNow() throws InterruptedException {
+	public void clickRegisterNow() throws Exception {
 		scrollDown();
-		base.waitForElementToBeClickable("registerNow", 10);
 		click("registerNow");
 	}
 
-	public void enterFullName() {
+	public void enterFullName() throws Exception {
 		enterData("fullNameRegister","fullName");
 	}
 
@@ -28,90 +27,82 @@ public class RegistrationPage extends CommonMethod {
 		return text;
 	}
 	
-	public void enterEmailField() {
+	public void enterEmailField() throws Exception {
 		enterData("emailRegister","emailId");
 	}
 
-	public void enterMobileField() {
-		enterData("phnoRegister","valied_PhoneNo1");
+	public void enterMobileField() throws Exception {
+		enterData("phnoRegister","valid_PhoneNo1");
 	}
 
-	public void enterUserNameField() {
-		enterData("usernameRegister","valied_UserName");
+	public void enterUserNameField() throws Exception {
+		enterData("usernameRegister","valid_UserName");
 	}
 
-	public void enterValidConfirmUserName() {
-		enterData("cnfrmUserRegister","valied_CnfrmUserName");
+	public void enterValidConfirmUserName() throws Exception {
+		enterData("cnfrmUserRegister","valid_CnfrmUserName");
 	}
 	
-	public void enterInValidConfirmUserName() {
-		enterData("cnfrmUserRegister","invalied_CnfrmUserName");
+	public void enterInValidConfirmUserName() throws Exception {
+		enterData("cnfrmUserRegister","invalid_CnfrmUserName");
 	}
 	
-	public void clearConfirmUserName() {
+	public void clearConfirmUserName() throws Exception {
 		clearData("cnfrmUserRegister");
 	}
 
 	public String cnfrmUserNameErrorMsg(String text) throws Exception {
 		verifyElementPresent("cnfrmUserNameErrorMsg");
-		base.waitForElementVisibility("cnfrmUserNameErrorMsg", 10);
 		verifyTextPresent("cnfrmUserNameErrorMsg");
 		return text;
 	}
 	
-	public void clickAgreetermCheckBox() {
+	public void clickAgreetermCheckBox() throws Exception {
 		click("agreeTermsRegister");
 	}
 	
 	public String AgreeTermsErrorMsg(String text) throws Exception {
 		verifyElementPresent("agreeTermsRegisterErrorMsg");
-		base.waitForElementVisibility("agreeTermsRegisterErrorMsg", 10);
 		verifyTextPresent("agreeTermsRegisterErrorMsg");
 		return text;
 	}
 
-	public void clickRegisterButton(){
-		base.waitForElementToBeClickable("registerBtn", 10);
+	public void clickRegisterButton() throws Exception{
 		click("registerBtn");
 	}
 	
 	
 	public String registrationSuccessMsg(String text) throws Exception {
 		verifyElementPresent("registrationSuccessMsg");
-		base.waitForElementVisibility("registrationSuccessMsg", 10);
 		verifyTextPresent("registrationSuccessMsg");
 		return text;
 	}
 	
 	
-	public void getOkButton() {
+	public void getOkButton() throws Exception {
 		click("registerOkBtn");
 	}
 
-	public void clickImAlreadyUser() throws InterruptedException{
+	public void clickImAlreadyUser() throws Exception{
 		scrollDown();
-		base.waitForElementToBeClickable("alreadyUserRegister", 10);
 		click("alreadyUserRegister");
 	}
-	public void clickHelp(){
+	public void clickHelp() throws Exception{
 		scrollTillElement();
-		base.waitForElementToBeClickable("helpLogin", 10);
 		 click("helpLogin");
 	}
 
-	public void clickGotItBtn() {
+	public void clickGotItBtn() throws Exception {
 		click("gotItBtn");
 	}	
 
 	public String verifyNotification(String text) throws Exception  {
 		verifyElementPresent("notification");
-		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
 		return text;
 	}
 
-	public void clickCancelNotification() {
-		base.waitForElementToBeClickable("cancelNotification", 10);
+	public void clickCancelNotification() throws Exception {
 		click("cancelNotification");
 	}
 	

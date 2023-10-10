@@ -2,6 +2,8 @@ package tests;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -59,30 +61,10 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Assertion Passed");
 	}
 
+
 	@Test(priority = 1)
-	public void withoutMandatoryAllData() throws Exception {
-		test = reports.startTest("TC001 Without Mandatory All Field");
-		AddPatientPage app = new AddPatientPage();
-		app.clickPatientMenu();
-		logger.info("Clicking Patients");
-		app.clickAddPatient();
-		logger.info("Clicking Add Patient");
-		app.clickPatientSaveBtn();
-		logger.info("Clicked SaveButton");
-		
-		String actual = getWebElement("notification").getText();
-		String expected="Please provide required inputs";
-		Assert.assertEquals(actual, expected);
-		logger.info("Assertion Passed");
-
-		app.clickCancelNotification();
-		logger.info("Clicked Cancel Notification");
-	}
-
-	@Test(priority = 2)
-	public void AddPatient() throws Exception {
-		test = reports.startTest("TC002 Add Patient Test");
-		driver.navigate().refresh();
+	public void AddPatientDataUploadFile() throws Exception {
+		test = reports.startTest("TC001 Add PatientData and Upload File Test");
 		AddPatientPage app = new AddPatientPage();
 		app.clickPatientMenu();
 		logger.info("Clicking Patients");
@@ -107,6 +89,20 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Added Address");
 		app.enterEmergencyPhno();
 		logger.info("Added Emergency contact no field");
+		
+		Thread.sleep(2000);
+		WebElement uploadFile = driver.findElement(By.xpath("//input[@id='fileButton']"));
+		uploadFile.sendKeys(System.getProperty("user.dir") + "\\src\\main\\java\\genericPages\\homePageTitle.png");
+		Thread.sleep(1000);
+		
+		String actual = getWebElement("notification").getText();
+		String expected="File uploaded successfully!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
+		app.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+	
 		app.enterAllergy();
 		logger.info("Added Allergy field");
 		app.enterRemarks();
@@ -130,8 +126,34 @@ public class AddPatientTest extends CommonMethod {
 		app.clickPatientSaveBtn();
 		logger.info("Clicked Save Button");
 		
+		String actual1 = getWebElement("notification").getText();
+		String expected1="Patient Record created successfully!";
+		Assert.assertEquals(actual1, expected1);
+		logger.info("Assertion Passed");
+
+		app.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+	}
+
+	@Test(priority = 2)
+	public void resetPatientWithData() throws Exception {
+		test = reports.startTest("TC002 Reset patient data");
+		AddPatientPage app = new AddPatientPage();
+
+		app.clickPatientResetBtn();
+		logger.info("Clicked Reset Button");
+
+	}
+	
+	@Test(priority = 3)
+	public void withoutMandatoryAllData() throws Exception {
+		test = reports.startTest("TC003 Without Mandatory All Field");
+		AddPatientPage app = new AddPatientPage();
+		app.clickPatientSaveBtn();
+		logger.info("Clicked SaveButton");
+		
 		String actual = getWebElement("notification").getText();
-		String expected="Patient Record created successfully!";
+		String expected="Please provide required inputs";
 		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
 
@@ -139,29 +161,15 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority = 3)
-	public void resetPatientWithData() throws Exception {
-		test = reports.startTest("TC003 Reset patient data");
-		AddPatientPage app = new AddPatientPage();
-
-		app.clickPatientResetBtn();
-		logger.info("Clicked Reset Button");
-
-	}
-
 	@Test(priority = 4)
 	public void resetPatientWithoutData() throws Exception {
 		test = reports.startTest("TC004 Reset patient Without Data");
-		driver.navigate().refresh();
 		AddPatientPage app = new AddPatientPage();
-		app.clickPatientMenu();
-		logger.info("Clicking Patients");
-		app.clickAddPatient();
-		logger.info("Clicking Add Patient");
 		app.clickPatientResetBtn();
 		logger.info("Clicked Reset Button");
 
 	}
+	
 
 	@Test(priority = 5)
 	public void nameWithSpecialCharacter() throws Exception {
@@ -169,7 +177,8 @@ public class AddPatientTest extends CommonMethod {
 		AddPatientPage app = new AddPatientPage();
 		app.enterInValiedPatientName();
 		logger.info("Added Patient's Name");
-		app.enterValiedPhoneNo();
+		app.clickPatientSaveBtn();
+		logger.info("Clicked Save Btn");
 		
 		String actual = getWebElement("patientNameErrorMsg").getText();
 		String expected="Please enter valid name- Only Alphabets and spaces are allowed";
@@ -182,19 +191,11 @@ public class AddPatientTest extends CommonMethod {
 	@Test(priority = 6)
 	public void withIncorrectPhoneNo() throws Exception {
 		test = reports.startTest("TC006 Add Patient with Incorrect Phno");
-		driver.navigate().refresh();
 		AddPatientPage app = new AddPatientPage();
-		app.clickPatientMenu();
-		logger.info("Clicking Patients");
-		app.clickAddPatient();
-		logger.info("Clicking Add Patient");
-		app.clearPatientName();
-		logger.info("Cleared Patient's Name");
-		app.clearPhoneNo();
 		app.enterInValiedPhoneNo();
 		logger.info("Added Patient's Phone Number");
-		app.clickGenderField();
-		logger.info("Selected Gender Field");
+		app.clickPatientSaveBtn();
+		logger.info("Clicked Save Btn");
 
 		
 		String actual = getWebElement("patientPhnoErrorMsg").getText();
@@ -203,18 +204,44 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Assertion Passed");
 		
 	}
-
+	
 	@Test(priority = 7)
-	public void sameContactNoInEmergencyField() throws Exception {
-		test = reports.startTest("TC007 Add Patient with Same ContactNo in Emergency Field");
-		driver.navigate().refresh();
+	public void withIncorrectPhoneNumberWithSpace() throws Exception {
+		test = reports.startTest("TC007 Add Patient with Incorrect Phno");
 		AddPatientPage app = new AddPatientPage();
-		app.clickPatientMenu();
-		logger.info("Clicking Patients");
-		app.clickAddPatient();
-		logger.info("Clicking Add Patient");
+		app.clearPhoneNo();
+		app.enterInValiedPhoneNo1();
+		logger.info("Added Patient's Phone Number");
+		app.clickPatientSaveBtn();
+		logger.info("Clicked Save Btn");
+	}
+	
+	@Test(priority = 8)
+	public void withIncorrectPhoneNoWithNumber0() throws Exception {
+		test = reports.startTest("TC008 Add Patient with Incorrect Phno");
+		AddPatientPage app = new AddPatientPage();
+		app.clearPhoneNo();
+		app.enterInValiedPhoneNo2();
+		logger.info("Added Patient's Phone Number");
+		app.clickPatientSaveBtn();
+		logger.info("Clicked Save Btn");
+
+		String actual = getWebElement("patientPhnoErrorMsg").getText();
+		String expected="Mobile number must be 10 digits long valid number";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
+	}
+
+	@Test(priority = 9)
+	public void sameContactNoInEmergencyField() throws Exception {
+		test = reports.startTest("TC009 Add Patient with Same ContactNo in Emergency Field");
+		AddPatientPage app = new AddPatientPage();
+		app.clearPatientName();
+		logger.info("Cleared Patient's Name");
 		app.enterPatientName();
 		logger.info("Added Patient's Name");
+		Thread.sleep(2000);
 		app.clearPhoneNo();
 		app.enterValiedPhoneNo();
 		logger.info("Added Patient's Phone Number");
@@ -232,6 +259,20 @@ public class AddPatientTest extends CommonMethod {
 		logger.info("Added Address");
 		app.enterEmergencyPhno();
 		logger.info("Added Emergency contact no field");
+		/**app.clickTakePhoto();
+        alertHandling();
+		app.clickCapturePhoto();
+		Thread.sleep(1000);
+		
+		String actual = getWebElement("notification").getText();
+		String expected="File uploaded successfully!";
+		Assert.assertEquals(actual, expected);
+		logger.info("Assertion Passed");
+		
+		app.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");**/
+
+		
 		app.enterAllergy();
 		logger.info("Added Allergy field");
 		app.enterRemarks();
@@ -245,9 +286,9 @@ public class AddPatientTest extends CommonMethod {
 		app.clickPatientSaveBtn();
 		logger.info("Clicked Save Button");
 		
-		String actual = getWebElement("notification").getText();
-		String expected="Patient Record created successfully!";
-		Assert.assertEquals(actual, expected);
+		String actual1 = getWebElement("notification").getText();
+		String expected1="Patient Record created successfully!";
+		Assert.assertEquals(actual1, expected1);
 		logger.info("Assertion Passed");
 
 		app.clickCancelNotification();

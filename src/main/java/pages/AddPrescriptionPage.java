@@ -9,112 +9,98 @@ public class AddPrescriptionPage extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void getclickPrescription() {
+	public void getclickPrescription() throws Exception {
 		scrollTillElement();
-		base.waitForElementToBeClickable("prescriptionMenu", 10);
 		click("prescriptionMenu");
 	}
 
-	public void getPatientNameField() {
-		enterData("prescriptionPatientName", "valied_PatientName");
+	public void getPatientNameField() throws Exception {
+		enterData("prescriptionPatientName", "valid_PatientName");
 	}
 
-	public void getpatientNameSuggestion() {
-		base.waitForElementToBeClickable("prescriptionNameFieldSugg", 10);
+	public void getpatientNameSuggestion() throws Exception {
 		click("prescriptionNameFieldSugg");
 	}
 
-	public void getEmailField() {
+	public void getEmailField() throws Exception {
 		enterData("prescriptionEmail", "emailId");
 	}
 
-	public void getClickingPlusSign() {
-		base.waitForElementToBeClickable("prescriptionMedicineplus", 10);
+	public void getClickingPlusSign() throws Exception {
 		click("prescriptionMedicineplus");
 	}
 
-	public void getMedicineNameField1() throws InterruptedException {
+	public void getMedicineNameField1() throws Exception {
 		scrollDown();
-		base.waitForElementVisibility("prescriptionMedicineName", 10);
 		enterData("prescriptionMedicineName", "medicineName1");
 	}
 
-	public void getMedicineNameField2() throws InterruptedException {
+	public void getMedicineNameField2() throws Exception {
 		scrollDown();
-		base.waitForElementVisibility("prescriptionMedicineName", 10);
 		enterData("prescriptionMedicineName", "medicineName2");
 	}
 
-	public void getTotalNumberDays1() {
+	public void getTotalNumberDays1() throws Exception {
 		enterData("prescriptionDaysInput", "noOfDays1");
 	}
 
-	public void getTotalNumberDays2() {
+	public void getTotalNumberDays2() throws Exception {
 		enterData("prescriptionDaysInput", "noOfDays2");
 	}
 
-	public void getTimingsInput1() {
+	public void getTimingsInput1() throws Exception {
 		enterData("prescriptionTimings", "instructions1");
 	}
 
-	public void getTimingsInput2() {
+	public void getTimingsInput2() throws Exception {
 		enterData("prescriptionTimings", "instructions2");
 	}
 
-	public void getAmountInput1() {
+	public void getAmountInput1() throws Exception {
 		enterData("prescriptionAmountInput", "amountToTake1");
 	}
 
-	public void getAmountInput2() {
+	public void getAmountInput2() throws Exception {
 		enterData("prescriptionAmountInput", "amountToTake2");
 	}
 
 	public void getSaveAndPrintButton() throws Exception {
 		scrollDown();
-		base.waitForElementToBeClickable("PrescriptionsaveAndPrintBtn", 10);
 		click("PrescriptionsaveAndPrintBtn");
 	}
 
-	public void getBackButton() {
-		base.waitForElementToBeClickable("addPrescriptionsBackBtn", 10);
+	public void getBackButton() throws Exception {
 		click("addPrescriptionsBackBtn");
 	}
 
-	public void getyesButtonField() {
+	public void getyesButtonField() throws Exception {
 		click("prescriptionSaveYesBtn");
 	}
 
-	public void getprescriptionBackBtn() {
-		base.waitForElementToBeClickable("prescriptionBackBtn", 10);
+	public void getprescriptionBackBtn() throws Exception {
 		click("prescriptionBackBtn");
 	}
 
-	public void getprintPrescription() {
+	public void getprintPrescription() throws Exception {
 		scrollDown();
-		base.waitForElementToBeClickable("printPrescriptionBtn", 10);
 		click("printPrescriptionBtn");
 	}
 
-	public void getdownloadPrescription() {
-		alertHandling();
-		base.waitForElementToBeClickable("downloadPrescriptionBtn", 10);
+	public void getdownloadPrescription() throws Exception {
 		click("downloadPrescriptionBtn");
 	}
 
-	public void getdeleteMedicineField() {
-		base.waitForElementToBeClickable("prescriptionDeleteMedicine", 10);
+	public void getdeleteMedicineField() throws Exception {
 		click("prescriptionDeleteMedicine");
 	}
 	
 	public String verifyNotification(String text) throws Exception  {
 		verifyElementPresent("notification");
-		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
 		return text;
 	}
 
-	public void clickCancelNotification() {
-		base.waitForElementToBeClickable("cancelNotification", 10);
+	public void clickCancelNotification() throws Exception {
 		click("cancelNotification");
 	}
 }

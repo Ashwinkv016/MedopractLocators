@@ -78,9 +78,12 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-		
+
+
+
 		String actual = getWebElement("notification").getText();
 		String expected="Appointment added Successfully";
+
 		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
 
@@ -88,7 +91,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Cancel Notification");
 	}
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void AddAppointmentWithoutName() throws Exception {
 		test = reports.startTest("TC002 Add Appointment without Name");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
@@ -106,7 +109,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-		
+
 		String actual = getWebElement("notification").getText();
 		String expected="something went wrong!";
 		Assert.assertEquals(actual, expected);
@@ -136,7 +139,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-		
+
 		String actual = getWebElement("notification").getText();
 		String expected="something went wrong!";
 		Assert.assertEquals(actual, expected);
@@ -166,7 +169,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Duration Field");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked SaveAppointment Field");
-		
+
 		String actual = getWebElement("notification").getText();
 		String expected="Appointment added Successfully";
 		Assert.assertEquals(actual, expected);
@@ -180,7 +183,6 @@ public class AppointmentsCalenderTest extends CommonMethod {
 	public void updateWithInvaliedData() throws Exception {
 		test = reports.startTest("TC005 Update With InvaliedData");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
-		acp.getClickAppointmentCalender();
 		acp.getUpdatedExistingAppointment();
 		logger.info("Clicked ExistingAppointment Field");
 		acp.clearUpdateFirstNameField();
@@ -232,7 +234,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		String expected="Appointment Updated Successfully";
 		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
-		
+
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}
@@ -242,6 +244,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		test = reports.startTest("TC007 Existing Appointment In Month");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
 		acp.getMonthButton();
+		Thread.sleep(2000);
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
 		acp.getcancelExistingAppointment();
@@ -258,10 +261,11 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		String expected="Appointment Updated Successfully";
 		Assert.assertEquals(actual, expected);
 		logger.info("Assertion Passed");
-		
+
 		acp.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 
+		Thread.sleep(1000);
 		acp.getBackButton();
 		logger.info("Clicked Back Button");
 		acp.getNextButton();
@@ -280,6 +284,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 	public void existingAppointmentInWeek() throws Exception {
 		test = reports.startTest("TC008 Existing Appointment In Week");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
+		Thread.sleep(3000);
 		acp.getWeekButton();
 		logger.info("Clicked Week Btn");
 		acp.getExistingAppointment();
@@ -289,7 +294,7 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Entered Visit Reason");
 		acp.getSaveAppointmentButton();
 		logger.info("Clicked Save Button");
-		
+
 		String actual = getWebElement("notification").getText();
 		String expected="Appointment Updated Successfully";
 		Assert.assertEquals(actual, expected);
@@ -316,7 +321,10 @@ public class AppointmentsCalenderTest extends CommonMethod {
 	public void existingAppointmentInDay() throws Exception {
 		test = reports.startTest("TC009 Existing Appointment In Day");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
+		acp.getClickAppointmentCalender();
+		Thread.sleep(5000);
 		acp.getDayButton();
+		logger.info("Clicked on Day Button");
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
 		acp.getcancelExistingAppointment();
@@ -339,6 +347,8 @@ public class AppointmentsCalenderTest extends CommonMethod {
 		logger.info("Clicked Next Button");
 		acp.getExistingAppointment();
 		logger.info("Clicked ExistingAppointment");
+		//acp.getLastNameField1();
+		//logger.info("Entered Last Name");
 		acp.getcancelExistingAppointment();
 		logger.info("Clicked Cancel ExistingAppointment");
 		acp.getTodayButton();

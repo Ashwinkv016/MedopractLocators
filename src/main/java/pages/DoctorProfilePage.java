@@ -9,69 +9,68 @@ public class DoctorProfilePage extends CommonMethod{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void clickDoctorProfile() {
+	public void clickDoctorProfile() throws Exception {
 		scrollTillElement();
-		base.waitForElementToBeClickable("doctorMenu", 10);
 		click("doctorMenu");
 	}
 
-	public void enterDoctorName() {
+	public void enterDoctorName() throws Exception {
 		enterData("doctorName","DoctorName");
 	}
 	
-	public void enterDoctorGender() {
+	public void enterDoctorGender() throws Exception {
 		enterData("doctorGender","Gender");
 	}
 	
-	public void enterDoctorDateOfBirth() {
+	public void enterDoctorDateOfBirth() throws Exception {
 		enterData("doctorBirthDate","DateOfBirth");
 	}
 	
-	public void enterDoctorQualification() {
+	public void enterDoctorQualification() throws Exception {
 		enterData("doctorQualification","Qualification");
 	}
 	
-	public void enterDoctorEmail() {
+	public void enterDoctorEmail() throws Exception {
 		enterData("doctorEmail","doctorEmailID");
 	}
 	
-	public void enterDoctorMobileNumber() {
+	public void enterDoctorMobileNumber() throws Exception {
 		enterData("doctorMobileNo","doctorPhno");
 	}
 	
-	public void enterHospitalName() {
+	public void enterHospitalName() throws Exception {
 		enterData("hospitalName","Hospitalname");
 	}
 	
-	public void enterHospitalPhno() {
-		enterData("hospitalPhno","valied_PhoneNo1");
+	public void enterHospitalPhno() throws Exception {
+		enterData("hospitalPhno","valid_PhoneNo1");
 	}
 	
-	public void enterHospitalFax() {
+	public void enterHospitalFax() throws Exception {
 		enterData("hospitalFax","Fax");
 	}
 	
-	public void enterHospitalAddress() {
+	public void enterHospitalAddress() throws Exception {
 		enterData("hospitalAddress","HospitalAddress");
 	}
 	
-	public void enterHospitalCity() {
+	public void enterHospitalCity() throws Exception {
 		enterData("hospitalCity","City");
 	}
 	
-	public void enterHospitalState() {
+	public void enterHospitalState() throws Exception {
 		enterData("hospitalState","State");
 	}
 	
-	public void enterHospitalPincode() {
+	public void enterHospitalPincode() throws Exception {
 		enterData("hospitalPinCode","Pin");
 	}
 	
-	public void clickSaveChangesBtn() {
+	public void clickSaveChangesBtn() throws Exception {
 		click("saveChangesBtn");
 	}
 	
-	public void clickCancelBtn() {
+	public void clickCancelBtn() throws Exception {
 		click("cancelBtn");
 	}
 }

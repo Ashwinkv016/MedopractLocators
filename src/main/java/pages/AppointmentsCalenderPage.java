@@ -4,166 +4,152 @@ import genericPages.CommonMethod;
 
 public class AppointmentsCalenderPage extends CommonMethod {
 
+
 	public AppointmentsCalenderPage() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public void getClickAppointmentCalender() {
+	public void getClickAppointmentCalender() throws Exception {
 		scrollTillElement();
-		base.waitForElementVisibility("appointmentsMenu", 10);
 		click("appointmentsMenu");
 	}
 
-	public void getNewAppointment() {
+	public void getNewAppointment() throws Exception {
 		click("appointmentsCalenderNewApp");
 	}
 
-	public void getFirstNameField1() {
+	public void getFirstNameField1() throws Exception {
 		enterData("appCalenderFirstname", "patient_FirstName2");
 	}
 
-	public void getFirstNameField2() {
+	public void getFirstNameField2() throws Exception {
 		enterData("appCalenderFirstname", "patient_FirstName1");
 	}
 
-	public void clearFirstNameField() {
+	public void clearFirstNameField() throws Exception {
 		clearData("appCalenderFirstname");
 	}
 
-	public void clearUpdateFirstNameField() {
+	public void clearUpdateFirstNameField() throws Exception {
 		clearData("appCalenderUpdateFirstName");
 	}
 
-	public void enterUpdateFirstNameField() {
+	public void enterUpdateFirstNameField() throws Exception {
 		enterData("appCalenderUpdateFirstName", "patient_FirstName2");
 	}
 
-	public void getLastNameField1() {
+	public void getLastNameField1() throws Exception {
 		enterData("appCalenderLastName", "patient_LastName1");
 	}
 
-	public void getLastNameField2() {
+	public void getLastNameField2() throws Exception {
 		enterData("appCalenderLastName", "patient_LastName2");
 	}
 
-	public void clearLastNameField() {
+	public void clearLastNameField() throws Exception {
 		clearData("appCalenderLastName");
 	}
 
-	public void getVisitreasonField1() {
+	public void getVisitreasonField1() throws Exception {
 		enterData("appCalenderVisitReason", "patient_VisitReason1");
 	}
 
-	public void getVisitreasonField2() {
+	public void getVisitreasonField2() throws Exception {
 		enterData("appCalenderVisitReason", "patient_VisitReason2");
 	}
 
-	public void clearVisitreasonField() {
+	public void clearVisitreasonField() throws Exception {
 		clearData("appCalenderVisitReason");
 	}
 
-	public void getContactNumberField1() {
-		enterData("appCalenderPhno", "valied_PhoneNo1");
+	public void getContactNumberField1() throws Exception {
+		enterData("appCalenderPhno", "valid_PhoneNo1");
 	}
 
-	public void getContactNumberField2() {
-		enterData("appCalenderPhno", "valied_PhoneNo2");
+	public void getContactNumberField2() throws Exception {
+		enterData("appCalenderPhno", "valid_PhoneNo2");
 	}
 
-	public void clearContactNumberField() {
+	public void clearContactNumberField() throws Exception {
 		clearData("appCalenderPhno");
 	}
 
-	public void getdateAndTimeField() {
+	public void getdateAndTimeField() throws Exception {
 		click("appCalenderDateAndTime");
 	}
 
-	public void getdatePick() {
+	public void getdatePick() throws Exception {
 		click("appDatePick");
 	}
 
-	public void gettimePick() {
+	public void gettimePick() throws Exception {
 		click("appTimePick");
 	}
 
-	public void getDurationField() {
+	public void getDurationField() throws Exception {
 		selectDropdown("appDuration", "appDuration");
 	}
 
-	public void getSaveAppointmentButton() {
-		base.waitForElementToBeClickable("appointmentCalenderSaveApp", 10);
+	public void getSaveAppointmentButton() throws Exception {
 		click("appointmentCalenderSaveApp");
 	}
 
-	public void getMonthButton() {
-		base.waitForElementToBeClickable("appCalenderMonthBtn", 10);
+	public void getMonthButton() throws Exception {
 		click("appCalenderMonthBtn");
 	}
 
-	public void getWeekButton() {
-		base.waitForElementToBeClickable("appCalenderWeekBtn", 10);
+	public void getWeekButton() throws Exception {
 		click("appCalenderWeekBtn");
 	}
 
-	public void getDayButton() {
-		base.waitForElementToBeClickable("appCalenderDayBtn", 10);
+	public void getDayButton() throws Exception {
 		click("appCalenderDayBtn");
 	}
 
-	public void getAgendaButton() {
-		base.waitForElementToBeClickable("appCalenderAgendaBtn", 10);
+	public void getAgendaButton() throws Exception {
 		click("appCalenderAgendaBtn");
 	}
 
-	public void getTodayButton() throws InterruptedException {
-		base.waitForElementToBeClickable("appCalenderTodayBtn", 10);
+	public void getTodayButton() throws Exception {
 		Thread.sleep(1000);
 		click("appCalenderTodayBtn");
 	}
 
-	public void getBackButton() throws InterruptedException {
-		base.waitForElementToBeClickable("appCalenderBackBtn", 10);
+	public void getBackButton() throws Exception {
 		Thread.sleep(1000);
 		click("appCalenderBackBtn");
 	}
 
-	public void getNextButton() throws InterruptedException {
-		base.waitForElementToBeClickable("appCalenderNextBtn", 10);
+	public void getNextButton() throws Exception {
 		Thread.sleep(1000);
 		click("appCalenderNextBtn");
 	}
 
-	public void getExistingAppointment() throws InterruptedException {
+	public void getExistingAppointment() throws Exception {
 		scrollDown();
-		base.waitForElementToBeClickable("appCalenderExistingApp", 10);
 		click("appCalenderExistingApp");
 	}
 
-	public void getUpdatedExistingAppointment() {
-		base.waitForElementToBeClickable("appCalenderUpdateExistingApp", 10);
+	public void getUpdatedExistingAppointment() throws Exception {
 		click("appCalenderUpdateExistingApp");
 	}
 
-	public void getagendaExistingAppointment() {
+	public void getagendaExistingAppointment() throws Exception {
 		click("appCalenderAgendaexistingApp");
 	}
 
-	public void getcancelExistingAppointment() throws InterruptedException {
-		base.waitForElementToBeClickable("appCalenderCancelExistingApp", 10);
+	public void getcancelExistingAppointment() throws Exception {
 		Thread.sleep(1000);
 		click("appCalenderCancelExistingApp");
 	}
 
 	public String verifyNotification(String text) throws Exception {
-		verifyElementPresent("notification");
-		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
 		return text;
 	}
 
-	public void clickCancelNotification() {
-		base.waitForElementToBeClickable("cancelNotification", 10);
+	public void clickCancelNotification() throws Exception {
 		click("cancelNotification");
 	}
 

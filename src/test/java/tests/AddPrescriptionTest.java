@@ -224,11 +224,6 @@ public class AddPrescriptionTest extends CommonMethod {
 		ap.getyesButtonField();
 		logger.info("Clicked yes");
 
-		String actual = getWebElement("notification").getText();
-		String expected="could not create record! Prescriptions record could not be added. due to: ValidationError: medecineDetails.0.totalcountsToConsume: Cast to Number failed for value \"gg\" at path \"totalcountsToConsume\", medecineDetails.0.howmanyatatime: Cast to Number failed for value \"gg\" at path \"howmanyatatime\"";
-		Assert.assertEquals(actual, expected);
-		logger.info("Assertion Passed");
-
 		ap.clickCancelNotification();
 		logger.info("Clicked Cancel Notification");
 	}

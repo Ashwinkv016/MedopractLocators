@@ -11,154 +11,159 @@ public class AddPatientPage extends CommonMethod {
 
 	public void clickPatientMenu() throws Exception {
 		scrollTillElement();
-		base.waitForElementVisibility("patientMenu", 10);
 		click("patientMenu");
 	}
 
-	public void clickAddPatient() {
-		base.waitForElementVisibility("addPatientClick", 30);
-		base.waitForElementToBeClickable("addPatientClick", 30);
+	public void clickAddPatient() throws Exception {
 		click("addPatientClick");
 	}
 
 	public void enterValiedPatientName() throws Exception {
-		base.waitForElementVisibility("patientName", 10);
-		enterData("patientName", "valied_PatientName");
+		enterData("patientName", "valid_PatientName");
 	}
 	
 	public void enterPatientName() throws Exception {
-		base.waitForElementVisibility("patientName", 10);
-		enterData("patientName", "patient_FirstName3");
+		enterData("patientName", "valid_PatientName");
 	}
 
-	public void enterInValiedPatientName() {
+	public void enterInValiedPatientName() throws Exception {
 		scrollTillElement();
-		base.waitForElementVisibility("patientName", 10);
-		enterData("patientName", "invalied_PatientName");
+		enterData("patientName", "invalid_PatientName");
 	}
 
-	public void clearPatientName() {
+	public void clearPatientName() throws Exception {
 		scrollTillElement();
-		base.waitForElementVisibility("patientName", 10);
 		clearData("patientName");
 	}
-
-	public void enterValiedPhoneNo() throws InterruptedException {
-		Thread.sleep(2000);
-		enterData("patientPhno", "valied_PhoneNo1");
+	
+	public void clickPatientNameSuggestion() throws Exception {
+		click("addPatientNameSugg");
 	}
 
-	public void clearPhoneNo() {
+	public void enterValiedPhoneNo() throws Exception {
+		Thread.sleep(3000);
+		enterData("patientPhno", "valid_PhoneNo1");
+	}
+
+	public void clearPhoneNo() throws Exception {
+		Thread.sleep(3000);
 		clearData("patientPhno");
 	}
 
-	public void enterInValiedPhoneNo() {
-		enterData("patientPhno", "invalied_PhoneNo");
+	public void enterInValiedPhoneNo() throws Exception {
+		enterData("patientPhno", "invalid_PhoneNo");
+	}
+	
+	public void enterInValiedPhoneNo1() throws Exception {
+		enterData("patientPhno", "invalid_PhoneNo1");
+	}
+	
+	public void enterInValiedPhoneNo2() throws Exception {
+		enterData("patientPhno", "invalid_PhoneNo2");
 	}
 
-	public void clickGenderField() {
-		base.waitForElementVisibility("patientgender", 10);
+	public void clickGenderField() throws Exception {
 		selectDropdown("patientgender", "patientGender");
 	}
 
-	public void clickBirthDateField() {
+	public void clickBirthDateField() throws Exception {
 		click("patientBirthDateField");
 	}
 
-	public void enterMonthField() {
-		base.waitForElementVisibility("patientBmonth", 10);
+	public void enterMonthField() throws Exception {
 		enterData("patientBmonth", "patient_Month");
 	}
 
-	public void enterDateField() {
-		base.waitForElementVisibility("patientBdate", 10);
+	public void enterDateField() throws Exception {
 		enterData("patientBdate", "patient_Day");
 	}
 
-	public void enterYearfield() {
-		base.waitForElementVisibility("patientByear", 10);
+	public void enterYearfield() throws Exception {
 		enterData("patientByear", "patient_Year");
 	}
 
-	public void clickBloodGroup() {
-		base.waitForElementVisibility("patientBloodGroup", 10);
+	public void clickBloodGroup() throws Exception {
 		selectDropdown("patientBloodGroup", "patientBloodGroup");
 	}
 
-	public void enterOccupation() throws InterruptedException {
+	public void enterOccupation() throws Exception {
 		enterData("patientOccupation", "patient_Occupation");
 	}
 
-	public void enterAddress() {
+	public void enterAddress() throws Exception {
 		enterData("patientAddress", "patient_Address");
 	}
 
-	public void clearAddress() {
+	public void clearAddress() throws Exception {
 		clearData("patientAddress");
 	}
 
-	public void enterEmergencyPhno() {
-		enterData("patientEmerPhno", "EmergencyPhno");
+	public void enterEmergencyPhno() throws Exception {
+		enterData("patientEmerPhno", "valid_PhoneNo1");
 	}
 
-	public void clearEmergencyPhno() {
+	public void clearEmergencyPhno() throws Exception {
 		clearData("patientEmerPhno");
 	}
+	
+	public void clickTakePhoto() throws Exception {
+		Thread.sleep(2000);
+		click("takePhoto");
+	}
+	
+	public void clickCapturePhoto() throws Exception {
+		Thread.sleep(2000);
+		click("capturePhoto");
+	}
 
-	public void enterAllergy() throws InterruptedException {
+	public void enterAllergy() throws Exception {
 		scrollDown();
-		base.waitForElementVisibility("patientAllergies", 10);
 		enterData("patientAllergies", "patient_Allergy");
 	}
 
-	public void enterRemarks() throws InterruptedException {
+	public void enterRemarks() throws Exception {
 		scrollDown();
-		base.waitForElementVisibility("patientRemarks", 10);
 		enterData("patientRemarks", "patient_Remark");
 	}
 
-	public void enterHistory() {
+	public void enterHistory() throws Exception {
 		enterData("patientHistory", "patient_History");
 	}
 
-	public void enterhabits1() {
+	public void enterhabits1() throws Exception {
 		enterData("patientHabits", "patient_Habit1");
 	}
 
-	public void enterhabits2() {
+	public void enterhabits2() throws Exception {
 		enterData("patientHabits", "patient_Habit2");
 	}
 
-	public void clickHabitsPlus() {
-		base.waitForElementToBeClickable("habitsPlusBtn", 10);
+	public void clickHabitsPlus() throws Exception {
 		click("habitsPlusBtn");
 	}
 
-	public void clickHabitsCancel() {
+	public void clickHabitsCancel() throws Exception {
 		click("habitsCancelBtn");
 	}
 
-	public void clickPatientSaveBtn() throws InterruptedException {
+	public void clickPatientSaveBtn() throws Exception {
 		scrollDown();
-		base.waitForElementToBeClickable("patientSaveBtn", 10);
+		Thread.sleep(1000);
 		click("patientSaveBtn");
 	}
 
 	public void clickPatientResetBtn() throws Exception {
 		scrollDown();
-		base.waitForElementToBeClickable("patientResetBtn", 10);
 		click("patientResetBtn");
 	}
 
 	public String verifyNotification(String text) throws Exception {
 		verifyElementPresent("notification");
-		base.waitForElementVisibility("notification", 10);
 		verifyTextPresent("notification");
 		return text;
 	}
 
-	public void clickCancelNotification() {
-		base.waitForElementToBeClickable("cancelNotification", 10);
+	public void clickCancelNotification() throws Exception {
 		click("cancelNotification");
 	}
 

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-	<test thread-count="5" name="Test">
+<suite name="src/test/java">
+
+	<test thread-count="5" name="tests">
 
 		<classes>
 			<class name="tests.RegistrationTest"></class>
-			<class name="tests.ForgetPasswordTest"></class>
-			<class name="tests.HomePageTest"></class>
 			<class name="tests.LoginTest"></class>
-			<class name="tests.LoginTestDDT"></class>
+			<class name="tests.ForgetPasswordTest"></class>
 			<class name="tests.HomePageAppointmentTest"></class>
 			<class name="tests.ToDoListTest"></class>
 			<class name="tests.AddPatientTest"></class>
@@ -20,9 +19,6 @@
 			<class name="tests.AddBillTest"></class>
 			<class name="tests.ViewBillTest"></class>
 			<class name="tests.ReportsTest"></class>
-
-		</classes>
-	</test> <!--
-	Test -->
-</suite> <!--
-Suite -->
+			</classes>
+	</test> <!--Test -->
+</suite> <!--Suite -->

@@ -240,6 +240,7 @@ public class HomePageAppointmentTest extends CommonMethod {
 		hpa.clickSMSReminder();
 		logger.info("Clicking on SMS Reminder");
 		
+		Thread.sleep(3000);
 		String actual = getWebElement("notification").getText();
 		String expected="No sufficient information to send Reminder. Edit the appointment to add necessary details.";
 		Assert.assertEquals(actual, expected);

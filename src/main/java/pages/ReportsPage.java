@@ -12,37 +12,30 @@ public class ReportsPage extends CommonMethod {
 
 	public void getClickReports() throws Exception {
 		scrollTillElement();
-		base.waitForElementToBeClickable("reportsMenu", 10);
 		 click("reportsMenu");
 	}
 
-	public void getClickAddPatient() {
-		base.waitForElementToBeClickable("addPatientReportsClick", 10);
+	public void addPatientReportsClick() throws Exception {
 		click("addPatientReportsClick");
 	}
 
-	public void getYearlyTab() {
-		base.waitForElementToBeClickable("yearlyReports", 10);
+	public void getYearlyTab() throws Exception {
 		click("yearlyReports");
 	}
 
-	public void getMonthlyTab() {
-		base.waitForElementToBeClickable("monthlyReports", 10);
+	public void getMonthlyTab() throws Exception {
 		click("monthlyReports");
 	}
 
-	public void getWeeklyTab() {
-		base.waitForElementToBeClickable("weeklyReports", 10);
+	public void getWeeklyTab() throws Exception {
 		 click("weeklyReports");
 	}
 
-	public void getDailyTab() {
-		base.waitForElementToBeClickable("dailyReports", 10);
+	public void getDailyTab() throws Exception {
 		 click("dailyReports");
 	}
 
-	public void getCancelButton() {
-		base.waitForElementToBeClickable("cancelReports", 10);
+	public void getCancelButton() throws Exception {
 		click("cancelReports");
 	}
 

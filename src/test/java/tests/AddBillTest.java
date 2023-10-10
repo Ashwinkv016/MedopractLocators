@@ -1,16 +1,19 @@
 package tests;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.openqa.selenium.By;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 
-import org.apache.log4j.LogManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import genericPages.CommonMethod;
 import pages.AddBill;
 import pages.LoginPage;
@@ -90,20 +93,31 @@ public class AddBillTest extends CommonMethod {
 		logger.info("Entered Bed number");
 		ab.AdmissionClick();
 		logger.info("Clicked Admission Date Field");
-		ab.AdmissionMonth();
+		/**ab.AdmissionMonth();
 		logger.info("Entered Admission Month");
 		ab.AdmissionDate();
 		logger.info("Entered Admission date");
 		ab.AdmissionYear();
-		logger.info("Entered admission Year");
+		logger.info("Entered admission Year");**/
+		
+		DateFormat formatdate = new SimpleDateFormat("d");
+		Date todaydate = new Date();
+		String finaldate = formatdate.format(todaydate);
+
+		driver.findElement(By.xpath("//abbr[text( )='" + finaldate + "']")).click();
+		
+		
 		ab.dischargeClick();
 		logger.info("Clicked Discharge Date Field");
-		ab.dischargeMonth();
+		/**ab.dischargeMonth();
 		logger.info("Entered discharge Month");
 		ab.dischargeDate();
 		logger.info("Entered Discharge Date");
 		ab.dischargeYear();
-		logger.info("Entered Discharge Year");
+		logger.info("Entered Discharge Year");**/
+		
+		driver.findElement(By.xpath("(//abbr[text( )='" + finaldate + "'])[2]")).click();
+		
 		ab.enterCGSTPercent();
 		logger.info("Entered CGST Percent");
 		ab.enterSGSTPercent();
@@ -129,7 +143,7 @@ public class AddBillTest extends CommonMethod {
 	public void clickResetBtn() throws Exception {
 		test = reports.startTest("TC002 Clicking Reset Btn");
 		AddBill ab = new AddBill();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		ab.clickResetBtn();
 		logger.info("Clicked Reset Btn");
 	}

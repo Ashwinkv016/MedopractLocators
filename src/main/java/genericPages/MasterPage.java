@@ -15,8 +15,8 @@ public class MasterPage {
 
 	public static WebDriver driver;
 	public Properties propConfig;
-	public Properties propLocator;
-	public Properties propTestData;
+	public  Properties propLocator;
+	public  Properties propTestData;
 
 	// Constructor Implementation
 	public MasterPage() throws Exception {

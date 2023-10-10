@@ -9,45 +9,40 @@ public class ViewBill extends CommonMethod{
 		// TODO Auto-generated constructor stub
 	}
 
-	public void clickBilling() {
+	public void clickBilling() throws Exception {
 		scrollTillElement();
-		base.waitForElementToBeClickable("billMenu", 10);
 		click("billMenu");
 	}
 	
-	public void clickViewBill() {
+	public void clickViewBill() throws Exception {
 		click("viewBillClick");
 	}
 	
-	public void enterPatientName() {
+	public void enterPatientName() throws Exception {
 		enterData("billingPatientname", "patient_FirstName2");
 	}
 
-	public void clickPatientNameSugg() {
-		base.waitForElementVisibility("viewBillPatientNameSugg", 10);
+	public void clickPatientNameSugg() throws Exception {
 		click("viewBillPatientNameSugg");
 	}
 	
-	public void clickViewBillList() {
+	public void clickViewBillList() throws Exception {
 		click("viewBillList");
 	}
 	
-	public void clickBillPrintBtn() {
-		base.waitForElementToBeClickable("billPrintBtn", 10);
+	public void clickBillPrintBtn() throws Exception {
 		click("billPrintBtn");
 	}
 
-	public void clickBillDownloadBtn() {
-		base.waitForElementToBeClickable("billDownloadBtn", 10);
+	public void clickBillDownloadBtn() throws Exception {
 		click("billDownloadBtn");
 	}
 
-	public void clickBillBackBtn() {
-		base.waitForElementToBeClickable("billBackBtn", 10);
+	public void clickBillBackBtn() throws Exception {
 		click("billBackBtn");
 	}
 	
-	public void clickGoToPatientDetails() {
+	public void clickGoToPatientDetails() throws Exception {
 		click("goToPatientDetails");
 	}
 }

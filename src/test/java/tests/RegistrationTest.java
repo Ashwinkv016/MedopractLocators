@@ -1,8 +1,5 @@
 package tests;
 
-import genericPages.CommonMethod;
-import pages.RegistrationPage;
-
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
@@ -12,6 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import genericPages.CommonMethod;
+import pages.RegistrationPage;
+
 
 public class RegistrationTest extends CommonMethod {
 
@@ -54,16 +55,16 @@ public class RegistrationTest extends CommonMethod {
 		getWebElement("fullNameRegister").sendKeys("bbbbbbb");
 		logger.info("Entered Name");
 		//rp.enterEmailField();
-		getWebElement("emailRegister").sendKeys("bbbbb12345@gmail.com");
+		getWebElement("emailRegister").sendKeys("bbbb123456@gmail.com");
 		logger.info("Entered Email Address");
 		//rp.enterMobileField();
 		getWebElement("phnoRegister").sendKeys("6382565718");
 		logger.info("Entered Phone Number");
 		//rp.enterUserNameField();
-		getWebElement("usernameRegister").sendKeys("bbbbbbbbbbbb1234");
+		getWebElement("usernameRegister").sendKeys("bvwwwwc11256666");
 		logger.info("Entered UserName");
 		//rp.enterValidConfirmUserName();
-		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbbbbbbb1234");
+		getWebElement("cnfrmUserRegister").sendKeys("bvwwwwc11256666");
 		logger.info("Entered ConfirmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");
@@ -104,6 +105,7 @@ public class RegistrationTest extends CommonMethod {
 		rp.clickRegisterButton();
 		logger.info("Clicked On Register Button");
 		
+		base.waitForElementVisibility1("notification", 40);
 		String actual = getWebElement("notification").getText();
 		String expected="Username and ConfirmUserName does not match!";
 		Assert.assertEquals(actual, expected);
@@ -135,7 +137,7 @@ public class RegistrationTest extends CommonMethod {
 		test = reports.startTest("TC006 Without Agree Term CheckBox");
 		RegistrationPage rp = new RegistrationPage();
 		rp.clearConfirmUserName();
-		getWebElement("cnfrmUserRegister").sendKeys("bbbbbbbbbbbb1234");
+		getWebElement("cnfrmUserRegister").sendKeys("bvwwwwc11256666");
 		logger.info("Entering CnfrmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");

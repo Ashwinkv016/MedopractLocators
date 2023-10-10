@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [src/test/java]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="tests(failed)">
+    <classes>
+      <class name="tests.AddBillTest">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="configuration"/>
+          <include name="addingIncorrectBillItemDetails"/>
+          <include name="closure"/>
+          <include name="openApplication"/>
+        </methods>
+      </class> <!-- tests.AddBillTest -->
+      <class name="tests.AppointmentsCalenderTest">
+        <methods>
+          <include name="existingAppointmentInMonth"/>
+          <include name="configuration"/>
+          <include name="existingAppointmentInDay"/>
+          <include name="openApplication"/>
+          <include name="agenda"/>
+          <include name="updateWithInvaliedData"/>
+          <include name="closure"/>
+          <include name="existingAppointmentInWeek"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- tests.AppointmentsCalenderTest -->
+    </classes>
+  </test> <!-- tests(failed) -->
+</suite> <!-- Failed suite [src/test/java] -->

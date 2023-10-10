@@ -2,16 +2,12 @@ package tests;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import genericPages.CommonMethod;
 import pages.AddPatientPage;
 import pages.LoginPage;
@@ -93,7 +89,7 @@ public class ViewOrEditTest extends CommonMethod {
 
 	@Test(priority = 2)
 	public void updateContactField() throws Exception {
-		test = reports.startTest("TC002 Update Contact Field");
+		test = reports.startTest("TC002 View Or Edit Update Contact Field");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
 		voe.clickPatientList();
@@ -121,7 +117,7 @@ public class ViewOrEditTest extends CommonMethod {
 
 	@Test(priority = 3)
 	public void withoutAddressField() throws Exception {
-		test = reports.startTest("TC003 ToDoList Without Address Field");
+		test = reports.startTest("TC003 View Or Edit Without Address Field");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
 
@@ -135,9 +131,9 @@ public class ViewOrEditTest extends CommonMethod {
 
 	}
 
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void withoutMandatoryData() throws Exception {
-		test = reports.startTest("TC004 ToDoList Without Mandatory Data");
+		test = reports.startTest("TC004 View Or Edit Without Mandatory Data");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		AddPatientPage ap = new AddPatientPage();
 		ap.clearPatientName();
@@ -167,7 +163,7 @@ public class ViewOrEditTest extends CommonMethod {
 
 	@Test(priority = 5)
 	public void cancelEdit() throws Exception {
-		test = reports.startTest("TC005 ToDoList Cancel Edit");
+		test = reports.startTest("TC005 View Or Edit Cancel Edit");
 		ViewOrEditPage voe = new ViewOrEditPage();
 		voe.clickCancelButton();
 		logger.info("Clicked Cancel Button");

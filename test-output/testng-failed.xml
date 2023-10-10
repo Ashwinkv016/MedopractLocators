@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.ToDoListTest">
+      <class name="tests.BrokenLinks">
         <methods>
-          <include name="deleteTask"/>
-          <include name="afterTest"/>
           <include name="openApplication"/>
           <include name="configuration"/>
-          <include name="withoutTaskDetails"/>
+          <include name="verifyBrokenLinkHomePage"/>
+          <include name="closeBrowser"/>
           <include name="closure"/>
         </methods>
-      </class> <!-- tests.ToDoListTest -->
+      </class> <!-- tests.BrokenLinks -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

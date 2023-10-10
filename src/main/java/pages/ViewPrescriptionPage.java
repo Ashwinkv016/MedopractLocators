@@ -11,34 +11,31 @@ public class ViewPrescriptionPage extends CommonMethod {
 
 	public void getPrescriptionsLink() throws Exception {
 		scrollTillElement();
-		base.waitForElementToBeClickable("prescriptionMenu", 10);
 		click("prescriptionMenu");
 	}
 
-	public void getviewPrescriptionsLink() {
-		base.waitForElementToBeClickable("viewPrescriptionLink", 10);
+	public void getviewPrescriptionsLink() throws Exception {
 		click("viewPrescriptionLink");
 	}
 
-	public void getpatientNameField() {
-		enterData("prescriptionPatientName", "valied_PatientName");
+	public void getpatientNameField() throws Exception {
+		enterData("prescriptionPatientName", "valid_PatientName");
 	}
 
-	public void getpatientNameFieldSugg() {
+	public void getpatientNameFieldSugg() throws Exception {
 		click("viewPrescriptionNameSugg");
 	}
 
-	public void getprescriptionDetails() {
+	public void getprescriptionDetails() throws Exception {
 		click("viewPrescriptionDetails");
 	}
 
-	public void getbackBtn() {
+	public void getbackBtn() throws Exception {
 		click("prescriptionBackBtn");
 	}
 
-	public void getgoToPatientDetails() throws InterruptedException {
+	public void getgoToPatientDetails() throws Exception {
 		scrollDown();
-		base.waitForElementToBeClickable("viewPrescriptionGoToPatientDetails", 10);
 		click("viewPrescriptionGoToPatientDetails");
 	}
 

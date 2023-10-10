@@ -1,0 +1,949 @@
+<html>
+<head>
+<title>TestNG:  tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>76/6/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Oct 10 08:38:43 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>2191 seconds (2191771 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.afterTest()'><b>afterTest</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:679)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:409)
+	at tests.AppointmentsCalenderTest.afterTest(AppointmentsCalenderTest.java:381)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1405521573", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1405521573'><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:679)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:409)
+	at tests.AppointmentsCalenderTest.afterTest(AppointmentsCalenderTest.java:381)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:229)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:215)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:131)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.updateWithInvaliedData()'><b>updateWithInvaliedData</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because the return value of &quot;tests.AppointmentsCalenderTest.getWebElement(String)&quot; is null
+	at tests.AppointmentsCalenderTest.updateWithInvaliedData(AppointmentsCalenderTest.java:201)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1079841340", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1079841340'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebElement.getText()&quot; because the return value of &quot;tests.AppointmentsCalenderTest.getWebElement(String)&quot; is null
+	at tests.AppointmentsCalenderTest.updateWithInvaliedData(AppointmentsCalenderTest.java:201)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>80</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.AddBillTest.addingIncorrectBillItemDetails()'><b>addingIncorrectBillItemDetails</b><br>Test class: tests.AddBillTest</td>
+<td><div><pre>java.lang.AssertionError: expected [Please Fill Rate in with number] but found [Please Fill Description]
+	at tests.AddBillTest.addingIncorrectBillItemDetails(AddBillTest.java:205)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1544052042", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1544052042'><pre>java.lang.AssertionError: expected [Please Fill Rate in with number] but found [Please Fill Description]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at tests.AddBillTest.addingIncorrectBillItemDetails(AddBillTest.java:205)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>16</td>
+<td>tests.AddBillTest@120f102b</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.agenda()'><b>agenda</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:679)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:325)
+	at genericPages.CommonMethod.takeScreenShot(CommonMethod.java:107)
+	at genericPages.CommonMethod.click(CommonMethod.java:160)
+	at pages.AppointmentsCalenderPage.getAgendaButton(AppointmentsCalenderPage.java:111)
+	at tests.AppointmentsCalenderTest.agenda(AppointmentsCalenderTest.java:361)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace716229124", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace716229124'><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:679)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:325)
+	at genericPages.CommonMethod.takeScreenShot(CommonMethod.java:107)
+	at genericPages.CommonMethod.click(CommonMethod.java:160)
+	at pages.AppointmentsCalenderPage.getAgendaButton(AppointmentsCalenderPage.java:111)
+	at tests.AppointmentsCalenderTest.agenda(AppointmentsCalenderTest.java:361)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.existingAppointmentInMonth()'><b>existingAppointmentInMonth</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:679)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:325)
+	at genericPages.CommonMethod.takeScreenShot(CommonMethod.java:107)
+	at genericPages.CommonMethod.click(CommonMethod.java:160)
+	at pages.AppointmentsCalenderPage.getBackButton(AppointmentsCalenderPage.java:121)
+	at tests.AppointmentsCalenderTest.existingAppointmentInMonth(AppointmentsCalenderTest.java:269)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace819711997", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace819711997'><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:679)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:325)
+	at genericPages.CommonMethod.takeScreenShot(CommonMethod.java:107)
+	at genericPages.CommonMethod.click(CommonMethod.java:160)
+	at pages.AppointmentsCalenderPage.getBackButton(AppointmentsCalenderPage.java:121)
+	at tests.AppointmentsCalenderTest.existingAppointmentInMonth(AppointmentsCalenderTest.java:269)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>1083</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.existingAppointmentInDay()'><b>existingAppointmentInDay</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, executeScript {script=window.scrollTo(0, -document.body.scrollHeight);, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:467)
+	at genericPages.CommonMethod.scrollTillElement(CommonMethod.java:294)
+	at pages.AppointmentsCalenderPage.getClickAppointmentCalender(AppointmentsCalenderPage.java:14)
+	at tests.AppointmentsCalenderTest.existingAppointmentInDay(AppointmentsCalenderTest.java:325)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1638372110", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1638372110'><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, executeScript {script=window.scrollTo(0, -document.body.scrollHeight);, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:467)
+	at genericPages.CommonMethod.scrollTillElement(CommonMethod.java:294)
+	at pages.AppointmentsCalenderPage.getClickAppointmentCalender(AppointmentsCalenderPage.java:14)
+	at tests.AppointmentsCalenderTest.existingAppointmentInDay(AppointmentsCalenderTest.java:325)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.existingAppointmentInWeek()'><b>existingAppointmentInWeek</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, executeScript {script=window.scrollTo(0, -document.body.scrollHeight);, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:467)
+	at genericPages.CommonMethod.scrollTillElement(CommonMethod.java:294)
+	at pages.AppointmentsCalenderPage.getClickAppointmentCalender(AppointmentsCalenderPage.java:14)
+	at tests.AppointmentsCalenderTest.existingAppointmentInWeek(AppointmentsCalenderTest.java:287)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1588245141", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1588245141'><pre>org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=117.0.5938.150)
+Build info: version: &apos;4.12.0&apos;, revision: &apos;249f2a7d1b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [270e8749b6e97ecf25c1e9dc0e068358, executeScript {script=window.scrollTo(0, -document.body.scrollHeight);, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.150, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\vashw\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58928/devtoo..., se:cdpVersion: 117.0.5938.150, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 270e8749b6e97ecf25c1e9dc0e068358
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:467)
+	at genericPages.CommonMethod.scrollTillElement(CommonMethod.java:294)
+	at pages.AppointmentsCalenderPage.getClickAppointmentCalender(AppointmentsCalenderPage.java:14)
+	at tests.AppointmentsCalenderTest.existingAppointmentInWeek(AppointmentsCalenderTest.java:287)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='tests.ToDoListTest.toDoListWithDueDate()'><b>toDoListWithDueDate</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>10</td>
+<td>tests.ToDoListTest@4944252c</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.updateContactField()'><b>updateContactField</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>13</td>
+<td>tests.ViewOrEditTest@1ba9117e</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.EditExistingAppointment()'><b>EditExistingAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>13</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.RegistrationTest.Registration()'><b>Registration</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>9</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.AddPatientTest.nameWithSpecialCharacter()'><b>nameWithSpecialCharacter</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>4</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withoutMandatoryAllField()'><b>withoutMandatoryAllField</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>7</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithoutData()'><b>loginWithoutData</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>4</td>
+<td>tests.LoginTest@29e495ff</td></tr>
+<tr>
+<td title='tests.ToDoListTest.CompletedTask()'><b>CompletedTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>4</td>
+<td>tests.ToDoListTest@4944252c</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.addPatientWithoutContactNo()'><b>addPatientWithoutContactNo</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>15</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.ReportsTest.dateView()'><b>dateView</b><br>Test class: tests.ReportsTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ReportsTest@51dcb805</td></tr>
+<tr>
+<td title='tests.AddBillTest.clickResetBtn()'><b>clickResetBtn</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>12</td>
+<td>tests.AddBillTest@120f102b</td></tr>
+<tr>
+<td title='tests.ReportsTest.PatientsTab()'><b>PatientsTab</b><br>Test class: tests.ReportsTest</td>
+<td></td>
+<td>21</td>
+<td>tests.ReportsTest@51dcb805</td></tr>
+<tr>
+<td title='tests.AddPatientTest.AddPatientDataUploadFile()'><b>AddPatientDataUploadFile</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>46</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.ViewPrescriptionTest.patientDetails()'><b>patientDetails</b><br>Test class: tests.ViewPrescriptionTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ViewPrescriptionTest@41fecb8b</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.withInvaliedMedicineField()'><b>withInvaliedMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>14</td>
+<td>tests.AddPrescriptionTest@272ed83b</td></tr>
+<tr>
+<td title='tests.ViewPrescriptionTest.viewPrescription()'><b>viewPrescription</b><br>Test class: tests.ViewPrescriptionTest</td>
+<td></td>
+<td>15</td>
+<td>tests.ViewPrescriptionTest@41fecb8b</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithoutPassword()'><b>loginWithoutPassword</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>3</td>
+<td>tests.LoginTest@29e495ff</td></tr>
+<tr>
+<td title='tests.AddPatientTest.withIncorrectPhoneNo()'><b>withIncorrectPhoneNo</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>4</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.withoutAddressField()'><b>withoutAddressField</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>5</td>
+<td>tests.ViewOrEditTest@1ba9117e</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withClickHelp()'><b>withClickHelp</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>5</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.ToDoListTest.deleteTask()'><b>deleteTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>5</td>
+<td>tests.ToDoListTest@4944252c</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.patientVisitWithPrimaryComplaintUpload()'><b>patientVisitWithPrimaryComplaintUpload</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>53</td>
+<td>tests.PatientVisitTest@a3d8174</td></tr>
+<tr>
+<td title='tests.AddPatientTest.withIncorrectPhoneNoWithNumber0()'><b>withIncorrectPhoneNoWithNumber0</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>5</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.printPrescription()'><b>printPrescription</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>8</td>
+<td>tests.AddPrescriptionTest@272ed83b</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.AddAppointmentWithoutVisitReason()'><b>AddAppointmentWithoutVisitReason</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>15</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.addNewPatientData()'><b>addNewPatientData</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>8</td>
+<td>tests.PatientVisitTest@a3d8174</td></tr>
+<tr>
+<td title='tests.ViewBillTest.printBill()'><b>printBill</b><br>Test class: tests.ViewBillTest</td>
+<td></td>
+<td>3</td>
+<td>tests.ViewBillTest@625732</td></tr>
+<tr>
+<td title='tests.ReportsTest.AddPatient()'><b>AddPatient</b><br>Test class: tests.ReportsTest</td>
+<td></td>
+<td>43</td>
+<td>tests.ReportsTest@51dcb805</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.CancelAppointment()'><b>CancelAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>4</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.updateAppointmentWithValidData()'><b>updateAppointmentWithValidData</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>17</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.clickSMSRemainderWithoutProperDetails()'><b>clickSMSRemainderWithoutProperDetails</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>12</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withoutAgreeTermCheckBox()'><b>withoutAgreeTermCheckBox</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>5</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.AddPatientTest.sameContactNoInEmergencyField()'><b>sameContactNoInEmergencyField</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>31</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.AddBillTest.printWithoutAddingBillingItem()'><b>printWithoutAddingBillingItem</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>12</td>
+<td>tests.AddBillTest@120f102b</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointmentwithoutContactNo()'><b>addAppointmentwithoutContactNo</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>8</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.withoutAddingMedicineField()'><b>withoutAddingMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>14</td>
+<td>tests.AddPrescriptionTest@272ed83b</td></tr>
+<tr>
+<td title='tests.ViewBillTest.downloadBill()'><b>downloadBill</b><br>Test class: tests.ViewBillTest</td>
+<td></td>
+<td>6</td>
+<td>tests.ViewBillTest@625732</td></tr>
+<tr>
+<td title='tests.LoginTest.loginwithoutRememberMe()'><b>loginwithoutRememberMe</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>10</td>
+<td>tests.LoginTest@29e495ff</td></tr>
+<tr>
+<td title='tests.AddBillTest.downloadBill()'><b>downloadBill</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>11</td>
+<td>tests.AddBillTest@120f102b</td></tr>
+<tr>
+<td title='tests.RegistrationTest.alreadyAnUser()'><b>alreadyAnUser</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>2</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.ClickSMSReminder()'><b>ClickSMSReminder</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>5</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.addPrescription()'><b>addPrescription</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>15</td>
+<td>tests.AddPrescriptionTest@272ed83b</td></tr>
+<tr>
+<td title='tests.ToDoListTest.TodolistWithoutDueDate()'><b>TodolistWithoutDueDate</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>10</td>
+<td>tests.ToDoListTest@4944252c</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.downloadPrescriptionAgain()'><b>downloadPrescriptionAgain</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>4</td>
+<td>tests.AddPrescriptionTest@272ed83b</td></tr>
+<tr>
+<td title='tests.ForgetPasswordTest.forgotpassword()'><b>forgotpassword</b><br>Test class: tests.ForgetPasswordTest</td>
+<td></td>
+<td>5</td>
+<td>tests.ForgetPasswordTest@41e1e210</td></tr>
+<tr>
+<td title='tests.ToDoListTest.withoutTaskDetails()'><b>withoutTaskDetails</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>5</td>
+<td>tests.ToDoListTest@4944252c</td></tr>
+<tr>
+<td title='tests.ViewBillTest.viewBill()'><b>viewBill</b><br>Test class: tests.ViewBillTest</td>
+<td></td>
+<td>12</td>
+<td>tests.ViewBillTest@625732</td></tr>
+<tr>
+<td title='tests.RegistrationTest.withoutConfirmUsernameField()'><b>withoutConfirmUsernameField</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>6</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.ClickAgainSMSReminder()'><b>ClickAgainSMSReminder</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>5</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointment()'><b>addAppointment</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>6</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.cancelEdit()'><b>cancelEdit</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>3</td>
+<td>tests.ViewOrEditTest@1ba9117e</td></tr>
+<tr>
+<td title='tests.RegistrationTest.invalidConfirmUsernameField()'><b>invalidConfirmUsernameField</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>2</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithInvaliedPassword()'><b>loginWithInvaliedPassword</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>6</td>
+<td>tests.LoginTest@29e495ff</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.followup()'><b>followup</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>57</td>
+<td>tests.PatientVisitTest@a3d8174</td></tr>
+<tr>
+<td title='tests.ToDoListTest.viewCompletedTask()'><b>viewCompletedTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ToDoListTest@4944252c</td></tr>
+<tr>
+<td title='tests.AppointmentsCalenderTest.AddAppointmentsCalender()'><b>AddAppointmentsCalender</b><br>Test class: tests.AppointmentsCalenderTest</td>
+<td></td>
+<td>16</td>
+<td>tests.AppointmentsCalenderTest@732c2a62</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.clickingBack()'><b>clickingBack</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>6</td>
+<td>tests.AddPrescriptionTest@272ed83b</td></tr>
+<tr>
+<td title='tests.AddPatientTest.resetPatientWithData()'><b>resetPatientWithData</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>2</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.AddPatientTest.withoutMandatoryAllData()'><b>withoutMandatoryAllData</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>5</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.AddPatientTest.resetPatientWithoutData()'><b>resetPatientWithoutData</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>2</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.AddPatientTest.withIncorrectPhoneNumberWithSpace()'><b>withIncorrectPhoneNumberWithSpace</b><br>Test class: tests.AddPatientTest</td>
+<td></td>
+<td>5</td>
+<td>tests.AddPatientTest@44821a96</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.savePatientVisit()'><b>savePatientVisit</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>8</td>
+<td>tests.PatientVisitTest@a3d8174</td></tr>
+<tr>
+<td title='tests.ViewOrEditTest.deleteList()'><b>deleteList</b><br>Test class: tests.ViewOrEditTest</td>
+<td></td>
+<td>12</td>
+<td>tests.ViewOrEditTest@1ba9117e</td></tr>
+<tr>
+<td title='tests.LoginTest.incorrectDetails()'><b>incorrectDetails</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>9</td>
+<td>tests.LoginTest@29e495ff</td></tr>
+<tr>
+<td title='tests.LoginTest.loginWithRememberMe()'><b>loginWithRememberMe</b><br>Test class: tests.LoginTest</td>
+<td></td>
+<td>8</td>
+<td>tests.LoginTest@29e495ff</td></tr>
+<tr>
+<td title='tests.AddBillTest.printBill()'><b>printBill</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>11</td>
+<td>tests.AddBillTest@120f102b</td></tr>
+<tr>
+<td title='tests.ForgetPasswordTest.BackLoginPage()'><b>BackLoginPage</b><br>Test class: tests.ForgetPasswordTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ForgetPasswordTest@41e1e210</td></tr>
+<tr>
+<td title='tests.ToDoListTest.viewOpenTask()'><b>viewOpenTask</b><br>Test class: tests.ToDoListTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ToDoListTest@4944252c</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointmentWithoutVisitReason()'><b>addAppointmentWithoutVisitReason</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>9</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.AddBillTest.saveAndprintBill()'><b>saveAndprintBill</b><br>Test class: tests.AddBillTest</td>
+<td></td>
+<td>34</td>
+<td>tests.AddBillTest@120f102b</td></tr>
+<tr>
+<td title='tests.AddPrescriptionTest.cancelAddedMedicineField()'><b>cancelAddedMedicineField</b><br>Test class: tests.AddPrescriptionTest</td>
+<td></td>
+<td>26</td>
+<td>tests.AddPrescriptionTest@272ed83b</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.deleteFile()'><b>deleteFile</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>4</td>
+<td>tests.PatientVisitTest@a3d8174</td></tr>
+<tr>
+<td title='tests.PatientVisitTest.patientVisitWithoutPrimaryComplaint()'><b>patientVisitWithoutPrimaryComplaint</b><br>Test class: tests.PatientVisitTest</td>
+<td></td>
+<td>14</td>
+<td>tests.PatientVisitTest@a3d8174</td></tr>
+<tr>
+<td title='tests.RegistrationTest.registerWithExistingDataAgain()'><b>registerWithExistingDataAgain</b><br>Test class: tests.RegistrationTest</td>
+<td></td>
+<td>4</td>
+<td>tests.RegistrationTest@1eb5174b</td></tr>
+<tr>
+<td title='tests.HomePageAppointmentTest.addAppointmentWithoutData()'><b>addAppointmentWithoutData</b><br>Test class: tests.HomePageAppointmentTest</td>
+<td></td>
+<td>4</td>
+<td>tests.HomePageAppointmentTest@be35cd9</td></tr>
+<tr>
+<td title='tests.ReportsTest.cancel()'><b>cancel</b><br>Test class: tests.ReportsTest</td>
+<td></td>
+<td>2</td>
+<td>tests.ReportsTest@51dcb805</td></tr>
+</table><p>
+</body>
+</html>
