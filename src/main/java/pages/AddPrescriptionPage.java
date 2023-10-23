@@ -76,8 +76,13 @@ public class AddPrescriptionPage extends CommonMethod {
 	public void getyesButtonField() throws Exception {
 		click("prescriptionSaveYesBtn");
 	}
+	
+	public void getnoButtonField() throws Exception {
+		click("prescriptionSaveNoBtn");
+	}
 
 	public void getprescriptionBackBtn() throws Exception {
+		scrollDown();
 		click("prescriptionBackBtn");
 	}
 

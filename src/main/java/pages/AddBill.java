@@ -130,6 +130,7 @@ public class AddBill extends CommonMethod {
 	}
 
 	public void clickBackBtn() throws Exception {
+		scrollTillDown();
 		click("addBillbackBtn");
 	}
 
@@ -142,6 +143,7 @@ public class AddBill extends CommonMethod {
 	}
 
 	public void clickBillBackBtn() throws Exception {
+		scrollTillDown();
 		click("billBackBtn");
 	}
 

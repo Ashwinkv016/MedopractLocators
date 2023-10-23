@@ -13,11 +13,11 @@ public class ViewBill extends CommonMethod{
 		scrollTillElement();
 		click("billMenu");
 	}
-	
+
 	public void clickViewBill() throws Exception {
 		click("viewBillClick");
 	}
-	
+
 	public void enterPatientName() throws Exception {
 		enterData("billingPatientname", "patient_FirstName2");
 	}
@@ -25,11 +25,11 @@ public class ViewBill extends CommonMethod{
 	public void clickPatientNameSugg() throws Exception {
 		click("viewBillPatientNameSugg");
 	}
-	
+
 	public void clickViewBillList() throws Exception {
 		click("viewBillList");
 	}
-	
+
 	public void clickBillPrintBtn() throws Exception {
 		click("billPrintBtn");
 	}
@@ -39,9 +39,9 @@ public class ViewBill extends CommonMethod{
 	}
 
 	public void clickBillBackBtn() throws Exception {
-		click("billBackBtn");
+		click("viewBillBackBtn");
 	}
-	
+
 	public void clickGoToPatientDetails() throws Exception {
 		click("goToPatientDetails");
 	}

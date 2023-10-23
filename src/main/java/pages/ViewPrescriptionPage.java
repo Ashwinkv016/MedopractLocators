@@ -35,17 +35,13 @@ public class ViewPrescriptionPage extends CommonMethod {
 	}
 
 	public void getgoToPatientDetails() throws Exception {
-		scrollDown();
 		click("viewPrescriptionGoToPatientDetails");
 	}
-
-	public boolean verifyPrescriptionPage() throws Exception {
-		verifyElementPresent("prescriptionLogo");
-		return true;
+	
+	public void getprescriptionBackBtn() throws Exception {
+		scrollDown();
+		click("viewPrescriptionBackBtn");
 	}
 
-	public boolean verifyAddPatientPage() throws Exception {
-		verifyElementPresent("viewOrEditPage");
-		return true;
-	}
+
 }

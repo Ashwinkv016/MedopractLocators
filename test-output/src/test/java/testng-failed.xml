@@ -3,28 +3,45 @@
 <suite name="Failed suite [src/test/java]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="tests(failed)">
     <classes>
-      <class name="tests.AddBillTest">
+      <class name="tests.ViewOrEditTest">
         <methods>
+          <include name="configuration"/>
+          <include name="openApplication"/>
+          <include name="CloseBrowser"/>
+          <include name="closure"/>
+          <include name="updateContactField"/>
+        </methods>
+      </class> <!-- tests.ViewOrEditTest -->
+      <class name="tests.ViewBillTest">
+        <methods>
+          <include name="openApplication"/>
+          <include name="configuration"/>
           <include name="closeBrowser"/>
-          <include name="configuration"/>
-          <include name="addingIncorrectBillItemDetails"/>
+          <include name="goToPatientDetails"/>
           <include name="closure"/>
-          <include name="openApplication"/>
         </methods>
-      </class> <!-- tests.AddBillTest -->
-      <class name="tests.AppointmentsCalenderTest">
+      </class> <!-- tests.ViewBillTest -->
+      <class name="tests.RegistrationTest">
         <methods>
-          <include name="existingAppointmentInMonth"/>
           <include name="configuration"/>
-          <include name="existingAppointmentInDay"/>
-          <include name="openApplication"/>
-          <include name="agenda"/>
-          <include name="updateWithInvaliedData"/>
+          <include name="logout"/>
+          <include name="OpenApplication"/>
+          <include name="Registration"/>
           <include name="closure"/>
-          <include name="existingAppointmentInWeek"/>
-          <include name="afterTest"/>
         </methods>
-      </class> <!-- tests.AppointmentsCalenderTest -->
+      </class> <!-- tests.RegistrationTest -->
+      <class name="tests.AddPrescriptionTest">
+        <methods>
+          <include name="afterTest"/>
+          <include name="configuration"/>
+          <include name="withInvaliedMedicineField"/>
+          <include name="openApplication"/>
+          <include name="downloadPrescriptionAgain"/>
+          <include name="clickingBack"/>
+          <include name="closure"/>
+          <include name="cancelAddedMedicineField"/>
+        </methods>
+      </class> <!-- tests.AddPrescriptionTest -->
     </classes>
   </test> <!-- tests(failed) -->
 </suite> <!-- Failed suite [src/test/java] -->

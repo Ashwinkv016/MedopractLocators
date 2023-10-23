@@ -41,12 +41,12 @@ public class AddPatientPage extends CommonMethod {
 	}
 
 	public void enterValiedPhoneNo() throws Exception {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		enterData("patientPhno", "valid_PhoneNo1");
 	}
 
 	public void clearPhoneNo() throws Exception {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		clearData("patientPhno");
 	}
 

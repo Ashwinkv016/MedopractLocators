@@ -12,7 +12,7 @@ public class ReportsPage extends CommonMethod {
 
 	public void getClickReports() throws Exception {
 		scrollTillElement();
-		 click("reportsMenu");
+		click("reportsMenu");
 	}
 
 	public void addPatientReportsClick() throws Exception {
@@ -28,20 +28,15 @@ public class ReportsPage extends CommonMethod {
 	}
 
 	public void getWeeklyTab() throws Exception {
-		 click("weeklyReports");
+		click("weeklyReports");
 	}
 
 	public void getDailyTab() throws Exception {
-		 click("dailyReports");
+		click("dailyReports");
 	}
 
 	public void getCancelButton() throws Exception {
 		click("cancelReports");
-	}
-
-	public Boolean verifyReportsdate() throws Exception {
-		verifyElementPresent("reportsDate");
-		return true;
 	}
 }
 

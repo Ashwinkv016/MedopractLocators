@@ -1,13 +1,19 @@
 package genericPages;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,17 +29,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-
-import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 
 public class CommonMethod extends MasterPage {
@@ -107,7 +106,7 @@ public class CommonMethod extends MasterPage {
 	        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	        String destLocation = System.getProperty("user.dir") + "\\src\\main\\resources\\reports\\screenshots\\" + imageName + ".png";
 	        FileUtils.copyFile(screenshot, new File(destLocation));
-	        return "screenshots\\" + imageName + ".png";
+	        return ".//screenshots\\" + imageName + ".png";
 	    } catch (IOException e) {
 	        System.err.println("Error taking screenshot: " + e.getMessage());
 	        return null; 
@@ -286,6 +285,11 @@ public class CommonMethod extends MasterPage {
 	public void scrollDown() {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+	}
+	
+	public void scrollTillDown() {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scrollBy(0,250)");
 	}
 
 	// Scroll till the Element

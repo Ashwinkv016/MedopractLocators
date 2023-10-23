@@ -5,20 +5,20 @@
 	<test thread-count="5" name="tests">
 
 		<classes>
-			<class name="tests.RegistrationTest"></class>
-			<class name="tests.LoginTest"></class>
-			<class name="tests.ForgetPasswordTest"></class>
-			<class name="tests.HomePageAppointmentTest"></class>
-			<class name="tests.ToDoListTest"></class>
-			<class name="tests.AddPatientTest"></class>
-			<class name="tests.PatientVisitTest"></class>
-			<class name="tests.ViewOrEditTest"></class>
-			<class name="tests.AppointmentsCalenderTest"></class>
-			<class name="tests.AddPrescriptionTest"></class>
-			<class name="tests.ViewPrescriptionTest"></class>
-			<class name="tests.AddBillTest"></class>
-			<class name="tests.ViewBillTest"></class>
-			<class name="tests.ReportsTest"></class>
+			<class name="tests.TC__001_RegistrationTest"></class>
+			<class name="tests.TC__002_LoginTest"></class>
+			<class name="tests.TC__003_ForgetPasswordTest"></class>
+			<class name="tests.TC__004_HomePageAppointmentTest"></class>
+			<class name="tests.TC__005_ToDoListTest"></class>
+			<class name="tests.TC__006_AddPatientTest"></class>
+			<class name="tests.TC__007_PatientVisitTest"></class>
+			<class name="tests.TC__008_ViewOrEditTest"></class>
+			<class name="tests.TC__009_AppointmentsCalenderTest"></class>
+			<class name="tests.TC__010_AddPrescriptionTest"></class>
+			<class name="tests.TC__011_ViewPrescriptionTest"></class>
+			<class name="tests.TC__012_AddBillTest"></class>
+			<class name="tests.TC__013_ViewBillTest"></class>
+			<class name="tests.TC__014_ReportsTest"></class>
 			</classes>
 	</test> <!--Test -->
 </suite> <!--Suite -->

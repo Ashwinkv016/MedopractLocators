@@ -5,11 +5,13 @@
     <classes>
       <class name="tests.BrokenLinks">
         <methods>
+          <include name="verifyBrokenLinkReportspage"/>
           <include name="openApplication"/>
           <include name="configuration"/>
-          <include name="verifyBrokenLinkHomePage"/>
           <include name="closeBrowser"/>
+          <include name="verifyBrokenLinkBillingpage"/>
           <include name="closure"/>
+          <include name="verifyBrokenLinkPrescriptionpage"/>
         </methods>
       </class> <!-- tests.BrokenLinks -->
     </classes>

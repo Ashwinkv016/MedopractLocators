@@ -126,13 +126,18 @@ public class AppointmentsCalenderPage extends CommonMethod {
 		click("appCalenderNextBtn");
 	}
 
-	public void getExistingAppointment() throws Exception {
-		scrollDown();
+	public void getExistingAppointment1() throws Exception {
+		base.waitForElementVisibility1("appCalenderExistingApp", 30);
+	//	scrollDown();
+		Thread.sleep(2000);
 		click("appCalenderExistingApp");
 	}
 
-	public void getUpdatedExistingAppointment() throws Exception {
-		click("appCalenderUpdateExistingApp");
+	public void getExistingAppointment2() throws Exception {
+		base.waitForElementVisibility1("appCalenderExistingApp", 30);
+		//scrollDown();
+		Thread.sleep(2000);
+		click("appCalenderExistingApp");
 	}
 
 	public void getagendaExistingAppointment() throws Exception {

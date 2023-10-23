@@ -43,7 +43,7 @@ public class ToDoList extends CommonMethod {
 	}
 
 	public void clickCompleteTaskField() throws Exception {
-	    scrollDown();
+		scrollDown();
 		click("toDoCompleteTask");
 	}
 
@@ -58,12 +58,6 @@ public class ToDoList extends CommonMethod {
 
 	public void clickViewOpenTask() throws Exception {
 		click("toDoViewOpenTask");
-	}
-
-	public  String verifyNotification(String text) throws Exception  {
-		verifyElementPresent("notification");
-		verifyTextPresent("notification");
-		return text;
 	}
 
 	public void clickCancelNotification() throws Exception {

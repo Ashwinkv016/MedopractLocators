@@ -4,6 +4,8 @@ import genericPages.CommonMethod;
 
 public class LoginPage extends CommonMethod {
 
+	public boolean verificationLogicIsSuccessful;
+	
 	public LoginPage() throws Exception {
 		super();
 		// TODO Auto-generated constructor stub
@@ -61,7 +63,7 @@ public class LoginPage extends CommonMethod {
 		click("cancelNotification");
 	}
 
-	public boolean verifyHomePage() throws Exception {
+	public Boolean verifyHomePage() throws Exception {
         scrollTillElement();
 		verifyElementPresent("homePageTitle");
 		return true;

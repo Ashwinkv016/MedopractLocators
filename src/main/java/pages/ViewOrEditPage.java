@@ -2,7 +2,7 @@ package pages;
 
 
 import genericPages.CommonMethod;
-	
+
 public class ViewOrEditPage extends CommonMethod{
 
 
@@ -25,28 +25,29 @@ public class ViewOrEditPage extends CommonMethod{
 	}
 
 	public void clickPatientList() throws Exception {
-		 click("viewOrEditListClick");
+		click("viewOrEditListClick");
 	}
 
 	public void clickUpdateBtn() throws Exception {
-		 scrollDown();
-		 click("viewOrEditUpdate");
+		scrollDown();
+		click("viewOrEditUpdate");
 	}
 
 	public void clickCancelButton() throws Exception {
-		 click("viewOrEditCancel");
+		click("viewOrEditCancel");
 	}
-	
-    public void clickDeleteButton() throws Exception {
-    	 Thread.sleep(1000);
-	     click("viewOrEditDelete");
-    }
-   
 
-    public String verifyNotification(String text) throws Exception  {
-		verifyElementPresent("notification");
-		verifyTextPresent("notification");
-		return text;
+	public void clickDeleteButton() throws Exception {
+		Thread.sleep(1000);
+		click("viewOrEditDelete");
+	}
+
+	public void  PatientPreviousVisitList() throws Exception {
+		click("viewOrEditPatientPreviousVisitListClick");
+	}
+
+	public void cancelPatientPreviousVisit() throws Exception {
+		click("cancelPatientPreviousVisit");
 	}
 
 	public void clickCancelNotification() throws Exception {

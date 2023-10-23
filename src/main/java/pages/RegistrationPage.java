@@ -19,13 +19,6 @@ public class RegistrationPage extends CommonMethod {
 	public void enterFullName() throws Exception {
 		enterData("fullNameRegister","fullName");
 	}
-
-	public String FullNameRegisterErrorMsg(String text) throws Exception {
-		verifyElementPresent("fullNameRegisterErrorMsg");
-		Thread.sleep(1000);
-		verifyTextPresent("fullNameRegisterErrorMsg");
-		return text;
-	}
 	
 	public void enterEmailField() throws Exception {
 		enterData("emailRegister","emailId");
@@ -50,34 +43,14 @@ public class RegistrationPage extends CommonMethod {
 	public void clearConfirmUserName() throws Exception {
 		clearData("cnfrmUserRegister");
 	}
-
-	public String cnfrmUserNameErrorMsg(String text) throws Exception {
-		verifyElementPresent("cnfrmUserNameErrorMsg");
-		verifyTextPresent("cnfrmUserNameErrorMsg");
-		return text;
-	}
 	
 	public void clickAgreetermCheckBox() throws Exception {
 		click("agreeTermsRegister");
 	}
 	
-	public String AgreeTermsErrorMsg(String text) throws Exception {
-		verifyElementPresent("agreeTermsRegisterErrorMsg");
-		verifyTextPresent("agreeTermsRegisterErrorMsg");
-		return text;
-	}
-
 	public void clickRegisterButton() throws Exception{
 		click("registerBtn");
 	}
-	
-	
-	public String registrationSuccessMsg(String text) throws Exception {
-		verifyElementPresent("registrationSuccessMsg");
-		verifyTextPresent("registrationSuccessMsg");
-		return text;
-	}
-	
 	
 	public void getOkButton() throws Exception {
 		click("registerOkBtn");
@@ -96,20 +69,8 @@ public class RegistrationPage extends CommonMethod {
 		click("gotItBtn");
 	}	
 
-	public String verifyNotification(String text) throws Exception  {
-		verifyElementPresent("notification");
-		verifyTextPresent("notification");
-		return text;
-	}
-
 	public void clickCancelNotification() throws Exception {
 		click("cancelNotification");
 	}
-	
-	public boolean verifyLoginPage() throws Exception  {
-		verifyElementPresent("loginPage");
-		return true;
-	}
-
-	
+		
 }

@@ -45,18 +45,21 @@ public class LoginTestExcel extends CommonMethod {
 
 		Thread.sleep(2000);
 
-		String actual=null;
+		String actual = null;
 		try {
-			Assert.assertTrue(l.verifyHomePage());
-			actual = "successful";
-			l.clickLogoutBtn();
-			logger.info("Clicked logout Btn");
-
+			if (getWebElement("homePageTitle").isDisplayed()) {
+				actual = "success";
+			} else {
+				actual = "failure";
+			}
 		} catch (Exception e) {
 			actual = "failure";
-			logger.info("User didn't login");
-			l.clickCancelNotification();
 		}
+		Assert.assertTrue(actual.equals("success"));
+		logger.info("Assertion Passed");
+
+		l.clickLogoutBtn();
+		logger.info("Clicked logout button");
 	}
 
 	@Test(priority = 2)

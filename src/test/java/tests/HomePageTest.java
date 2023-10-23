@@ -43,21 +43,18 @@ public class HomePageTest extends CommonMethod{
 		l.clickSubmitLoginBtn();
 		logger.info("Clicked submit button");
 
-		String actual=null;
+		String actual = null;
 		try {
-		if(l.verifyHomePage()) {
-			actual="success";
-			logger.info("Success");
-		}
-		else {
-			actual="failure";
-			logger.error("failure");
-		}}catch(Exception e) {
-			actual="failure";
-			logger.error("failure");
+			if (getWebElement("homePageTitle").isDisplayed()) {
+				actual = "success";
+			} else {
+				actual = "failure";
+			}
+		} catch (Exception e) {
+			actual = "failure";
 		}
 		Assert.assertTrue(actual.equals("success"));
-        logger.info("Assertion Passed");
+		logger.info("Assertion Passed");
 	}
 	
     @Test
