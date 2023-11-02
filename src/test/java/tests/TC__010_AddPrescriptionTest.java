@@ -203,13 +203,12 @@ public class TC__010_AddPrescriptionTest extends CommonMethod {
 		logger.info("Cancelled Medicine field");
 		ap.getdeleteMedicineField();
 		logger.info("Again Cancelled Medicine field");
-
 	}
-
-	@Test(priority = 7)
-	public void withInvaliedMedicineField() throws Exception {
-		test = reports.startTest("TC007 Add Prescription with Invalied Mediciine Field");
-		AddPrescriptionPage ap = new AddPrescriptionPage();
+	
+	@Test(priority=7)
+	public void enterMedicineFieldwithoutAdding() throws Exception {
+		test=reports.startTest("TC007 Entering the Medicine Field without Adding it in Medicine Field");
+		AddPrescriptionPage ap=new AddPrescriptionPage();
 		ap.getMedicineNameField2();
 		logger.info("Entered Medicine Name");
 		ap.getTotalNumberDays2();
@@ -218,6 +217,22 @@ public class TC__010_AddPrescriptionTest extends CommonMethod {
 		logger.info("Entered Time Inputs");
 		ap.getAmountInput2();
 		logger.info("Entered number Of amount to be used");
+		ap.getSaveAndPrintButton();
+		logger.info("Clicking Save And Print Button");
+		
+		String actual = getWebElement("notification").getText();
+		String expected = "Please add the entered medicine";
+		Assert.assertEquals(actual,expected);
+		logger.info("Assertion Passed");
+
+		ap.clickCancelNotification();
+		logger.info("Clicked Cancel Notification");
+	}
+
+	@Test(priority = 8)
+	public void withInvaliedMedicineField() throws Exception {
+		test = reports.startTest("TC008 Add Prescription with Invalied Mediciine Field");
+		AddPrescriptionPage ap = new AddPrescriptionPage();
 		ap.getClickingPlusSign();
 		logger.info("Clicked Medicine Field Plus Sign");
 		ap.getSaveAndPrintButton();

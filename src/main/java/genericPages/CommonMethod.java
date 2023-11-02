@@ -106,7 +106,7 @@ public class CommonMethod extends MasterPage {
 	        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	        String destLocation = System.getProperty("user.dir") + "\\src\\main\\resources\\reports\\screenshots\\" + imageName + ".png";
 	        FileUtils.copyFile(screenshot, new File(destLocation));
-	        return ".//screenshots\\" + imageName + ".png";
+	        return "../screenshots\\" + imageName + ".png";
 	    } catch (IOException e) {
 	        System.err.println("Error taking screenshot: " + e.getMessage());
 	        return null; 

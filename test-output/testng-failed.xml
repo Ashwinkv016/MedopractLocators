@@ -3,17 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.BrokenLinks">
+      <class name="tests.TC__015_DoctorProfileTest">
         <methods>
-          <include name="verifyBrokenLinkReportspage"/>
-          <include name="openApplication"/>
           <include name="configuration"/>
+          <include name="openApplication"/>
+          <include name="saveDoctorprofile"/>
           <include name="closeBrowser"/>
-          <include name="verifyBrokenLinkBillingpage"/>
           <include name="closure"/>
-          <include name="verifyBrokenLinkPrescriptionpage"/>
         </methods>
-      </class> <!-- tests.BrokenLinks -->
+      </class> <!-- tests.TC__015_DoctorProfileTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

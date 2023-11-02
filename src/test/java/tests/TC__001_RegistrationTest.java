@@ -21,7 +21,7 @@ public class TC__001_RegistrationTest extends CommonMethod {
 		// TODO Auto-generated constructor stub
 	}
 
-	Logger logger = LogManager.getLogger(TC__001_RegistrationTest.class);
+	Logger logger = LogManager.getLogger(TC__001_RegistrationTest.class.getName());
 
 	@BeforeClass
 	public void OpenApplication() throws Exception {
@@ -61,10 +61,10 @@ public class TC__001_RegistrationTest extends CommonMethod {
 		getWebElement("phnoRegister").sendKeys("6382565718");
 		logger.info("Entered Phone Number");
 		//rp.enterUserNameField();
-		getWebElement("usernameRegister").sendKeys("vvwzzwc1a256666");
+		getWebElement("usernameRegister").sendKeys("vvwzacqa256666");
 		logger.info("Entered UserName");
 		//rp.enterValidConfirmUserName();
-		getWebElement("cnfrmUserRegister").sendKeys("vvwzzwc1a256666");
+		getWebElement("cnfrmUserRegister").sendKeys("vvwzacqa256666");
 		logger.info("Entered ConfirmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");
@@ -137,7 +137,7 @@ public class TC__001_RegistrationTest extends CommonMethod {
 		test = reports.startTest("TC006 Without Agree Term CheckBox");
 		RegistrationPage rp = new RegistrationPage();
 		rp.clearConfirmUserName();
-		getWebElement("cnfrmUserRegister").sendKeys("vvwzzwc1a256666");
+		getWebElement("cnfrmUserRegister").sendKeys("vvwzacqa256666");
 		logger.info("Entering CnfrmUserName");
 		rp.clickAgreetermCheckBox();
 		logger.info("Clicked Checkbox");

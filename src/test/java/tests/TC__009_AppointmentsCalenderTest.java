@@ -178,6 +178,7 @@ public class TC__009_AppointmentsCalenderTest extends CommonMethod {
 	public void updateWithInvaliedData() throws Exception {
 		test = reports.startTest("TC005 Update With InvaliedData");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
+		Thread.sleep(2000);
 		acp.getExistingAppointment1();
 		logger.info("Clicked ExistingAppointment Field");
 		acp.clearUpdateFirstNameField();
@@ -206,6 +207,7 @@ public class TC__009_AppointmentsCalenderTest extends CommonMethod {
 	public void updateAppointmentWithValidData() throws Exception {
 		test = reports.startTest("TC006 Update Appointment With ValidData");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
+		Thread.sleep(2000);
 		acp.getExistingAppointment2();
 		logger.info("Clicked ExistingAppointment");
 		acp.clearUpdateFirstNameField();
@@ -238,7 +240,6 @@ public class TC__009_AppointmentsCalenderTest extends CommonMethod {
 	public void existingAppointmentInMonth() throws Exception {
 		test = reports.startTest("TC007 Existing Appointment In Month");
 		AppointmentsCalenderPage acp = new AppointmentsCalenderPage();
-		//acp.getMonthButton();
 		Thread.sleep(2000);
 		acp.getExistingAppointment1();
 		logger.info("Clicked ExistingAppointment");

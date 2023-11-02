@@ -66,30 +66,62 @@ public class TC__015_DoctorProfileTest extends CommonMethod {
     	 logger.info("Entered doctor Name");
     	 dpp.enterDoctorGender();
     	 logger.info("Entered doctor Gender");
+    	 dpp.clearDoctorDateOfBirth();
+    	 logger.info("Cleared Doctor DOB");
     	 dpp.enterDoctorDateOfBirth();
     	 logger.info("Entered doctor DOB");
+    	 dpp.clearDoctorQualification();
+    	 logger.info("Cleared doctor Qualification");
     	 dpp.enterDoctorQualification();
     	 logger.info("Entered doctor Qualification");
+    	 dpp.clearDoctorEmail();
+    	 logger.info("Cleared doctor Email");
     	 dpp.enterDoctorEmail();
     	 logger.info("Entered doctor Email");
+    	 dpp.clearDoctorMobileNumber();
+    	 logger.info("Cleared doctor Phno");
     	 dpp.enterDoctorMobileNumber();
     	 logger.info("Entered doctor Phno");
+    	 dpp.clearHospitalName();
+    	 logger.info("Cleared Hospital Name");
     	 dpp.enterHospitalName();
     	 logger.info("Entered Hospital Name");
+    	 dpp.clearHospitalPhno();
+    	 logger.info("Cleared Hospital Phno");
     	 dpp.enterHospitalPhno();
     	 logger.info("Entered Hospital Phno");
-    	 dpp.enterHospitalFax();
+    	 dpp.clearHospitalFax();
+    	 logger.info("Cleared Hospital Fax");
+    	// dpp.enterHospitalFax();
     	 logger.info("Entered Hospital Fax");
+    	 dpp.clearHospitalAddress();
+    	 logger.info("Cleared Hospital Address");
     	 dpp.enterHospitalAddress();
     	 logger.info("Entered Hospital Address");
+    	 dpp.clearHospitalCity();
+    	 logger.info("Cleared Hospital City");
     	 dpp.enterHospitalCity();
     	 logger.info("Entered Hospital City");
+    	 dpp.clearHospitalState();
+    	 logger.info("Cleared Hospital State");
     	 dpp.enterHospitalState();
     	 logger.info("Entered Hospital State");
+    	 dpp.clearHospitalPincode();
+    	 logger.info("Cleared Hospital Pincode");
     	 dpp.enterHospitalPincode();
     	 logger.info("Entered Hospital Pincode");
     	 dpp.clickSaveChangesBtn();
     	 logger.info("Clicked SaveChanges Btn");
+    	 Thread.sleep(5000);
+    	 
+    	 String Actual = getWebElement("updateSuccessMessage").getText();
+    	 String Expected = "Profile Update Successful!";
+    	 
+    	 Assert.assertEquals(Actual, Expected);
+    	 logger.info("Assertion Passed");
+    	 
+    	 dpp.clickUpdateSuccessOk();
+    	 logger.info("Clicked Update Success OK Btn");
      }
      
      @AfterClass

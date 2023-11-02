@@ -100,6 +100,10 @@ public class TC__008_ViewOrEditTest extends CommonMethod {
 		logger.info("Cleared Emergency Phno");
 		ap.enterEmergencyPhno();
 		logger.info("Entered Emergency Phno");
+		ap.clearAddress();
+		logger.info("Cleared Address Field");
+		ap.enterAddress();
+		logger.info("Entered Address Field");
 		voe.clickUpdateBtn();
 		logger.info("Clicked Update Button");
 

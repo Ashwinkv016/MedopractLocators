@@ -3,45 +3,15 @@
 <suite name="Failed suite [src/test/java]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="tests(failed)">
     <classes>
-      <class name="tests.ViewOrEditTest">
+      <class name="tests.TC__012_AddBillTest">
         <methods>
-          <include name="configuration"/>
-          <include name="openApplication"/>
-          <include name="CloseBrowser"/>
-          <include name="closure"/>
-          <include name="updateContactField"/>
-        </methods>
-      </class> <!-- tests.ViewOrEditTest -->
-      <class name="tests.ViewBillTest">
-        <methods>
-          <include name="openApplication"/>
           <include name="configuration"/>
           <include name="closeBrowser"/>
-          <include name="goToPatientDetails"/>
+          <include name="saveAndprintBill"/>
           <include name="closure"/>
-        </methods>
-      </class> <!-- tests.ViewBillTest -->
-      <class name="tests.RegistrationTest">
-        <methods>
-          <include name="configuration"/>
-          <include name="logout"/>
-          <include name="OpenApplication"/>
-          <include name="Registration"/>
-          <include name="closure"/>
-        </methods>
-      </class> <!-- tests.RegistrationTest -->
-      <class name="tests.AddPrescriptionTest">
-        <methods>
-          <include name="afterTest"/>
-          <include name="configuration"/>
-          <include name="withInvaliedMedicineField"/>
           <include name="openApplication"/>
-          <include name="downloadPrescriptionAgain"/>
-          <include name="clickingBack"/>
-          <include name="closure"/>
-          <include name="cancelAddedMedicineField"/>
         </methods>
-      </class> <!-- tests.AddPrescriptionTest -->
+      </class> <!-- tests.TC__012_AddBillTest -->
     </classes>
   </test> <!-- tests(failed) -->
 </suite> <!-- Failed suite [src/test/java] -->

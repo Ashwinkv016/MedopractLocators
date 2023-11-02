@@ -3,6 +3,7 @@ package tests;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -96,14 +97,14 @@ public class TC__012_AddBillTest extends CommonMethod {
 		logger.info("Entered Admission date");
 		ab.AdmissionYear();
 		logger.info("Entered admission Year");**/
-		
+
 		DateFormat formatdate = new SimpleDateFormat("d");
 		Date todaydate = new Date();
 		String finaldate = formatdate.format(todaydate);
+		WebElement admissionDate = driver.findElement(By.xpath("(//abbr[text( )='" + finaldate + "'])[1]"));
+        waitForElementToBeClickable(admissionDate, 20);
+        admissionDate.click();
 
-		driver.findElement(By.xpath("//abbr[text( )='" + finaldate + "']")).click();
-		
-		
 		ab.dischargeClick();
 		logger.info("Clicked Discharge Date Field");
 		/**ab.dischargeMonth();
@@ -112,9 +113,11 @@ public class TC__012_AddBillTest extends CommonMethod {
 		logger.info("Entered Discharge Date");
 		ab.dischargeYear();
 		logger.info("Entered Discharge Year");**/
-		
-		driver.findElement(By.xpath("(//abbr[text( )='" + finaldate + "'])[2]")).click();
-		
+
+		WebElement dischargeDate = driver.findElement(By.xpath("(//abbr[text( )='" + finaldate + "'])[3]"));
+		waitForElementToBeClickable(dischargeDate, 20);
+		dischargeDate.click();
+
 		ab.enterCGSTPercent();
 		logger.info("Entered CGST Percent");
 		ab.enterSGSTPercent();

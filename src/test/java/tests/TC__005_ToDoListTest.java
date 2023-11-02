@@ -158,15 +158,18 @@ public class TC__005_ToDoListTest extends CommonMethod {
 	public void deleteTask() throws Exception {
 		test = reports.startTest("TC007 ToDoList Delete Task");
 		ToDoList tdl = new ToDoList();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		tdl.clickDeleteTask();
+		Thread.sleep(1000);
 		logger.info("Clicking on Delete Task");
         Alert alert=  driver.switchTo().alert();
+        Thread.sleep(2000);
         
 		 String actual = alert.getText();
 	     String expected="Task would be permanently deleted. Are you sure, you want to delete the task ? ";
 		 Assert.assertEquals(actual, expected);
 		 logger.info("Assertion Passed");
+		 Thread.sleep(2000);
 		 alert.accept();
 
 	}

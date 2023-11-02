@@ -9,8 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class MasterPage {
 
 	public static Logger logger;
-	// public CommonMethod base;
-	// public WebDriverWait wait;
+	
 
 	public static WebDriver driver;
 	public Properties propConfig;
@@ -34,7 +33,7 @@ public class MasterPage {
 
 		// Test data Properties file Implementation
 		FileInputStream fisTestData = new FileInputStream(
-				System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\testdata.properties");
+				System.getProperty("user.dir") + "\\src\\main\\resources\\repository\\testData.properties");
 		propTestData = new Properties();
 		propTestData.load(fisTestData);
 	}
